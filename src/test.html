@@ -1,0 +1,13 @@
+<p id="pp">test html u react nevezano za njeg</p>
+
+
+<script>
+    let p = document.getElementById('pp')
+    console.log(p)
+    fetch('http://localhost/test')
+        .then(response => response.json())
+        .then(data => p.innerText = data)
+        .catch(err => console.log('nece govno mater mu', err));
+
+
+</script>
