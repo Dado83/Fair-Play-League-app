@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import Table from '../components/Table/Table'
 
-export default function App(props) {
+export default function Home(props) {
+
+  const [year, setYear] = useState('table7')
+
 
   return (
-    <h1>Home</h1>
+    <>
+      <button onClick={() => setYear('table7')}>2007</button>
+      <button onClick={() => setYear('table8')}>2008</button>
+      <button onClick={() => setYear('table9')}>2009</button>
+      <button onClick={() => setYear('table10')}>2010</button>
+      <button onClick={() => setYear('table11')}>2011</button>
+      <Table year={year} />
+    </>
   )
 }
