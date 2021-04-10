@@ -19,11 +19,21 @@ export default function Table(props) {
 
 
   return (
-    <>
-      {/* <button onClick={() => setYear('table8')}>2008</button> */}
+    <table>
       {table.map(t => (
-        <p className='app' key={t.team}>{t.team} {t.points}</p>
+        <tr key={t.id}>
+          <td>{t.team}</td>
+          <td>{t.games_played}</td>
+          <td>{t.games_won}</td>
+          <td>{t.games_drew}</td>
+          <td>{t.games_lost}</td>
+          <td>{t.goals_scored}</td>
+          <td>:</td>
+          <td>{t.goals_conceded}</td>
+          <td>{t.g_diff}</td>
+          <td>{t.points}</td>
+        </tr>
       ))}
-    </>
+    </table>
   );
 }
