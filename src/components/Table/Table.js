@@ -19,9 +19,10 @@ export default function Table(props) {
 
 
   return (
-    <table>
-      {table.map(t => (
+    <table className='table'>
+      {table.map((t, index) => (
         <tr key={t.id}>
+          <td>{++index}</td>
           <td>{t.team}</td>
           <td>{t.games_played}</td>
           <td>{t.games_won}</td>

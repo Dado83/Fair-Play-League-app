@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './App.css'
+//import './App.css'
 import Table from '../components/Table/Table'
 
 export default function Home(props) {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import './style.css'
 
 export default function Navbar(props) {
     return (
-        <ul>
+        <ul className='navbar'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/raspored'>Raspored</Link></li>
             <li><Link to='/rezultati'>Rezultati</Link></li>
