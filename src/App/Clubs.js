@@ -3,8 +3,24 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 
 export default function Clubs(props) {
+  const [clubs, setClubs] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost/rest/getTeams')
+      .then(r => r.json())
+      .then(d => setClubs(d))
+      .catch(e => console.log(e))
+  }, [])
 
   return (
-    <h1>clubs</h1>
+    <table>
+      <tbody>
+        {clubs.map(c => (
+          <tr key={c.id}>
+            <td>{c.id}</td>
+            <td>{c.team_name}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   )
 }

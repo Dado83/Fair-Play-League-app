@@ -11,9 +11,7 @@ import Admin from './Admin';
 import TourMaker from './TourMaker';
 import Err404 from './Err404';
 
-
 export default function App(props) {
-
   return (
     <Router>
       <Navbar />
