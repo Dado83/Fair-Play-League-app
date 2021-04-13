@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import Fixture from '../components/Fixture/Fixture'
 
 export default function Fixtures(props) {
   const [fixtures, setFixtures] = useState([]);
@@ -14,7 +14,7 @@ export default function Fixtures(props) {
   return (
     <>
       <h1>fixtures</h1>
-      <table>
+      {/* <table>
         <tbody>
           <th>kolo</th>
           <th></th>
@@ -29,7 +29,9 @@ export default function Fixtures(props) {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
+      <hr />
+      <Fixture mDay={1} />
     </>
   )
 }
