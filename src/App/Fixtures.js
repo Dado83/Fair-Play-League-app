@@ -16,6 +16,10 @@ export default function Fixtures(props) {
       <h1>fixtures</h1>
       <table>
         <tbody>
+          <th>kolo</th>
+          <th></th>
+          <th></th>
+          <th>datum</th>
           {fixtures.map(f => (
             <tr>
               <td>{f.m_day}</td>
