@@ -11,6 +11,12 @@ export default function Fixtures(props) {
       .catch(e => console.log(e))
   }, [])
 
+  let fix = [];
+  for (let i = 1; i <= 11; i++) {
+    fix[i] = <Fixture key={i} mDay={i} />;
+  }
+
+
   return (
     <>
       <h1>fixtures</h1>
@@ -31,7 +37,8 @@ export default function Fixtures(props) {
         </tbody>
       </table> */}
       <hr />
-      <Fixture mDay={1} />
+      {fix.map(e =>
+        e)}
     </>
   )
 }
