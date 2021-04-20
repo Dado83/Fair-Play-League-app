@@ -10,14 +10,19 @@ export default function Clubs(props) {
             .catch(e => console.log(e))
     }, []);
 
-    const showInfo = () => {
-        document.getElementById('club').style = 'display:block'
+    const showInfo = (id) => {
+        const info = document.getElementsByClassName('club-info')
+        for (const i of info) {
+            i.style = 'display:none'
+        }
+        const clubId = `club${id}`;
+        document.getElementById(clubId).style = 'display:block'
     }
 
     return (
         <div>
-            <h3 onClick={showInfo}>{club.team_name}</h3>
-            <div id='club'>
+            <h3 onClick={() => showInfo(club.id)}>{club.team_name}</h3>
+            <div className='club-info' id={`club${props.id}`}>
                 <p>{club.id}</p>
                 <p>{club.team_name}</p>
                 <p>{club.team_city}</p>
