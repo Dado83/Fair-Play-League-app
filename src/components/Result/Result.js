@@ -19,16 +19,20 @@ export default function Result(props) {
         <>
             <p>{mDay}. kolo</p>
             <table>
+                <thead>
+                    <tr>
+                        <th>domacin</th>
+                        <th>gost</th>
+                        <th colSpan='2'>2007</th>
+                        <th colSpan='2'>2008</th>
+                        <th colSpan='2'>2009</th>
+                        <th colSpan='2'>2010</th>
+                        <th colSpan='2'>2011</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <th>domacin</th>
-                    <th>gost</th>
-                    <th colSpan='2'>2007</th>
-                    <th colSpan='2'>2008</th>
-                    <th colSpan='2'>2009</th>
-                    <th colSpan='2'>2010</th>
-                    <th colSpan='2'>2011</th>
                     {result.map(r => (
-                        <tr>
+                        <tr key={r.id}>
                             <td>{r.home_name}</td>
                             <td>{r.away_name}</td>
                             <td>{r.goals_home7}</td>

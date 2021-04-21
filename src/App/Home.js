@@ -6,7 +6,7 @@ import Result from '../components/Result/Result';
 export default function Home(props) {
 
   const [year, setYear] = useState('table7/0/5/8/9/10')
-  const [mDay, setMday] = useState('')
+  const [mDay, setMday] = useState(1)
 
   useEffect(() => {
     fetch('http://localhost/rest/getMaxMday')
