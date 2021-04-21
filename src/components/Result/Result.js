@@ -4,16 +4,32 @@ export default function Result(props) {
     const [result, setResult] = useState([]);
     const [mDay, setMday] = useState('');
 
-    useEffect(() => {
+    /* useEffect(() => {
         setMday(props.mDay);
-    }, [])
+    }, []) */
 
     useEffect(() => {
-        fetch(`http://localhost/rest/getResultsByMday/${props.mDay}`)
+        let mounted = true
+        setMday(props.mDay)
+        console.log(`before fetch: ${mDay}`)
+        fetch(`http://localhost/rest/getResultsByMday/${mDay}`)
             .then(r => r.json())
-            .then(d => setResult(d))
+            .then(d => {
+                if (mounted) {
+                    setResult(d)
+                    console.log(`inside fetch if mounted: ${mDay}`)
+                }
+
+            })
             .catch(e => console.log(e))
-    }, [])
+
+        return () => {
+            mounted = false
+            console.log(`inside cleanup: ${mDay}`)
+        }
+    }, [mDay])
+
+    console.log(`result: ${mDay}`)
 
     return (
         <>

@@ -6,13 +6,16 @@ import Result from '../components/Result/Result';
 export default function Home(props) {
 
   const [year, setYear] = useState('table7/0/5/8/9/10')
-  const [mDay, setMday] = useState(1)
+  const [mDay, setMday] = useState('')
 
   useEffect(() => {
+
     fetch('http://localhost/rest/getMaxMday')
       .then(r => r.json())
-      .then(d => setMday(d.mDay))
+      .then(d =>
+        setMday(d.mDay))
       .catch(e => console.log(e))
+
   }, [])
 
   console.log(mDay)
@@ -24,7 +27,7 @@ export default function Home(props) {
       <button onClick={() => setYear('table10/0/11')}>2010</button>
       <button onClick={() => setYear('table11/0/4')}>2011</button>
       <Table year={year} />
-      <Result mDay={mDay} />
+      {mDay ? <Result mDay={mDay} /> : <p>asdasd</p>}
     </>
   )
 }
