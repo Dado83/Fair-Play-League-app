@@ -4,10 +4,6 @@ export default function Result(props) {
     const [result, setResult] = useState([]);
     const [mDay, setMday] = useState('');
 
-    /* useEffect(() => {
-        setMday(props.mDay);
-    }, []) */
-
     useEffect(() => {
         let mounted = true
         setMday(props.mDay)
@@ -19,7 +15,6 @@ export default function Result(props) {
                     setResult(d)
                     console.log(`inside fetch if mounted: ${mDay}`)
                 }
-
             })
             .catch(e => console.log(e))
 

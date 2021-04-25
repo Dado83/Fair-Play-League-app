@@ -3,12 +3,21 @@ import './style.css';
 
 export default function Clubs(props) {
     const [club, setClub] = useState([]);
+    const [results, setResults] = useState([]);
+
     useEffect(() => {
         fetch(`http://localhost/rest/getTeamByID/${props.id}`)
             .then(r => r.json())
             .then(d => setClub(d))
             .catch(e => console.log(e))
     }, []);
+
+    useEffect(() => {
+        fetch(`http://localhost/rest/getResultsByID/${props.id}`)
+            .then(r => r.json())
+            .then(d => setResults(d))
+            .catch(e => console.log(e))
+    }, [])
 
     const showInfo = (id) => {
         const info = document.getElementsByClassName('club-info')
@@ -30,7 +39,25 @@ export default function Clubs(props) {
                 <p>{club.venue}</p>
                 <p>{club.game_time}</p>
                 <div>Resultati:</div>
-
+                <table>
+                    {results.map((r) => (
+                        <tr>
+                            <td>{r.m_day}</td>
+                            <td>{r.home_name}</td>
+                            <td>{r.away_name}</td>
+                            <td>{r.goals_home7}</td>
+                            <td>{r.goals_away7}</td>
+                            <td>{r.goals_home8}</td>
+                            <td>{r.goals_away8}</td>
+                            <td>{r.goals_home9}</td>
+                            <td>{r.goals_away9}</td>
+                            <td>{r.goals_home10}</td>
+                            <td>{r.goals_away10}</td>
+                            <td>{r.goals_home11}</td>
+                            <td>{r.goals_away11}</td>
+                        </tr>
+                    ))}
+                </table>
             </div>
         </div>
     )
