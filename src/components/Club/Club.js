@@ -20,12 +20,12 @@ export default function Clubs(props) {
     }, []);
 
     const showInfo = (id) => {
-        const info = document.getElementsByClassName('club-info')
+        const info = document.getElementsByClassName('club-info');
         for (const i of info) {
-            i.style = 'display:none'
+            i.style = 'display:none';
         }
         const clubId = `club${id}`;
-        document.getElementById(clubId).style = 'display:block'
+        document.getElementById(clubId).style = 'display:block';
     }
 
     return (

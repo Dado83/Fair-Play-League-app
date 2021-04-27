@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import Fixture from '../components/Fixture/Fixture';
 
 export default function Fixtures() {

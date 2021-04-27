@@ -3,16 +3,15 @@ import Table from '../components/Table/Table';
 import Result from '../components/Result/Result';
 
 export default function Home() {
-  const [year, setYear] = useState('table7/0/5/8/9/10')
-  const [mDay, setMday] = useState('')
+  const [year, setYear] = useState('table7/0/5/8/9/10');
+  const [mDay, setMday] = useState('');
 
   useEffect(() => {
     fetch('http://localhost/rest/getMaxMday')
       .then(r => r.json())
       .then(d =>
         setMday(d.mDay))
-      .catch(e => console.log(e))
-
+      .catch(e => console.log(e));
   }, []);
 
   console.log(mDay)

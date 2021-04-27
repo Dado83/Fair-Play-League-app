@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 
-
 export default function Table(props) {
   const [table, setTable] = useState([]);
 
   useEffect(() => {
-    console.log('inside table useeffect')
-    let url = fetch(`http://localhost/rest/getTable/${props.year}`)
-
+    console.log('inside table useeffect');
+    let url = fetch(`http://localhost/rest/getTable/${props.year}`);
     url.then(response => response.json())
       .then(data => setTable(data))
       .catch(err => console.log(err))

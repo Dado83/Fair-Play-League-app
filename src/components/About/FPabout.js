@@ -19,6 +19,6 @@ export default function FPAbout(props) {
             umijeće,</p>
             <p>– djevojčice i dječaci u istim timovima, afirmacija ideje da se sport ne dijeli na muški i ženski.</p>
         </article>
-    )
+    );
 }
 

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import './style.css'
+import { Link } from 'react-router-dom';
+import './style.css';
 
-export default function Navbar(props) {
+export default function Navbar() {
     return (
         <ul className='navbar'>
             <li><Link to='/'>Home</Link></li>
@@ -13,5 +12,5 @@ export default function Navbar(props) {
             <li><Link to='/admin'>Admin</Link></li>
             <li><Link to='/napravi-raspored'>Turnir kreator</Link></li>
         </ul>
-    )
+    );
 }

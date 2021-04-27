@@ -7,13 +7,13 @@ export default function Result(props) {
     useEffect(() => {
         let mounted = true;
         setMday(props.mDay);
-        console.log(`before fetch: ${mDay}`)
+        console.log(`before fetch: ${mDay}`);
         fetch(`http://localhost/rest/getResultsByMday/${mDay}`)
             .then(r => r.json())
             .then(d => {
                 if (mounted) {
-                    setResult(d)
-                    console.log(`inside fetch if mounted: ${mDay}`)
+                    setResult(d);
+                    console.log(`inside fetch if mounted: ${mDay}`);
                 }
             })
             .catch(e => console.log(e));
