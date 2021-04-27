@@ -7,16 +7,16 @@ export default function Clubs(props) {
 
     useEffect(() => {
         fetch(`http://localhost/rest/getTeamByID/${props.id}`)
-            .then(r => r.json())
-            .then(d => setClub(d))
-            .catch(e => console.log(e))
+            .then(response => response.json())
+            .then(data => setClub(data))
+            .catch(err => console.log(err))
     }, []);
 
     useEffect(() => {
         fetch(`http://localhost/rest/getResultsByID/${props.id}`)
-            .then(r => r.json())
-            .then(d => setResults(d))
-            .catch(e => console.log(e))
+            .then(response => response.json())
+            .then(data => setResults(data))
+            .catch(err => console.log(err))
     }, []);
 
     const showInfo = (id) => {

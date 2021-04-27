@@ -8,10 +8,10 @@ export default function Home() {
 
   useEffect(() => {
     fetch('http://localhost/rest/getMaxMday')
-      .then(r => r.json())
-      .then(d =>
-        setMday(d.mDay))
-      .catch(e => console.log(e));
+      .then(response => response.json())
+      .then(data =>
+        setMday(data.mDay))
+      .catch(err => console.log(err));
   }, []);
 
   console.log(mDay)

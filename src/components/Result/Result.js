@@ -9,14 +9,14 @@ export default function Result(props) {
         setMday(props.mDay);
         console.log(`before fetch: ${mDay}`);
         fetch(`http://localhost/rest/getResultsByMday/${mDay}`)
-            .then(r => r.json())
-            .then(d => {
+            .then(response => response.json())
+            .then(data => {
                 if (mounted) {
-                    setResult(d);
+                    setResult(data);
                     console.log(`inside fetch if mounted: ${mDay}`);
                 }
             })
-            .catch(e => console.log(e));
+            .catch(err => console.log(err));
 
         return () => {
             mounted = false;
