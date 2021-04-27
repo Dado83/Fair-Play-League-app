@@ -10,14 +10,14 @@ export default function Fixture(props) {
             .then(r => r.json())
             .then(d => setFixture(d))
             .catch(e => console.log(e))
-    }, [])
+    }, []);
 
     return (
         <>
             <p>{mDay}. kolo</p>
-            {fixture.map(f => (
-                <p key={f.id}>{f.home_club} - {f.away_club}</p>
+            {fixture.map(fix => (
+                <p key={fix.id}>{fix.home_club} - {fix.away_club}</p>
             ))}
         </>
-    )
+    );
 }

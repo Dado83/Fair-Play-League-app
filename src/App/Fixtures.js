@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import Fixture from '../components/Fixture/Fixture'
+import React, { useState, useEffect } from 'react';
+import Fixture from '../components/Fixture/Fixture';
 
-export default function Fixtures(props) {
+export default function Fixtures() {
   let fixtures = [];
   for (let i = 1; i <= 11; i++) {
     fixtures[i] = <Fixture key={i} mDay={i} />;
@@ -11,8 +11,8 @@ export default function Fixtures(props) {
     <>
       <h1>fixtures</h1>
       <hr />
-      {fixtures.map(e =>
-        e)}
+      {fixtures.map(fix =>
+        fix)}
     </>
-  )
+  );
 }
