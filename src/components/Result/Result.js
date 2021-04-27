@@ -22,7 +22,7 @@ export default function Result(props) {
             mounted = false;
             console.log(`inside cleanup: ${mDay}`);
         }
-    }, [mDay]);
+    }, [props.mDay, mDay]);
 
     console.log(`result: ${mDay}`);
 
