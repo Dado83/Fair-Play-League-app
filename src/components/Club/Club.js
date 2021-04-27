@@ -41,7 +41,7 @@ export default function Clubs(props) {
                 <div>Resultati:</div>
                 <table>
                     {results.map((res) => (
-                        <tr>
+                        <tr key={res.id}>
                             <td>{res.m_day}</td>
                             <td>{res.home_name}</td>
                             <td>{res.away_name}</td>
