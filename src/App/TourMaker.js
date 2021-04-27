@@ -7,5 +7,5 @@ export default function TourMaker(props) {
 
   return (
     <h1>tour mejk</h1>
-  )
+  );
 }

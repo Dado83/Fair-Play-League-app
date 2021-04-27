@@ -8,5 +8,5 @@ export default function Err404(props) {
       <h1>Nema stranice...</h1>
       <Link to='/'>aj nazad kuci</Link>
     </>
-  )
+  );
 }
