@@ -10,7 +10,7 @@ export default function Fixture(props) {
             .then(response => response.json())
             .then(data => setFixture(data))
             .catch(err => console.log(err))
-    }, []);
+    }, [props.mDay]);
 
     return (
         <>
