@@ -5,8 +5,8 @@ export default function Result(props) {
     const [mDay, setMday] = useState('');
 
     useEffect(() => {
-        let mounted = true
-        setMday(props.mDay)
+        let mounted = true;
+        setMday(props.mDay);
         console.log(`before fetch: ${mDay}`)
         fetch(`http://localhost/rest/getResultsByMday/${mDay}`)
             .then(r => r.json())
@@ -16,15 +16,15 @@ export default function Result(props) {
                     console.log(`inside fetch if mounted: ${mDay}`)
                 }
             })
-            .catch(e => console.log(e))
+            .catch(e => console.log(e));
 
         return () => {
-            mounted = false
-            console.log(`inside cleanup: ${mDay}`)
+            mounted = false;
+            console.log(`inside cleanup: ${mDay}`);
         }
-    }, [mDay])
+    }, [mDay]);
 
-    console.log(`result: ${mDay}`)
+    console.log(`result: ${mDay}`);
 
     return (
         <>
@@ -42,24 +42,24 @@ export default function Result(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {result.map(r => (
-                        <tr key={r.id}>
-                            <td>{r.home_name}</td>
-                            <td>{r.away_name}</td>
-                            <td>{r.goals_home7}</td>
-                            <td>{r.goals_away7}</td>
-                            <td>{r.goals_home8}</td>
-                            <td>{r.goals_away8}</td>
-                            <td>{r.goals_home9}</td>
-                            <td>{r.goals_away9}</td>
-                            <td>{r.goals_home10}</td>
-                            <td>{r.goals_away10}</td>
-                            <td>{r.goals_home11}</td>
-                            <td>{r.goals_away11}</td>
+                    {result.map(res => (
+                        <tr key={res.id}>
+                            <td>{res.home_name}</td>
+                            <td>{res.away_name}</td>
+                            <td>{res.goals_home7}</td>
+                            <td>{res.goals_away7}</td>
+                            <td>{res.goals_home8}</td>
+                            <td>{res.goals_away8}</td>
+                            <td>{res.goals_home9}</td>
+                            <td>{res.goals_away9}</td>
+                            <td>{res.goals_home10}</td>
+                            <td>{res.goals_away10}</td>
+                            <td>{res.goals_home11}</td>
+                            <td>{res.goals_away11}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
         </>
-    )
+    );
 }
