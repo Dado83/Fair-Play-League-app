@@ -17,7 +17,7 @@ export default function Clubs(props) {
             .then(r => r.json())
             .then(d => setResults(d))
             .catch(e => console.log(e))
-    }, [])
+    }, []);
 
     const showInfo = (id) => {
         const info = document.getElementsByClassName('club-info')
@@ -40,25 +40,25 @@ export default function Clubs(props) {
                 <p>{club.game_time}</p>
                 <div>Resultati:</div>
                 <table>
-                    {results.map((r) => (
+                    {results.map((res) => (
                         <tr>
-                            <td>{r.m_day}</td>
-                            <td>{r.home_name}</td>
-                            <td>{r.away_name}</td>
-                            <td>{r.goals_home7}</td>
-                            <td>{r.goals_away7}</td>
-                            <td>{r.goals_home8}</td>
-                            <td>{r.goals_away8}</td>
-                            <td>{r.goals_home9}</td>
-                            <td>{r.goals_away9}</td>
-                            <td>{r.goals_home10}</td>
-                            <td>{r.goals_away10}</td>
-                            <td>{r.goals_home11}</td>
-                            <td>{r.goals_away11}</td>
+                            <td>{res.m_day}</td>
+                            <td>{res.home_name}</td>
+                            <td>{res.away_name}</td>
+                            <td>{res.goals_home7}</td>
+                            <td>{res.goals_away7}</td>
+                            <td>{res.goals_home8}</td>
+                            <td>{res.goals_away8}</td>
+                            <td>{res.goals_home9}</td>
+                            <td>{res.goals_away9}</td>
+                            <td>{res.goals_home10}</td>
+                            <td>{res.goals_away10}</td>
+                            <td>{res.goals_home11}</td>
+                            <td>{res.goals_away11}</td>
                         </tr>
                     ))}
                 </table>
             </div>
         </div>
-    )
+    );
 }

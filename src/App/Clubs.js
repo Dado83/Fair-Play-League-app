@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import Club from '../components/Club/Club';
 
 export default function Clubs() {
@@ -8,7 +7,7 @@ export default function Clubs() {
   }
 
   return (
-    clubs.map(e =>
-      e)
-  )
+    clubs.map(club =>
+      club)
+  );
 }
