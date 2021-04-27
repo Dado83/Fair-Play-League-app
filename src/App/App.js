@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './style.css';
 import Navbar from '../components/Navbar/Navbar';
@@ -11,7 +10,7 @@ import Admin from './Admin';
 import TourMaker from './TourMaker';
 import Err404 from './Err404';
 
-export default function App(props) {
+export default function App() {
   return (
     <Router>
       <Navbar />
