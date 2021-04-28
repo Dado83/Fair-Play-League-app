@@ -7,7 +7,9 @@ export default function Clubs() {
   }
 
   return (
-    clubs.map(club =>
-      club)
+    <div className='content'>
+      { clubs.map(club =>
+        club)}
+    </div>
   );
 }

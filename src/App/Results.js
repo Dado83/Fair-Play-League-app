@@ -7,7 +7,9 @@ export default function Results() {
   }
 
   return (
-    results.map(res =>
-      res)
+    <div className='content'>
+      {results.map(res =>
+        res)}
+    </div>
   );
 }

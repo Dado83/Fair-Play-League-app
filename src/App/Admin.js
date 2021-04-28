@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 export default function Admin(props) {
 
   return (
-    <h1>admin</h1>
+    <div className='content'>
+      <h1>admin</h1>
+    </div>
   );
 }

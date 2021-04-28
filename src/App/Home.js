@@ -16,7 +16,7 @@ export default function Home() {
 
   console.log(mDay)
   return (
-    <>
+    <div className='content'>
       <button onClick={() => setYear('table7/0/5/8/9/10')}>2007</button>
       <button onClick={() => setYear('table8')}>2008</button>
       <button onClick={() => setYear('table9')}>2009</button>
@@ -24,6 +24,6 @@ export default function Home() {
       <button onClick={() => setYear('table11/0/4')}>2011</button>
       <Table year={year} />
       {mDay ? <Result mDay={mDay} /> : <p>asdasd</p>}
-    </>
+    </div>
   );
 }

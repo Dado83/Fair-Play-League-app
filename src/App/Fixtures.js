@@ -7,11 +7,11 @@ export default function Fixtures() {
   }
 
   return (
-    <>
+    <div className='content'>
       <h1>fixtures</h1>
       <hr />
       {fixtures.map(fix =>
         fix)}
-    </>
+    </div>
   );
 }
