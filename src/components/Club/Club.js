@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './style.css';
+import './styles.css';
 
 export default function Clubs(props) {
     const [club, setClub] = useState([]);

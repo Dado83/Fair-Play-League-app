@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/Table/Table';
 import Result from '../components/Result/Result';
+import '../assets/styles.css';
 
 export default function Home() {
   const [year, setYear] = useState('table7/0/5/8/9/10');

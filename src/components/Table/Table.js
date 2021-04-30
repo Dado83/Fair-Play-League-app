@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './style.css';
+import './styles.css';
 
 export default function Table(props) {
   const [table, setTable] = useState([]);
