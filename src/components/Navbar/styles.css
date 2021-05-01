@@ -2,8 +2,19 @@
     background: gray;
     list-style: none;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .navbar a {
     text-decoration: double;
+}
+
+.navbar img {
+    height: 50px;
+    margin-left: -30px;
+}
+
+.navbar li {
+    margin: auto;
 }
