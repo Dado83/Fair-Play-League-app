@@ -6,14 +6,14 @@ export default function Clubs(props) {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost/rest/getTeamByID/${props.id}`)
+        fetch(`http://localhost/api/Teams.php?id=${props.id}`)
             .then(response => response.json())
             .then(data => setClub(data))
             .catch(err => console.log(err))
     }, [props.id]);
 
     useEffect(() => {
-        fetch(`http://localhost/rest/getResultsByID/${props.id}`)
+        fetch(`http://localhost/api/Results.php?id=${props.id}`)
             .then(response => response.json())
             .then(data => setResults(data))
             .catch(err => console.log(err))
