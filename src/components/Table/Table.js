@@ -6,7 +6,7 @@ export default function Table(props) {
 
   useEffect(() => {
     console.log('inside table useeffect');
-    let url = fetch(`http://localhost/rest/getTable/${props.year}`);
+    let url = fetch(`http://localhost/api/table.php?table=${props.year}`);
     url.then(response => response.json())
       .then(data => setTable(data))
       .catch(err => console.log(err))
