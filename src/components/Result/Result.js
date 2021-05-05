@@ -9,7 +9,7 @@ export default function Result(props) {
         let mounted = true;
         setMday(props.mDay);
         console.log(`before fetch: ${mDay}`);
-        fetch(`http://localhost/rest/getResultsByMday/${mDay}`)
+        fetch(`http://localhost/api/results.php?mday=${mDay}`)
             .then(response => response.json())
             .then(data => {
                 if (mounted) {
