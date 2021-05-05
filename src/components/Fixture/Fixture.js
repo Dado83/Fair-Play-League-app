@@ -6,7 +6,7 @@ export default function Fixture(props) {
 
     useEffect(() => {
         setMday(props.mDay);
-        fetch(`http://localhost/rest/getMatchPairs/${props.mDay}`)
+        fetch(`http://localhost/api/fixtures.php?mday=${props.mDay}`)
             .then(response => response.json())
             .then(data => setFixture(data))
             .catch(err => console.log(err))
