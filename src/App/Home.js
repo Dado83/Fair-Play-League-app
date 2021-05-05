@@ -8,7 +8,7 @@ export default function Home() {
   const [mDay, setMday] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost/api/results.php?maxmday')
+    fetch('http://localhost/api/results.php?maxmday=true')
       .then(response => response.json())
       .then(data => setMday(data))
       .catch(err => console.log(err));
