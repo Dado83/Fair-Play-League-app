@@ -29,9 +29,11 @@ export default function Result(props) {
 
     return (
         <>
-            <p>{mDay}. kolo</p>
             <table>
                 <thead>
+                    <tr>
+                        <th>{mDay}. kolo</th>
+                    </tr>
                     <tr>
                         <th>domacin</th>
                         <th>gost</th>
