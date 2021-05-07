@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
     margin-bottom: 14px;
+    min-width: 25rem;
 }
 
 .navbar a {
@@ -15,7 +15,7 @@
 
 
 .navbar img {
-    height: 40px;
+    height: 55px;
     margin: 2px 0 0 -40px;
 }
 
