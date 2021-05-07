@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 export default function Fixture(props) {
     const [fixture, setFixture] = useState([]);
-    const [mDay, setMday] = useState('');
 
     useEffect(() => {
-        setMday(props.mDay);
         fetch(`http://localhost/api/fixtures.php?mday=${props.mDay}`)
             .then(response => response.json())
             .then(data => setFixture(data))
@@ -13,11 +11,21 @@ export default function Fixture(props) {
     }, [props.mDay]);
 
     return (
-        <>
-            <p>{mDay}. kolo</p>
-            {fixture.map(fix => (
-                <p key={fix.id}>{fix.home_club} - {fix.away_club}</p>
-            ))}
-        </>
+        <table>
+            <thead>
+                <tr>
+                    <td>{props.mDay}. kolo</td>
+                </tr>
+            </thead>
+            <tbody>
+                {fixture.map(fix => (
+                    <tr key={fix.id}>
+                        <td>{fix.home_club}</td>
+                        <td>-</td>
+                        <td>{fix.away_club}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
     );
 }
