@@ -7,6 +7,6 @@
 .content {
   display: grid;
   gap: 8px;
-  grid-template-columns: minmax(400px, 1fr);
+  grid-template-columns: minmax(300px, 1fr);
   margin: 4px;
 }

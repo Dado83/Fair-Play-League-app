@@ -3,36 +3,29 @@ import './styles.css';
 
 export default function Result(props) {
     const [result, setResult] = useState([]);
-    const [mDay, setMday] = useState('');
 
     useEffect(() => {
         let mounted = true;
-        setMday(props.mDay);
-        console.log(`before fetch: ${mDay}`);
-        fetch(`http://localhost/api/results.php?mday=${mDay}`)
+        fetch(`http://localhost/api/results.php?mday=${props.mDay}`)
             .then(response => response.json())
             .then(data => {
                 if (mounted) {
                     setResult(data);
-                    console.log(`inside fetch if mounted: ${mDay}`);
                 }
             })
             .catch(err => console.log(err));
 
         return () => {
             mounted = false;
-            console.log(`inside cleanup: ${mDay}`);
         }
-    }, [props.mDay, mDay]);
-
-    console.log(`result: ${mDay}`);
+    }, [props.mDay]);
 
     return (
         <>
             <table>
                 <thead>
                     <tr>
-                        <th>{mDay}. kolo</th>
+                        <th>{props.mDay}. kolo</th>
                     </tr>
                     <tr>
                         <th>domacin</th>
