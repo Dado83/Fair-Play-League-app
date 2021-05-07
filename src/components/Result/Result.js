@@ -21,7 +21,7 @@ export default function Result(props) {
     }, [props.mDay]);
 
     return (
-        <table>
+        <table className='result'>
             <thead>
                 <tr>
                     <th>{props.mDay}. kolo</th>

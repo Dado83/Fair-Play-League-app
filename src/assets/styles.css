@@ -1,14 +1,22 @@
+:root {
+  --color1: #fcc914;
+  --color2: #3d3d3d;
+  --color3: #db2519;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
+}
+
+html {
   font-size: 100%;
 }
 
 .content {
-  /* min-width: 400px; */
   display: grid;
   align-items: center;
   gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
   margin: 0.3rem;
 }
