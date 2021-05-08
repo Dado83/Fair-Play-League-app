@@ -1,3 +1,9 @@
 .club-info {
+    box-shadow: 0 0 2px black;
+}
+
+.club-results {
     display: none;
+    position: absolute;
+    background: whitesmoke;
 }

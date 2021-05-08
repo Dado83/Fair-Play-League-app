@@ -20,7 +20,7 @@ export default function Clubs(props) {
     }, [props.id]);
 
     const showInfo = (id) => {
-        const info = document.getElementsByClassName('club-info');
+        const info = document.getElementsByClassName('club-results');
         for (const i of info) {
             i.style = 'display:none';
         }
@@ -29,38 +29,40 @@ export default function Clubs(props) {
     }
 
     return (
-        <div>
-            <h3 onClick={() => showInfo(club.id)}>{club.team_name}</h3>
-            <div className='club-info' id={`club${props.id}`}>
+        <>
+            {/* <h3 onClick={() => showInfo(club.id)}>{club.team_name}</h3> */}
+            <div className='club-info'>
                 <p>{club.id}</p>
                 <p>{club.team_name}</p>
                 <p>{club.team_city}</p>
                 <p>{club.kit_color}</p>
                 <p>{club.venue}</p>
                 <p>{club.game_time}</p>
-                <div>Resultati:</div>
-                <table>
-                    <tbody>
-                        {results.map((res) => (
-                            <tr key={res.id}>
-                                <td>{res.m_day}</td>
-                                <td>{res.home_name}</td>
-                                <td>{res.away_name}</td>
-                                <td>{res.goals_home7}</td>
-                                <td>{res.goals_away7}</td>
-                                <td>{res.goals_home8}</td>
-                                <td>{res.goals_away8}</td>
-                                <td>{res.goals_home9}</td>
-                                <td>{res.goals_away9}</td>
-                                <td>{res.goals_home10}</td>
-                                <td>{res.goals_away10}</td>
-                                <td>{res.goals_home11}</td>
-                                <td>{res.goals_away11}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                <p onClick={() => showInfo(club.id)}>Rezultati...</p>
+                <div className='club-results' id={`club${props.id}`}>
+                    <table>
+                        <tbody>
+                            {results.map((res) => (
+                                <tr key={res.id}>
+                                    <td>{res.m_day}</td>
+                                    <td>{res.home_name}</td>
+                                    <td>{res.away_name}</td>
+                                    <td>{res.goals_home7}</td>
+                                    <td>{res.goals_away7}</td>
+                                    <td>{res.goals_home8}</td>
+                                    <td>{res.goals_away8}</td>
+                                    <td>{res.goals_home9}</td>
+                                    <td>{res.goals_away9}</td>
+                                    <td>{res.goals_home10}</td>
+                                    <td>{res.goals_away10}</td>
+                                    <td>{res.goals_home11}</td>
+                                    <td>{res.goals_away11}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
