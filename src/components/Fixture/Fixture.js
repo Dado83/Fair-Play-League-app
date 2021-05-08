@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './styles.css';
 
 export default function Fixture(props) {
     const [fixture, setFixture] = useState([]);
@@ -11,10 +12,10 @@ export default function Fixture(props) {
     }, [props.mDay]);
 
     return (
-        <table>
+        <table className='fixture'>
             <thead>
                 <tr>
-                    <td>{props.mDay}. kolo</td>
+                    <th>{props.mDay}. kolo</th>
                 </tr>
             </thead>
             <tbody>
