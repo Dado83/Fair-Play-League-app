@@ -8,10 +8,10 @@ export default function Navbar() {
             <Link className='header-logo' to='/'><img src={logo} /></Link>
             <h3>Liga Budućih Šampiona</h3>
             <nav className='menu'>
-                <div class="menu-container">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
+                <div className="menu-container">
+                    <div className="bar1"></div>
+                    <div className="bar2"></div>
+                    <div className="bar3"></div>
                 </div>
                 <ul className='navbar'>
                     <li><Link to='/raspored'>Raspored</Link></li>
