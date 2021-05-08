@@ -16,7 +16,7 @@ export default function Home() {
 
   console.log(mDay)
   return (
-    <div className='content'>
+    <>
       <div>
         <button onClick={() => setYear('table7&id1=5&id2=8&id3=9&id4=10')}>2007</button>
         <button onClick={() => setYear('table8')}>2008</button>
@@ -24,8 +24,10 @@ export default function Home() {
         <button onClick={() => setYear('table10&id1=11')}>2010</button>
         <button onClick={() => setYear('table11&id1=4')}>2011</button>
       </div>
-      <Table year={year} />
-      {mDay ? <Result mDay={mDay} /> : <p>asdasd</p>}
-    </div>
+      <div className='content'>
+        <Table year={year} />
+        {mDay ? <Result mDay={mDay} /> : <p>asdasd</p>}
+      </div>
+    </>
   );
 }
