@@ -9,6 +9,7 @@
     background: var(--color1);
     box-shadow: 0 0 2px var(--color2);
     margin: 0 0 40px 0;
+    min-width: 23.3rem;
 }
 
 .navbar {
