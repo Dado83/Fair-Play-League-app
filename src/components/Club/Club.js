@@ -19,14 +19,15 @@ export default function Clubs(props) {
             .catch(err => console.log(err))
     }, [props.id]);
 
-    /* const showInfo = (id) => {
-        const info = document.getElementsByClassName('club-results');
+    const showInfo = (id) => {
+        /* const info = document.getElementsByClassName('club-results');
         for (const i of info) {
             i.style = 'display:none';
-        }
+        } */
         const clubId = `club${id}`;
-        document.getElementById(clubId).style = 'display:block';
-    } */
+        document.getElementById(clubId).classList.remove('club-results--hidden');
+        document.getElementById(clubId).classList.add('club-results--shown');
+    }
 
     return (
         <>
@@ -37,7 +38,7 @@ export default function Clubs(props) {
                 <p>{club.kit_color}</p>
                 <p>{club.venue}</p>
                 <p>{club.game_time}</p>
-                {/* <p onClick={() => showInfo(club.id)}>Rezultati...</p> */}
+                <p id={`club${props.id}`} onClick={() => showInfo(club.id)}>Rezultati...</p>
                 <div className='club-results' id={`club${props.id}`}>
                     <table>
                         <tbody>
