@@ -16,17 +16,27 @@
     display: grid;
     list-style: none;
     align-items: center;
-    width: 0;
-    height: 0;
     position: absolute;
     overflow: hidden;
     white-space: nowrap;
-    top: 1rem;
+    top: 2.8rem;
     right: 0.2rem;
     z-index: 1;
     transition: 0.4s;
-    opacity: 0;
     background: var(--color2);
+}
+
+.navbar-shown {
+    width: 10rem;
+    height: 14rem;
+    opacity: 1;
+    box-shadow: 0 0 4px var(--color2);
+}
+
+.navbar-hidden {
+    width: 0;
+    height: 0;
+    opacity: 0;
 }
 
 .navbar a:hover {
@@ -67,21 +77,18 @@
     margin-right: 0.7rem;
 }
 
-.menu:hover .navbar {
-    width: 10rem;
-    height: 14rem;
-    opacity: 1;
-    box-shadow: 0 0 4px var(--color2);
-}
-
-.menu:hover .bar1 {
+.bar1-pressed {
     transform: rotate(-45deg) translate(-6px, 5px);
 }
 
-.menu:hover .bar2 {
+.bar2-pressed {
     opacity: 0;
 }
 
-.menu:hover .bar3 {
+.bar3-pressed {
     transform: rotate(45deg) translate(-7px, -7px);
+}
+
+#menu-toggle {
+    cursor: pointer;
 }
