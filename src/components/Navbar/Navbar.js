@@ -40,10 +40,6 @@ export default function Navbar() {
             }
         }
 
-        const mouseLeave = () => {
-            hideMenu();
-        }
-
         menuBar.addEventListener('click', menuToggle);
         menu.addEventListener('click', menuToggle);
         logo.addEventListener('click', menuToggle);
