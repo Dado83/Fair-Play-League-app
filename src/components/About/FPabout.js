@@ -1,11 +1,12 @@
 import React from 'react';
+import grb from '../../assets/logo/grb.png'
 
 export default function FPAbout(props) {
 
     return (
         <article>
             <h1>Fair Play Liga Budućih Šampiona</h1>
-            <img src="" alt="grb" />
+            <img src={grb} alt='grb' />
             <p>Fair Play Liga je formirana je 2014. god. sa osnovnim ciljem da podstakne najmlađe učesnike sportskih manfestacija – djecu,
             da se kroz igru i zabavu nauče fer-plej ponašanju.
             Osnovna ideja u osnivanju Fair Play lige je bila da se propišu jedinstveni standardi –
