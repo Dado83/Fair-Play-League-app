@@ -1,4 +1,5 @@
-import Result from '../components/Result/Result';
+import Result from '../components/Result';
+
 
 export default function Results() {
   let results = [];

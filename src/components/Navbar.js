@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import './styles.css';
-import logo from '../../assets/logo/grb.png';
+import logo from '../assets/logo/grb.png';
 import { useEffect } from 'react';
 
 export default function Navbar() {

@@ -1,4 +1,5 @@
-import Fixture from '../components/Fixture/Fixture';
+import Fixture from '../components/Fixture';
+
 
 export default function Fixtures() {
   let fixtures = [];

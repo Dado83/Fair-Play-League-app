@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Table from '../components/Table/Table';
-import Result from '../components/Result/Result';
+import Table from '../components/Table';
+import Result from '../components/Result';
 import '../assets/styles.css';
+
 
 export default function Home() {
   const [year, setYear] = useState('table7&id1=5&id2=8&id3=9&id4=10');

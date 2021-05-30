@@ -1,4 +1,5 @@
-import Club from '../components/Club/Club';
+import Club from '../components/Club';
+
 
 export default function Clubs() {
   let clubs = [];

@@ -1,5 +1,5 @@
 import React from 'react';
-import grb from '../../assets/logo/grb.png'
+import grb from '../assets/logo/grb.png'
 
 export default function FPAbout(props) {
 
