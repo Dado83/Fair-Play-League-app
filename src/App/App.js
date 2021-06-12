@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import '../assets/styles.css';
+import '../assets/styles.scss';
 import Navbar from '../components/Navbar';
 import Home from './Home';
 import Fixtures from './Fixtures';

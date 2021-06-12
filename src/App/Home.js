@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/Table';
 import Result from '../components/Result';
-import '../assets/styles.css';
 
 
 export default function Home() {
