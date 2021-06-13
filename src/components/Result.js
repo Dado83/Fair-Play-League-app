@@ -23,7 +23,7 @@ export default function Result(props) {
         <table className='result'>
             <thead>
                 <tr>
-                    <th>{props.mDay}. kolo</th>
+                    <th colSpan='12'>{props.mDay}. kolo</th>
                 </tr>
                 <tr>
                     <th>domacin</th>
