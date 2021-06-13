@@ -14,7 +14,7 @@ export default function Fixture(props) {
         <table className='fixture'>
             <thead>
                 <tr>
-                    <th>{props.mDay}. kolo</th>
+                    <th colSpan='3'>{props.mDay}. kolo</th>
                 </tr>
             </thead>
             <tbody>
