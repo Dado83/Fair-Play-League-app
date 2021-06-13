@@ -13,6 +13,18 @@ export default function Table(props) {
 
   return (
     <table className='table'>
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>OS</th>
+          <th>P</th>
+          <th>N</th>
+          <th>I</th>
+          <th>G</th>
+          <th>B</th>
+        </tr>
+      </thead>
       <tbody>
         {table.map((tab, index) => (
           <tr key={tab.id}>
@@ -22,10 +34,7 @@ export default function Table(props) {
             <td>{tab.games_won}</td>
             <td>{tab.games_drew}</td>
             <td>{tab.games_lost}</td>
-            <td>{tab.goals_scored}</td>
-            <td>:</td>
-            <td>{tab.goals_conceded}</td>
-            <td>{tab.g_diff}</td>
+            <td>{tab.goals_scored}:{tab.goals_conceded}</td>
             <td>{tab.points}</td>
           </tr>
         ))}
