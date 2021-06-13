@@ -158,12 +158,32 @@ html {
 }
 
 /* table */
+$color:#1a998e;
+$back: yellow;
+
 .table {
-  background: gray;
+  background-color: $back;
 }
 
 /* result */
 .result {
   box-shadow: 0 0 0.3em;
   font-size: 0.9em;
+}
+
+
+
+/*          
+ODAVDE CE DA IDE SCSS
+*/
+
+.fpabout {
+  img {
+    float: left;
+    width: 30%;
+  }
+
+  h1 {
+    text-align: center;
+  }
 }
