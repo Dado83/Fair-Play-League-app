@@ -13,32 +13,28 @@ export default function Table(props) {
 
   return (
     <table className='table'>
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th>OS</th>
-          <th>P</th>
-          <th>N</th>
-          <th>I</th>
-          <th>G</th>
-          <th>B</th>
+      <tr>
+        <td>#</td>
+        <td>Tim</td>
+        <td>OS</td>
+        <td>P</td>
+        <td>N</td>
+        <td>I</td>
+        <td>G</td>
+        <td>B</td>
+      </tr>
+      {table.map((tab, index) => (
+        <tr key={tab.id}>
+          <td>{++index}.</td>
+          <td>{tab.team}</td>
+          <td>{tab.games_played}</td>
+          <td>{tab.games_won}</td>
+          <td>{tab.games_drew}</td>
+          <td>{tab.games_lost}</td>
+          <td>{tab.goals_scored}:{tab.goals_conceded}</td>
+          <td>{tab.points}</td>
         </tr>
-      </thead>
-      <tbody>
-        {table.map((tab, index) => (
-          <tr key={tab.id}>
-            <td>{++index}</td>
-            <td>{tab.team}</td>
-            <td>{tab.games_played}</td>
-            <td>{tab.games_won}</td>
-            <td>{tab.games_drew}</td>
-            <td>{tab.games_lost}</td>
-            <td>{tab.goals_scored}:{tab.goals_conceded}</td>
-            <td>{tab.points}</td>
-          </tr>
-        ))}
-      </tbody>
+      ))}
     </table>
   );
 }

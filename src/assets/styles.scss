@@ -4,6 +4,11 @@
   --color3: #db2519;
 }
 
+$color1: #E5D109;
+$color2: #992016;
+$color3: #000000;
+$color4: #f0f0f0;
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -31,7 +36,7 @@ html {
   padding: 2px 0;
   align-items: center;
   background: var(--color1);
-  box-shadow: 0 0 2px var(--color2);
+  box-shadow: 0 0 0.1em $color3;
   margin: 0 0 40px 0;
   min-width: 23.3rem;
 }
@@ -54,7 +59,7 @@ html {
   width: 10rem;
   height: 14rem;
   opacity: 1;
-  box-shadow: 0 0 4px var(--color2);
+  box-shadow: 0 0 0.1em $color3;
 }
 
 .navbar-hidden {
@@ -119,7 +124,7 @@ html {
 
 /* club */
 .club-info {
-  box-shadow: 0 0 2px black;
+  box-shadow: 0 0 0.1em $color3;
 }
 
 .club-results {
@@ -142,10 +147,6 @@ html {
 ODAVDE CE DA IDE SCSS
 */
 
-$color1: #fcc914;
-$color2: #3d3d3d;
-$color3: #db2519;
-
 
 /* about */
 .fpabout {
@@ -161,7 +162,7 @@ $color3: #db2519;
 
 /* fixture */
 .fixture {
-  box-shadow: 0 0 0.3em $color2;
+  box-shadow: 0 0 0.1em $color3;
   font-size: 0.9em;
 
   th {
@@ -185,7 +186,7 @@ $color3: #db2519;
 
 /* result */
 .result {
-  box-shadow: 0 0 0.3em;
+  box-shadow: 0 0 0.1em $color3;
   font-size: 0.9em;
   border-collapse: collapse;
 
@@ -213,8 +214,28 @@ $color3: #db2519;
 /* table */
 .table {
   font-size: 00.9em;
+  border-collapse: collapse;
+  box-shadow: 0 0 0.1em $color3;
+
+  tr {
+    border-bottom: 1px solid $color4;
+  }
+
+  tr:nth-of-type(1) {
+    background: $color4;
+  }
 
   td:nth-of-type(n+3) {
     text-align: center;
+  }
+
+  td:nth-of-type(1) {
+    text-align: center;
+    background: $color4;
+  }
+
+  tr:nth-of-type(n+2):nth-of-type(-n+5) td:nth-of-type(1) {
+    background-color: $color2;
+    color: white;
   }
 }
