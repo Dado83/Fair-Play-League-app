@@ -212,6 +212,14 @@ ODAVDE CE DA IDE SCSS
   }
 }
 
+.result-hidden {
+  display: none;
+}
+
+.result-shown {
+  display: table-cell;
+}
+
 /* table */
 .table {
   font-size: 00.9em;

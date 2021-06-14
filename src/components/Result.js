@@ -28,11 +28,11 @@ export default function Result(props) {
                 <tr>
                     <th>domacin</th>
                     <th>gost</th>
-                    <th colSpan='2'>2007</th>
-                    <th colSpan='2'>2008</th>
-                    <th colSpan='2'>2009</th>
-                    <th colSpan='2'>2010</th>
-                    <th colSpan='2'>2011</th>
+                    <th colSpan='2' className={props.gen7}>2007</th>
+                    <th colSpan='2' className={props.gen8}>2008</th>
+                    <th colSpan='2' className={props.gen9}>2009</th>
+                    <th colSpan='2' className={props.gen10}>2010</th>
+                    <th colSpan='2' className={props.gen11}>2011</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,16 +40,16 @@ export default function Result(props) {
                     <tr key={res.id}>
                         <td>{res.home_name}</td>
                         <td>{res.away_name}</td>
-                        <td>{res.goals_home7}</td>
-                        <td>{res.goals_away7}</td>
-                        <td>{res.goals_home8}</td>
-                        <td>{res.goals_away8}</td>
-                        <td>{res.goals_home9}</td>
-                        <td>{res.goals_away9}</td>
-                        <td>{res.goals_home10}</td>
-                        <td>{res.goals_away10}</td>
-                        <td>{res.goals_home11}</td>
-                        <td>{res.goals_away11}</td>
+                        <td className={props.gen7}>{res.goals_home7}</td>
+                        <td className={props.gen7}>{res.goals_away7}</td>
+                        <td className={props.gen8}>{res.goals_home8}</td>
+                        <td className={props.gen8}>{res.goals_away8}</td>
+                        <td className={props.gen9}>{res.goals_home9}</td>
+                        <td className={props.gen9}>{res.goals_away9}</td>
+                        <td className={props.gen10}>{res.goals_home10}</td>
+                        <td className={props.gen10}>{res.goals_away10}</td>
+                        <td className={props.gen11}>{res.goals_home11}</td>
+                        <td className={props.gen11}>{res.goals_away11}</td>
                     </tr>
                 ))}
             </tbody>

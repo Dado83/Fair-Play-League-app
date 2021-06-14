@@ -15,6 +15,12 @@ export default function Home() {
   }, []);
 
   console.log(mDay)
+
+  let genProps = {
+    gen7: 'result-hidden',
+    gen9: 'result-hidden'
+  }
+
   return (
     <>
       <div>
@@ -26,7 +32,7 @@ export default function Home() {
       </div>
       <div className='content'>
         <Table year={year} />
-        {mDay ? <Result mDay={mDay} /> : <p>asdasd</p>}
+        {mDay ? <Result mDay={mDay} {...genProps} /> : <p>asdasd</p>}
       </div>
     </>
   );
