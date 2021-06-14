@@ -16,6 +16,7 @@ $color4: #f0f0f0;
 
 html {
   font-size: 100%;
+  font-family: Tahoma, Geneva CE, Lucida Sans, Arial, Helvetica, sans-serif;
 }
 
 .content {
@@ -199,11 +200,11 @@ ODAVDE CE DA IDE SCSS
   }
 
   thead tr:nth-of-type(2) {
-    border-bottom: 1px solid $color2;
+    border-bottom: 1px solid $color4;
   }
 
   td:nth-of-type(2n+1) {
-    border-left: 1px solid $color2;
+    border-left: 1px solid $color4;
   }
 
   td:nth-of-type(n+3) {
@@ -232,6 +233,10 @@ ODAVDE CE DA IDE SCSS
   td:nth-of-type(1) {
     text-align: center;
     background: $color4;
+  }
+
+  tr:nth-of-type(n+2) td:nth-of-type(8) {
+    font-weight: bold;
   }
 
   tr:nth-of-type(n+2):nth-of-type(-n+5) td:nth-of-type(1) {
