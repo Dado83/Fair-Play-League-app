@@ -22,6 +22,8 @@ export default function Home() {
       .catch(err => console.log(err));
   }, []);
 
+  useEffect(() => setYouth({ ...youthInit, gen7: 'result-shown' }), []);
+
   console.log(mDay)
 
   return (
