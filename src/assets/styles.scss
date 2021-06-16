@@ -191,24 +191,13 @@ ODAVDE CE DA IDE SCSS
   font-size: 0.9em;
   border-collapse: collapse;
 
-  tr:nth-of-type(2) th:nth-of-type(-n+2) {
+  tr:nth-of-type(1) th:nth-of-type(1) {
+    background: $color1;
     text-align: left;
   }
 
-  tr:nth-of-type(1) th:nth-of-type(1) {
-    background: $color1;
-  }
-
-  thead tr:nth-of-type(2) {
-    border-bottom: 1px solid $color4;
-  }
-
-  td:nth-of-type(2n+1) {
-    border-left: 1px solid $color4;
-  }
-
-  td:nth-of-type(n+3) {
-    text-align: center;
+  td:nth-of-type(1) {
+    text-align: right;
   }
 }
 
@@ -218,6 +207,7 @@ ODAVDE CE DA IDE SCSS
 
 .result-shown {
   display: table-cell;
+  text-align: center;
 }
 
 /* table */
