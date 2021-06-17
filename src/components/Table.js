@@ -26,7 +26,7 @@ export default function Table(props) {
       {table.map((tab, index) => (
         <tr key={tab.id}>
           <td>{++index}.</td>
-          <td>{tab.team}</td>
+          <td><img src={`http://localhost/api/logos/${tab.id}.png`} />{tab.team}</td>
           <td>{tab.games_played}</td>
           <td>{tab.games_won}</td>
           <td>{tab.games_drew}</td>
