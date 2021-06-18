@@ -197,8 +197,11 @@ ODAVDE CE DA IDE SCSS
   font-size: 0.9em;
   border-collapse: collapse;
 
-  tr:nth-of-type(1) th:nth-of-type(1) {
+  thead {
     background: $color1;
+  }
+
+  tr:nth-of-type(1) th:nth-of-type(1) {
     text-align: left;
   }
 
