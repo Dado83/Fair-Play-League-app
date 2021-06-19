@@ -14,15 +14,15 @@ export default function Fixture(props) {
         <table className='fixture'>
             <thead>
                 <tr>
-                    <th colSpan='3'>{props.mDay}. kolo</th>
+                    <th colSpan='3'>{props.mDay}. kolo <span>{fixture[0]?.game_date}</span></th>
                 </tr>
             </thead>
             <tbody>
                 {fixture.map(fix => (
                     <tr key={fix.id}>
-                        <td>{fix.home_club}</td>
+                        <td>{fix.home_club}<img src={`http://localhost/api/logos/${fix.home_team}.png`} /></td>
                         <td>-</td>
-                        <td>{fix.away_club}</td>
+                        <td><img src={`http://localhost/api/logos/${fix.away_team}.png`} />{fix.away_club}</td>
                     </tr>
                 ))}
             </tbody>

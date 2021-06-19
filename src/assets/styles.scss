@@ -175,6 +175,10 @@ ODAVDE CE DA IDE SCSS
   th {
     text-align: left;
     background: $color1;
+
+    span {
+      float: right;
+    }
   }
 
   td:nth-of-type(1),
@@ -188,6 +192,10 @@ ODAVDE CE DA IDE SCSS
 
   td:nth-of-type(2) {
     text-align: center;
+  }
+
+  img {
+    @include club-logo;
   }
 }
 
