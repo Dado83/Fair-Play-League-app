@@ -337,4 +337,12 @@ ODAVDE CE DA IDE SCSS
 /* archive */
 .archive {
   width: 100%;
+
+  td:nth-of-type(-n+2) {
+    font-size: .8em;
+  }
+
+  td:nth-of-type(n+3) {
+    font-size: .5em;
+  }
 }

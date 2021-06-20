@@ -13,7 +13,8 @@ export default function Archive(props) {
     return (
         <table className='archive'>
             <tr>
-                <td colSpan='2'>#</td>
+                <td>#</td>
+                <td></td>
                 <td>1.mjesto</td>
                 <td>2. mjesto</td>
                 <td>3. mjesto</td>
