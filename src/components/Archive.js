@@ -12,7 +12,7 @@ export default function Archive(props) {
 
     return (
         <>
-            <table className='table archive'>
+            <table className='ar-increase table archive'>
                 <tr>
                     <td>#</td>
                     <td></td>

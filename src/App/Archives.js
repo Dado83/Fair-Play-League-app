@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Archive from '../components/Archive';
+import TableAlltime from '../components/TableAlltime';
 
 
 export default function Archives() {
@@ -14,6 +15,7 @@ export default function Archives() {
   }
 
   return (
+
     <>
       <div className='home-button'>
         <button className='button-selected' onClick={(e) => {
@@ -47,6 +49,7 @@ export default function Archives() {
       </div>
       <div className='content'>
         <Archive year={year} />
+        <TableAlltime />
       </div>
     </>
   );
