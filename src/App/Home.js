@@ -22,40 +22,40 @@ export default function Home() {
       .catch(err => console.log(err));
   }, []);
 
-  useEffect(() => setYouth({ ...youthInit, gen7: 'result-shown' }), []);
+  useEffect(() => { setYouth({ ...youthInit, gen7: 'result-shown' }) }, []);
 
   const buttonSelection = (param) => {
     const siblings = param.target.parentNode.children;
     for (let s of siblings) {
-      s.style = 'background:red';
+      s.className = 'button-default';
     }
-    param.target.style = 'background:green'
+    param.target.className = 'button-selected'
   }
 
   return (
     <>
       <div className='home-button'>
-        <button onClick={(e) => {
+        <button className='button-selected' onClick={(e) => {
           setYear('table7&id1=5&id2=8&id3=9&id4=10');
           setYouth({ ...youthInit, gen7: 'result-shown' });
           buttonSelection(e);
         }}>2007</button>
-        <button onClick={(e) => {
+        <button className='button-default' onClick={(e) => {
           setYear('table8');
           setYouth({ ...youthInit, gen8: 'result-shown' });
           buttonSelection(e);
         }}>2008</button>
-        <button onClick={(e) => {
+        <button className='button-default' onClick={(e) => {
           setYear('table9');
           setYouth({ ...youthInit, gen9: 'result-shown' });
           buttonSelection(e);
         }}>2009</button>
-        <button onClick={(e) => {
+        <button className='button-default' onClick={(e) => {
           setYear('table10&id1=11');
           setYouth({ ...youthInit, gen10: 'result-shown' });
           buttonSelection(e);
         }}>2010</button>
-        <button onClick={(e) => {
+        <button className='button-default' onClick={(e) => {
           setYear('table11&id1=4');
           setYouth({ ...youthInit, gen11: 'result-shown' });
           buttonSelection(e);
