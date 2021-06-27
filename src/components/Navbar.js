@@ -64,6 +64,7 @@ export default function Navbar() {
                     <li ><Link to='/raspored'>Raspored</Link></li>
                     <li ><Link to='/rezultati'>Rezultati</Link></li>
                     <li ><Link to='/klubovi'>Klubovi</Link></li>
+                    <li ><Link to='/arhiva'>Arhiva</Link></li>
                     <li ><Link to='/o-nama'>O nama</Link></li>
                     <li ><Link to='/admin'>Admin</Link></li>
                     <li ><Link to='/napravi-raspored'>Turnir</Link></li>

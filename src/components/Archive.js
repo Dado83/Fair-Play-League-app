@@ -12,7 +12,7 @@ export default function Archive(props) {
 
     return (
         <>
-            <table className='archive'>
+            <table className='table archive'>
                 <tr>
                     <td>#</td>
                     <td></td>
@@ -34,8 +34,6 @@ export default function Archive(props) {
                     </tr>
                 ))}
             </table>
-            <p>legenda ove ikonice...</p>
-            <p>all time tabela</p>
         </>
     );
 }

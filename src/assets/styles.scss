@@ -167,6 +167,7 @@ ODAVDE CE DA IDE SCSS
   margin-left: 0.3rem;
   box-shadow: 0 0 0.1em $color3;
   width: fit-content;
+  min-width: max-content;
   background: $color4;
 }
 
@@ -372,6 +373,16 @@ ODAVDE CE DA IDE SCSS
   }
 
   td:nth-of-type(n+3) {
-    font-size: .5em;
+    font-size: .6em;
+  }
+
+  tr:nth-of-type(2) td:nth-of-type(1) {
+    background-color: $color2;
+    color: white;
+  }
+
+  tr:nth-of-type(n+3):nth-of-type(-n+5) td:nth-of-type(1) {
+    background-color: $color4;
+    color: inherit;
   }
 }
