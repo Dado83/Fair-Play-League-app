@@ -24,7 +24,7 @@ export default function Archive(props) {
                 </tr>
                 {archive.map((arc, index) => (
                     <tr>
-                        <td>{++index}</td>
+                        <td>{++index}.</td>
                         <td>{arc.team}</td>
                         <td>{arc.first}</td>
                         <td>{arc.second}</td>
