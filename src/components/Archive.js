@@ -11,15 +11,15 @@ export default function Archive(props) {
     }, [props.year]);
 
     return (
-        <>
+        <div>
             <table className='ar-increase table archive'>
                 <tr>
                     <td>#</td>
                     <td></td>
-                    <td>1.mjesto</td>
-                    <td>2. mjesto</td>
-                    <td>3. mjesto</td>
-                    <td>4. mjesto</td>
+                    <td>🥇</td>
+                    <td>🥈</td>
+                    <td>🥉</td>
+                    <td>🏅</td>
                     <td>bod</td>
                 </tr>
                 {archive.map((arc, index) => (
@@ -34,7 +34,14 @@ export default function Archive(props) {
                     </tr>
                 ))}
             </table>
-        </>
+            <div className='legend'>
+                <p>🥇 1. mjesto</p>
+                <p>🥈 2. mjesto</p>
+                <p>🥉 3. mjesto</p>
+                <p>🏅 4. mjesto</p>
+            </div>
+        </div>
+
     );
 }
 
