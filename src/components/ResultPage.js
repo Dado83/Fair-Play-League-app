@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Result(props) {
     const [result, setResult] = useState([]);
+    const [gameDate, setGameDate] = useState('/');
 
     useEffect(() => {
         let mounted = true;
@@ -19,11 +20,25 @@ export default function Result(props) {
         }
     }, [props.mDay]);
 
+    useEffect(() => {
+        let mounted = true;
+        fetch(`http://localhost/api/fixtures.php?mday=${props.mDay}`)
+            .then(response => response.json())
+            .then(data => {
+                if (mounted) {
+                    setGameDate(data);
+                }
+            })
+            .catch(err => console.log(err));
+
+        return () => { mounted = false };
+    }, props.mDay);
+
     return (
         <table className='result-page'>
             <thead>
                 <tr>
-                    <th>{props.mDay}. kolo ({result.game_date})</th>
+                    <th>{props.mDay}. kolo ({gameDate[0].game_date})</th>
                     <th colSpan='' className={props.gen7}>2007</th>
                     <th colSpan='' className={props.gen8}>2008</th>
                     <th colSpan='' className={props.gen9}>2009</th>
