@@ -6,6 +6,8 @@ export default function About() {
   const [year, setYear] = useState('archive14_15');
 
   return (
-    <FPAbout />
+    <div className='content'>
+      <FPAbout />
+    </div>
   );
 }
