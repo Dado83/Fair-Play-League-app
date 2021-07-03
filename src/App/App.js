@@ -10,9 +10,18 @@ import About from './About';
 import Admin from './Admin';
 import TourMaker from './TourMaker';
 import Err404 from './Err404';
+import { useEffect } from 'react';
 
 
 export default function App() {
+
+  /* test */
+  useEffect(() => {
+    //sessionStorage.setItem('role', 'admin');
+    //console.log(sessionStorage.getItem('role'));
+    //fetch(`http://localhost/api/visitors.php`);
+  }, []);
+  console.log('user: ' + sessionStorage.getItem('user'))
   return (
     <Router>
       <Navbar />
