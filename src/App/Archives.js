@@ -4,6 +4,7 @@ import TableAlltime from '../components/TableAlltime';
 
 
 export default function Archives() {
+  const site = document.location.hostname;
   const [year, setYear] = useState('archive14_15');
 
   const buttonSelection = (param) => {
@@ -48,8 +49,8 @@ export default function Archives() {
         }}>20/21</button>
       </div>
       <div className='content'>
-        <Archive year={year} />
-        <TableAlltime />
+        <Archive year={year} site={site} />
+        <TableAlltime site={site} />
       </div>
     </>
   );

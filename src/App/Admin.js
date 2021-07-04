@@ -4,6 +4,7 @@ import Login from '../components/Login';
 
 
 export default function Admin(props) {
+  const site = document.location.hostname;
   const [user, setUser] = useState('');
 
   const handleChange = (param) => {
@@ -14,7 +15,7 @@ export default function Admin(props) {
     return (
       <div className='content'>
         <h1>admin: {user}</h1>
-        <Login onChange={handleChange} />
+        <Login onChange={handleChange} site={site} />
       </div>
     );
   }

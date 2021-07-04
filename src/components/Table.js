@@ -5,7 +5,7 @@ export default function Table(props) {
 
   useEffect(() => {
     console.log('inside table useeffect');
-    let url = fetch(`http://localhost/api/table.php?table=${props.year}`);
+    let url = fetch(`http://${props.site}/api/table.php?table=${props.year}`);
     url.then(response => response.json())
       .then(data => setTable(data))
       .catch(err => console.log(err))
@@ -26,7 +26,7 @@ export default function Table(props) {
       {table.map((tab, index) => (
         <tr key={tab.id}>
           <td>{++index}.</td>
-          <td><img src={`http://localhost/api/logos/${tab.id}.png`} />{tab.team}</td>
+          <td><img src={`http://${props.site}/api/logos/${tab.id}.png`} />{tab.team}</td>
           <td>{tab.games_played}</td>
           <td>{tab.games_won}</td>
           <td>{tab.games_drew}</td>

@@ -4,6 +4,7 @@ import Result from '../components/Result';
 
 
 export default function Home() {
+  const site = document.location.hostname; console.log(site);
   const [year, setYear] = useState('table7&id1=5&id2=8&id3=9&id4=10');
   const [mDay, setMday] = useState('');
   const youthInit = {
@@ -16,7 +17,7 @@ export default function Home() {
   const [youth, setYouth] = useState({ ...youthInit });
 
   useEffect(() => {
-    fetch('http://localhost/api/results.php?maxmday=true')
+    fetch(`http://${site}/api/results.php?maxmday=true`)
       .then(response => response.json())
       .then(data => setMday(data))
       .catch(err => console.log(err));
@@ -62,8 +63,8 @@ export default function Home() {
         }}>2011</button>
       </div>
       <div className='content'>
-        <Table year={year} />
-        {mDay ? <Result mDay={mDay} {...youth} /> : <p>asdasd</p>}
+        <Table year={year} site={site} />
+        {mDay ? <Result mDay={mDay} {...youth} site={site} /> : <p>asdasd</p>}
       </div>
     </>
   );

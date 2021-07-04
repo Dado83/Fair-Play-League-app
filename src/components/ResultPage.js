@@ -6,7 +6,7 @@ export default function Result(props) {
 
     useEffect(() => {
         let mounted = true;
-        fetch(`http://localhost/api/results.php?mday=${props.mDay}`)
+        fetch(`http://${props.site}/api/results.php?mday=${props.mDay}`)
             .then(response => response.json())
             .then(data => {
                 if (mounted) {
@@ -22,7 +22,7 @@ export default function Result(props) {
 
     useEffect(() => {
         let mounted = true;
-        fetch(`http://localhost/api/fixtures.php?mday=${props.mDay}`)
+        fetch(`http://${props.site}/api/fixtures.php?mday=${props.mDay}`)
             .then(response => response.json())
             .then(data => {
                 if (mounted) {
@@ -50,7 +50,7 @@ export default function Result(props) {
             {result.map(res => (
                 <tbody>
                     <tr key={res.id}>
-                        <td><img src={`http://localhost/api/logos/${res.home_id}.png`} />{res.home_name}</td>
+                        <td><img src={`http://${props.site}/api/logos/${res.home_id}.png`} />{res.home_name}</td>
                         <td className={props.gen7}>{res.goals_home7 != -1 ? res.goals_home7 : '*'}</td>
                         <td className={props.gen8}>{res.goals_home8}</td>
                         <td className={props.gen9}>{res.goals_home9}</td>
@@ -58,7 +58,7 @@ export default function Result(props) {
                         <td className={props.gen11}>{res.goals_home11 != -1 ? res.goals_home11 : '*'}</td>
                     </tr>
                     <tr>
-                        <td><img src={`http://localhost/api/logos/${res.away_id}.png`} />{res.away_name}</td>
+                        <td><img src={`http://${props.site}/api/logos/${res.away_id}.png`} />{res.away_name}</td>
                         <td className={props.gen7}>{res.goals_away7 != -1 ? res.goals_away7 : '*'}</td>
                         <td className={props.gen8}>{res.goals_away8}</td>
                         <td className={props.gen9}>{res.goals_away9}</td>

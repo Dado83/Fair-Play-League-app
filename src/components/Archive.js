@@ -4,7 +4,7 @@ export default function Archive(props) {
     const [archive, setArchive] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost/api/archive.php?year=${props.year}`)
+        fetch(`http://${props.site}/api/archive.php?year=${props.year}`)
             .then(response => response.json())
             .then(data => setArchive(data))
             .catch(err => console.log(err))

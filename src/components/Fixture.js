@@ -4,7 +4,7 @@ export default function Fixture(props) {
     const [fixture, setFixture] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost/api/fixtures.php?mday=${props.mDay}`)
+        fetch(`http://${props.site}/api/fixtures.php?mday=${props.mDay}`)
             .then(response => response.json())
             .then(data => setFixture(data))
             .catch(err => console.log(err))
@@ -20,9 +20,9 @@ export default function Fixture(props) {
             <tbody>
                 {fixture.map(fix => (
                     <tr key={fix.id}>
-                        <td>{fix.home_club}<img src={`http://localhost/api/logos/${fix.home_team}.png`} /></td>
+                        <td>{fix.home_club}<img src={`http://${props.site}/api/logos/${fix.home_team}.png`} /></td>
                         <td>-</td>
-                        <td><img src={`http://localhost/api/logos/${fix.away_team}.png`} />{fix.away_club}</td>
+                        <td><img src={`http://${props.site}/api/logos/${fix.away_team}.png`} />{fix.away_club}</td>
                     </tr>
                 ))}
             </tbody>

@@ -4,7 +4,7 @@ export default function TableAlltime(props) {
   const [table, setTable] = useState([]);
 
   useEffect(() => {
-    let url = fetch(`http://localhost/api/archive.php?year=alltime`);
+    let url = fetch(`http://${props.site}/api/archive.php?year=alltime`);
     url.then(response => response.json())
       .then(data => setTable(data))
       .catch(err => console.log(err))

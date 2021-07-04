@@ -8,7 +8,7 @@ export default function Login(props) {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost/api/users.php`)
+        fetch(`http://${props.site}/api/users.php`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -24,7 +24,7 @@ export default function Login(props) {
             setError('korisnik ne postoji');
         } else {
             console.log(' admin: ', userName)
-            fetch(`http://localhost/api/users.php?user=${userName}&pass=${password}`)
+            fetch(`http://${props.site}/api/users.php?user=${userName}&pass=${password}`)
                 .then(response => response.json())
                 .then(data => {
                     let role = data;

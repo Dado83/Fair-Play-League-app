@@ -5,14 +5,14 @@ export default function Clubs(props) {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost/api/teams.php?id=${props.id}`)
+        fetch(`http://${props.site}/api/teams.php?id=${props.id}`)
             .then(response => response.json())
             .then(data => setClub(data))
             .catch(err => console.log(err))
     }, [props.id]);
 
     useEffect(() => {
-        fetch(`http://localhost/api/results.php?clubid=${props.id}`)
+        fetch(`http://${props.site}/api/results.php?clubid=${props.id}`)
             .then(response => response.json())
             .then(data => setResults(data))
             .catch(err => console.log(err))
@@ -21,7 +21,7 @@ export default function Clubs(props) {
     return (
         <>
             <div className='club-info'>
-                <img src={`http://localhost/api/logos-big/${props.id}.png`} />
+                <img src={`http://${props.site}/api/logos-big/${props.id}.png`} />
                 <p>{club.team_name}</p>
                 <p>{club.team_city}</p>
                 <p>{club.kit_color}</p>
