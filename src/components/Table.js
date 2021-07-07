@@ -1,40 +1,47 @@
 import React, { useState, useEffect } from 'react';
+import Loader from './Loader';
 
 export default function Table(props) {
   const [table, setTable] = useState([]);
+  const [isLoaded, setLoaded] = useState(false);
 
   useEffect(() => {
     console.log('inside table useeffect');
     let url = fetch(`http://${props.site}/api/table.php?table=${props.year}`);
     url.then(response => response.json())
       .then(data => setTable(data))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
+    setLoaded(true);
   }, [props.year]);
 
-  return (
-    <table className='table'>
-      <tr>
-        <td>#</td>
-        <td>Tim</td>
-        <td>OS</td>
-        <td>P</td>
-        <td>N</td>
-        <td>I</td>
-        <td>G</td>
-        <td>B</td>
-      </tr>
-      {table.map((tab, index) => (
-        <tr key={tab.id}>
-          <td>{++index}.</td>
-          <td><img src={`http://${props.site}/api/logos/${tab.id}.png`} />{tab.team}</td>
-          <td>{tab.games_played}</td>
-          <td>{tab.games_won}</td>
-          <td>{tab.games_drew}</td>
-          <td>{tab.games_lost}</td>
-          <td>{tab.goals_scored}:{tab.goals_conceded}</td>
-          <td>{tab.points}</td>
+  if (!isLoaded) {
+    return <Loader />
+  } else {
+    return (
+      <table className='table'>
+        <tr>
+          <td>#</td>
+          <td>Tim</td>
+          <td>OS</td>
+          <td>P</td>
+          <td>N</td>
+          <td>I</td>
+          <td>G</td>
+          <td>B</td>
         </tr>
-      ))}
-    </table>
-  );
+        {table.map((tab, index) => (
+          <tr key={tab.id}>
+            <td>{++index}.</td>
+            <td><img src={`http://${props.site}/api/logos/${tab.id}.png`} />{tab.team}</td>
+            <td>{tab.games_played}</td>
+            <td>{tab.games_won}</td>
+            <td>{tab.games_drew}</td>
+            <td>{tab.games_lost}</td>
+            <td>{tab.goals_scored}:{tab.goals_conceded}</td>
+            <td>{tab.points}</td>
+          </tr>
+        ))}
+      </table>
+    )
+  }
 }
