@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/Table';
 import Result from '../components/Result';
+import Loader from '../components/Loader';
 
 
 export default function Home() {
   const site = document.location.hostname; console.log(site);
   const [year, setYear] = useState('table7&id1=5&id2=8&id3=9&id4=10');
   const [mDay, setMday] = useState('');
+  const [isLoaded, setLoaded] = useState(false);
   const youthInit = {
     gen7: 'result-hidden',
     gen8: 'result-hidden',
@@ -17,13 +19,16 @@ export default function Home() {
   const [youth, setYouth] = useState({ ...youthInit });
 
   useEffect(() => {
+    setYouth({ ...youthInit, gen7: 'result-shown' });
+
+  }, []);
+
+  useEffect(() => {
     fetch(`http://${site}/api/results.php?maxmday=true`)
       .then(response => response.json())
       .then(data => setMday(data))
       .catch(err => console.log(err));
   }, []);
-
-  useEffect(() => { setYouth({ ...youthInit, gen7: 'result-shown' }) }, []);
 
   const buttonSelection = (param) => {
     const siblings = param.target.parentNode.children;
@@ -64,7 +69,7 @@ export default function Home() {
       </div>
       <div className='content'>
         <Table year={year} site={site} />
-        {mDay ? <Result mDay={mDay} {...youth} site={site} /> : <p>asdasd</p>}
+        {mDay ? <Result mDay={mDay} {...youth} site={site} /> : <Loader />}
       </div>
     </>
   );
