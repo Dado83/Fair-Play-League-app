@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+
 export default function Archive(props) {
-    const [archive, setArchive] = useState([]);
-
-    useEffect(() => {
-        fetch(`http://${props.site}/api/archive.php?year=${props.year}`)
-            .then(response => response.json())
-            .then(data => setArchive(data))
-            .catch(err => console.log(err))
-    }, [props.year]);
-
     return (
         <div>
             <table className='ar-increase table archive'>
@@ -22,7 +14,7 @@ export default function Archive(props) {
                     <td>🏅</td>
                     <td>bod</td>
                 </tr>
-                {archive.map((arc, index) => (
+                {props.archive.map((arc, index) => (
                     <tr>
                         <td>{++index}.</td>
                         <td>{arc.team}</td>
