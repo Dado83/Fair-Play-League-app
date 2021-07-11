@@ -6,9 +6,13 @@ import Loader from '../components/Loader';
 
 export default function Home() {
   const site = document.location.hostname; console.log(site);
-  const [year, setYear] = useState('table7&id1=5&id2=8&id3=9&id4=10');
   const [mDay, setMday] = useState('');
-  const [isLoaded, setLoaded] = useState(false);
+  const [table7, setTable7] = useState([]);
+  const [table8, setTable8] = useState([]);
+  const [table9, setTable9] = useState([]);
+  const [table10, setTable10] = useState([]);
+  const [table11, setTable11] = useState([]);
+  const [table, setTable] = useState([]);
   const youthInit = {
     gen7: 'result-hidden',
     gen8: 'result-hidden',
@@ -20,8 +24,44 @@ export default function Home() {
 
   useEffect(() => {
     setYouth({ ...youthInit, gen7: 'result-shown' });
-
   }, []);
+
+  useEffect(() => {
+    let url = new Map();
+    url.set(7, `http://${site}/api/table.php?table=table7&id1=5&id2=8&id3=9&id4=10`);
+    url.set(8, `http://${site}/api/table.php?table=table8`);
+    url.set(9, `http://${site}/api/table.php?table=table9`);
+    url.set(10, `http://${site}/api/table.php?table=table10&id1=11`);
+    url.set(11, `http://${site}/api/table.php?table=table11&id1=4`);
+
+    fetch(url.get(7))
+      .then(response => response.json())
+      .then(data => {
+        setTable(data);
+        setTable7(data);
+      })
+      .catch(err => console.log(err));
+
+    fetch(url.get(8))
+      .then(response => response.json())
+      .then(data => setTable8(data))
+      .catch(err => console.log(err));
+
+    fetch(url.get(9))
+      .then(response => response.json())
+      .then(data => setTable9(data))
+      .catch(err => console.log(err));
+
+    fetch(url.get(10))
+      .then(response => response.json())
+      .then(data => setTable10(data))
+      .catch(err => console.log(err));
+
+    fetch(url.get(11))
+      .then(response => response.json())
+      .then(data => setTable11(data))
+      .catch(err => console.log(err));
+  }, [])
 
   useEffect(() => {
     fetch(`http://${site}/api/results.php?maxmday=true`)
@@ -42,33 +82,33 @@ export default function Home() {
     <>
       <div className='home-button'>
         <button className='button-selected' onClick={(e) => {
-          setYear('table7&id1=5&id2=8&id3=9&id4=10');
+          setTable(table7);
           setYouth({ ...youthInit, gen7: 'result-shown' });
           buttonSelection(e);
         }}>2007</button>
         <button className='button-default' onClick={(e) => {
-          setYear('table8');
+          setTable(table8);
           setYouth({ ...youthInit, gen8: 'result-shown' });
           buttonSelection(e);
         }}>2008</button>
         <button className='button-default' onClick={(e) => {
-          setYear('table9');
+          setTable(table9);
           setYouth({ ...youthInit, gen9: 'result-shown' });
           buttonSelection(e);
         }}>2009</button>
         <button className='button-default' onClick={(e) => {
-          setYear('table10&id1=11');
+          setTable(table10);
           setYouth({ ...youthInit, gen10: 'result-shown' });
           buttonSelection(e);
         }}>2010</button>
         <button className='button-default' onClick={(e) => {
-          setYear('table11&id1=4');
+          setTable(table11);
           setYouth({ ...youthInit, gen11: 'result-shown' });
           buttonSelection(e);
         }}>2011</button>
       </div>
       <div className='content'>
-        <Table year={year} site={site} />
+        {table.length != 0 ? <Table site={site} table={table} /> : <Loader />}
         {mDay ? <Result mDay={mDay} {...youth} site={site} /> : <Loader />}
       </div>
     </>
