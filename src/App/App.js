@@ -34,7 +34,7 @@ export default function App() {
         <Route path='/o-nama'><About /></Route>
         <Route path='/admin'><Admin /></Route>
         <Route path='/napravi-raspored'><TourMaker /></Route>
-        <Route path='*'><Err404 /></Route>
+        <Route ><Err404 /></Route>
       </Switch>
     </Router>
   );
