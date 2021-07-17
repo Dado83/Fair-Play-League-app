@@ -6,7 +6,7 @@ export default function Table(props) {
     <table className='table'>
       <tr>
         <td>#</td>
-        <td>Tim</td>
+        <td>{props.selection}. godište</td>
         <td>OS</td>
         <td>P</td>
         <td>N</td>

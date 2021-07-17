@@ -25,11 +25,11 @@ export default function Result(props) {
             <thead>
                 <tr>
                     <th>{props.mDay}. kolo</th>
-                    <th colSpan='3' className={props.gen7}>2007</th>
-                    <th colSpan='3' className={props.gen8}>2008</th>
-                    <th colSpan='3' className={props.gen9}>2009</th>
-                    <th colSpan='3' className={props.gen10}>2010</th>
-                    <th colSpan='3' className={props.gen11}>2011</th>
+                    <th colSpan='3' className={props.gen7}></th>
+                    <th colSpan='3' className={props.gen8}></th>
+                    <th colSpan='3' className={props.gen9}></th>
+                    <th colSpan='3' className={props.gen10}></th>
+                    <th colSpan='3' className={props.gen11}></th>
                     <th></th>
                 </tr>
             </thead>

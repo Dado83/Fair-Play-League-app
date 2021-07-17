@@ -13,6 +13,7 @@ export default function Home() {
   const [table10, setTable10] = useState([]);
   const [table11, setTable11] = useState([]);
   const [table, setTable] = useState([]);
+  const [selection, setSelection] = useState('');
   const youthInit = {
     gen7: 'result-hidden',
     gen8: 'result-hidden',
@@ -37,6 +38,7 @@ export default function Home() {
     fetch(url.get(7))
       .then(response => response.json())
       .then(data => {
+        setSelection('2007');
         setTable(data);
         setTable7(data);
       })
@@ -82,33 +84,38 @@ export default function Home() {
     <>
       <div className='home-button'>
         <button className='button-selected' onClick={(e) => {
+          setSelection('2007');
           setTable(table7);
           setYouth({ ...youthInit, gen7: 'result-shown' });
           buttonSelection(e);
         }}>2007</button>
         <button className='button-default' onClick={(e) => {
+          setSelection('2008');
           setTable(table8);
           setYouth({ ...youthInit, gen8: 'result-shown' });
           buttonSelection(e);
         }}>2008</button>
         <button className='button-default' onClick={(e) => {
+          setSelection('2009');
           setTable(table9);
           setYouth({ ...youthInit, gen9: 'result-shown' });
           buttonSelection(e);
         }}>2009</button>
         <button className='button-default' onClick={(e) => {
+          setSelection('2010');
           setTable(table10);
           setYouth({ ...youthInit, gen10: 'result-shown' });
           buttonSelection(e);
         }}>2010</button>
         <button className='button-default' onClick={(e) => {
+          setSelection('2011');
           setTable(table11);
           setYouth({ ...youthInit, gen11: 'result-shown' });
           buttonSelection(e);
         }}>2011</button>
       </div>
       <div className='content'>
-        {table.length != 0 ? <Table site={site} table={table} /> : <Loader />}
+        {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
         {mDay ? <Result mDay={mDay} {...youth} site={site} /> : <Loader />}
       </div>
     </>
