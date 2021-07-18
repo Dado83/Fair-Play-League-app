@@ -4,7 +4,7 @@ export default function PanelFixture(props) {
     const [fixture, setFixture] = useState([]);
 
     useEffect(() => {
-        fetch(`http://${props.site}/api/fixtures.php?mday=notPlayed`)
+        fetch(`http://${props.site}/api/fixtures.php?notPlayed=notPlayed&mday=${props.mDay}`)
             .then(response => response.json())
             .then(data => setFixture(data))
             .catch(err => console.log(err))
@@ -14,19 +14,19 @@ export default function PanelFixture(props) {
         <table className='fixture'>
             <thead>
                 <tr>
-                    <th colSpan='3'>{props.mDay}. kolo <span>{fixture[0]?.game_date}</span></th>
+                    <th>{fixture[0]?.m_day}<span>{fixture[0]?.game_date}</span></th>
                 </tr>
             </thead>
             <tbody>
                 {fixture.map(fix => (
                     <tr key={fix.id}>
-                        <td>{fix.home_club}<img src={`http://${props.site}/api/logos/${fix.home_team}.png`} /></td>
+                        <td>{fix.home}{fix.home_team}</td>
                         <td>-</td>
-                        <td><img src={`http://${props.site}/api/logos/${fix.away_team}.png`} />{fix.away_club}</td>
+                        <td>{fix.away}{fix.away_team}</td>
                         <button>unesi</button>
                     </tr>
                 ))}
             </tbody>
-        </table>
+        </table >
     );
 }

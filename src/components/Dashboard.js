@@ -20,8 +20,8 @@ export default function Dashboard(props) {
     }
 
     let fixtures = [];
-    for (let i = 1; i <= mDay; i++) {
-        fixtures[i] = <PanelFixture key={i} site={site} />
+    for (let i = 1; i <= 11; i++) {
+        fixtures[i] = <PanelFixture key={i} site={site} mDay={i} />
     }
 
     return (
@@ -32,6 +32,7 @@ export default function Dashboard(props) {
                     res)}
                 <p>Raspored:</p>
                 {fixtures.map(fix => fix)}
+                {/* <PanelFixture site={site} /> */}
             </div>
         </>
     )
