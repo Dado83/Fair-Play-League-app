@@ -32,7 +32,6 @@ export default function Dashboard(props) {
                     res)}
                 <p>Raspored:</p>
                 {fixtures.map(fix => fix)}
-                {/* <PanelFixture site={site} /> */}
             </div>
         </>
     )

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function PanelFixture(props) {
     const [fixture, setFixture] = useState([]);
@@ -10,11 +11,16 @@ export default function PanelFixture(props) {
             .catch(err => console.log(err))
     }, [props.mDay]);
 
+    useEffect(() => {
+        let table = document.querySelector('.fixture tbody');
+        console.log(table.innerHTML);
+    })
+
     return (
         <table className='fixture'>
             <thead>
                 <tr>
-                    <th>{fixture[0]?.m_day}<span>{fixture[0]?.game_date}</span></th>
+                    <th colSpan='4'>{fixture[0]?.m_day}<span>{fixture[0]?.game_date}</span></th>
                 </tr>
             </thead>
             <tbody>
@@ -23,10 +29,10 @@ export default function PanelFixture(props) {
                         <td>{fix.home}{fix.home_team}</td>
                         <td>-</td>
                         <td>{fix.away}{fix.away_team}</td>
-                        <button>unesi</button>
+                        <button><Link to='/input'>unesi</Link></button>
                     </tr>
                 ))}
             </tbody>
-        </table >
+        </table>
     );
 }

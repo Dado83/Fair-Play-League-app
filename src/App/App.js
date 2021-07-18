@@ -11,6 +11,7 @@ import Admin from './Admin';
 import TourMaker from './TourMaker';
 import Err404 from './Err404';
 import { useEffect } from 'react';
+import GameInput from '../components/GameInput';
 
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         <Route path='/arhiva'><Archives /></Route>
         <Route path='/o-nama'><About /></Route>
         <Route path='/admin'><Admin /></Route>
+        <Route path='/input'><GameInput /></Route>
         <Route path='/napravi-raspored'><TourMaker /></Route>
         <Route ><Err404 /></Route>
       </Switch>
