@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 
 export default function GameInput(props) {
-
+    const game = useLocation();
+    const { mday, id, homeID, homeTeam, awayID, awayTeam } = game.state;
     useEffect(() => {
         fetch()
             .then()
@@ -14,13 +17,13 @@ export default function GameInput(props) {
         <div class="game-input">
             <form>
                 <fieldset>
-                    <legend>Unos rezultata {props.mday}. kola</legend>
+                    <legend>Unos rezultata {mday}. kola</legend>
                     <table>
                         <tr>
                             <th>
                                 godište
-                                <input type="hidden" name="mday" value={props.mday} />
-                                <input type="hidden" name="id" value={props.id} />
+                                <input type="hidden" name="mday" value={mday} />
+                                <input type="hidden" name="id" value={id} />
                             </th>
                             <th>
                                 domaćin
@@ -34,17 +37,17 @@ export default function GameInput(props) {
 
                             </td>
                             <td>
-                                {props.home}
-                                <input type="hidden" name="homeID" value={props.home_team} />
-                                <input type="hidden" name="home" value={props.home} />
+                                {homeTeam}
+                                <input type="hidden" name="homeID" value={homeID} />
+                                <input type="hidden" name="home" value={homeTeam} />
                             </td>
                             <td>
-                                {props.away}
-                                <input type="hidden" name="awayID" value={props.away_team} />
-                                <input type="hidden" name="away" value={props.away} />
+                                {awayTeam}
+                                <input type="hidden" name="awayID" value={awayID} />
+                                <input type="hidden" name="away" value={awayTeam} />
                             </td>
                         </tr>
-                        {(props.home_team == 4 || props.away_team == 4) ?
+                        {(homeID == 4 || awayID == 4) ?
                             <tr class="game-input__row">
                                 <td>
                                     2011
@@ -70,7 +73,7 @@ export default function GameInput(props) {
                             </tr>
                         }
 
-                        {(props.home_team == 11 || props.away_team == 11) ?
+                        {(homeID == 11 || awayID == 11) ?
                             <tr class="game-input__row">
                                 <td class="game-input__sel">
                                     2010
@@ -117,10 +120,10 @@ export default function GameInput(props) {
                                 <input type="number" name="away8" value="0" />
                             </td>
                         </tr>
-                        {((props.home_team == 5 || props.away_team == 5)
-                            || (props.home_team == 8 || props.away_team == 8)
-                            || (props.home_team == 9 || props.away_team == 9)
-                            || (props.home_team == 10 || props.away_team == 10)) ?
+                        {((homeID == 5 || awayID == 5)
+                            || (homeID == 8 || awayID == 8)
+                            || (homeID == 9 || awayID == 9)
+                            || (homeID == 10 || awayID == 10)) ?
                             <tr class="game-input__row">
                                 <td class="game-input__sel">
                                     2007
