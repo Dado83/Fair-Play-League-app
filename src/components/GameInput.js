@@ -5,17 +5,41 @@ import { useLocation } from 'react-router-dom';
 export default function GameInput(props) {
     const game = useLocation();
     const { mday, id, homeID, homeTeam, awayID, awayTeam } = game.state;
-    useEffect(() => {
+    /* useEffect(() => {
         fetch()
             .then()
             .then()
             .catch(err => console.log(err));
-    }, []);
+    }, []); */
 
+    const [values, setValues] = useState({
+        home11: 0, away11: 0,
+        home10: 0, away10: 0,
+        home9: 0, away9: 0,
+        home8: 0, away8: 0,
+        home7: 0, away7: 0
+    });
+
+
+    const onChange = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        setValues({
+            ...values,
+            [name]: value
+        })
+    }
+
+    const submit = (e) => {
+        e.preventDefault();
+        console.log(values);
+    }
 
     return (
         <div class="game-input">
-            <form>
+            <form onSubmit={submit}>
                 <fieldset>
                     <legend>Unos rezultata {mday}. kola</legend>
                     <table>
@@ -65,10 +89,10 @@ export default function GameInput(props) {
                                     2011
                                 </td>
                                 <td>
-                                    <input type="number" name="home11" value="0" />
+                                    <input type="number" name="home11" value={values.home11} onChange={(e) => onChange(e)} />
                                 </td>
                                 <td>
-                                    <input type="number" name="away11" value="0" />
+                                    <input type="number" name="away11" value={values.away11} onChange={(e) => onChange(e)} />
                                 </td>
                             </tr>
                         }
@@ -91,10 +115,10 @@ export default function GameInput(props) {
                                     2010
                                 </td>
                                 <td>
-                                    <input type="number" name="home10" value="0" />
+                                    <input type="number" name="home10" value={values.home10} onChange={(e) => onChange(e)} />
                                 </td>
                                 <td>
-                                    <input type="number" name="away10" value="0" />
+                                    <input type="number" name="away10" value={values.away10} onChange={(e) => onChange(e)} />
                                 </td>
                             </tr>
                         }
@@ -103,10 +127,10 @@ export default function GameInput(props) {
                                 2009
                             </td>
                             <td>
-                                <input type="number" name="home9" value="0" />
+                                <input type="number" name="home9" value={values.home9} onChange={(e) => onChange(e)} />
                             </td>
                             <td>
-                                <input type="number" name="away9" value="0" />
+                                <input type="number" name="away9" value={values.away9} onChange={(e) => onChange(e)} />
                             </td>
                         </tr>
                         <tr class="game-input__row">
@@ -114,10 +138,10 @@ export default function GameInput(props) {
                                 2008
                             </td>
                             <td>
-                                <input type="number" name="home8" value="0" />
+                                <input type="number" name="home8" value={values.home8} onChange={(e) => onChange(e)} />
                             </td>
                             <td>
-                                <input type="number" name="away8" value="0" />
+                                <input type="number" name="away8" value={values.away8} onChange={(e) => onChange(e)} />
                             </td>
                         </tr>
                         {((homeID == 5 || awayID == 5)
@@ -141,10 +165,10 @@ export default function GameInput(props) {
                                     2007
                                 </td>
                                 <td>
-                                    <input type="number" name="home7" value="0" />
+                                    <input type="number" name="home7" value={values.home7} onChange={(e) => onChange(e)} />
                                 </td>
                                 <td>
-                                    <input type="number" name="away7" value="0" />
+                                    <input type="number" name="away7" value={values.away7} onChange={(e) => onChange(e)} />
                                 </td>
                             </tr>
                         }
