@@ -8,14 +8,14 @@ export default function Admin(props) {
   const [user, setUser] = useState('');
 
   const handleChange = (param) => {
-    setUser(param);
+    setUser(user => param);
   }
 
   if (sessionStorage.getItem('role') != 'admin') {
     return (
       <div className='content'>
         <h2>Panel: {user}</h2>
-        <Login onChange={handleChange} site={site} />
+        <Login onRoleChange={handleChange} site={site} />
       </div>
     );
   }
@@ -24,7 +24,7 @@ export default function Admin(props) {
     <div className='content'>
       <h2>Panel: {user}</h2>
       <button onClick={() => {
-        setUser(sessionStorage.removeItem('role'))
+        setUser(user => sessionStorage.removeItem('role'))
       }}>logout</button>
       <Dashboard />
     </div>

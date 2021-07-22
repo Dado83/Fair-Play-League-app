@@ -85,32 +85,32 @@ export default function Home() {
       <div className='home-button'>
         <button className='button-selected' onClick={(e) => {
           setSelection('2007');
-          setTable(table7);
-          setYouth({ ...youthInit, gen7: 'result-shown' });
+          setTable(prevState => table7);
+          setYouth(prevState => ({ ...youthInit, gen7: 'result-shown' }));
           buttonSelection(e);
         }}>2007</button>
         <button className='button-default' onClick={(e) => {
           setSelection('2008');
-          setTable(table8);
-          setYouth({ ...youthInit, gen8: 'result-shown' });
+          setTable(prevState => table8);
+          setYouth(prevState => ({ ...youthInit, gen8: 'result-shown' }));
           buttonSelection(e);
         }}>2008</button>
         <button className='button-default' onClick={(e) => {
           setSelection('2009');
-          setTable(table9);
-          setYouth({ ...youthInit, gen9: 'result-shown' });
+          setTable(prevState => table9);
+          setYouth(prevState => ({ ...youthInit, gen9: 'result-shown' }));
           buttonSelection(e);
         }}>2009</button>
         <button className='button-default' onClick={(e) => {
           setSelection('2010');
-          setTable(table10);
-          setYouth({ ...youthInit, gen10: 'result-shown' });
+          setTable(prevState => table10);
+          setYouth(prevState => ({ ...youthInit, gen10: 'result-shown' }));
           buttonSelection(e);
         }}>2010</button>
         <button className='button-default' onClick={(e) => {
           setSelection('2011');
-          setTable(table11);
-          setYouth({ ...youthInit, gen11: 'result-shown' });
+          setTable(prevState => table11);
+          setYouth(prevState => ({ ...youthInit, gen11: 'result-shown' }));
           buttonSelection(e);
         }}>2011</button>
       </div>

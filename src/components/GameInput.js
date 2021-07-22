@@ -19,17 +19,17 @@ export default function GameInput(props) {
         home8: 0, away8: 0,
         home7: 0, away7: 0
     });
-
+    //da li ubaciti i ovdje provjeru da li godiste nastupa???
 
     const onChange = (event) => {
         const target = event.target;
         const value = target.value;
         const name = target.name;
 
-        setValues({
-            ...values,
+        setValues(prevState => ({
+            ...prevState,
             [name]: value
-        })
+        }))
     }
 
     const submit = (e) => {

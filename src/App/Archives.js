@@ -83,31 +83,31 @@ export default function Archives() {
     <>
       <div className='home-button'>
         <button className='button-selected' onClick={(e) => {
-          setArchive(archive14_15);
+          setArchive(prevState => archive14_15);
           buttonSelection(e);
         }}>14/15</button>
         <button className='button-default' onClick={(e) => {
-          setArchive(archive15_16);
+          setArchive(prevState => archive15_16);
           buttonSelection(e);
         }}>15/16</button>
         <button className='button-default' onClick={(e) => {
-          setArchive(archive16_17);
+          setArchive(prevState => archive16_17);
           buttonSelection(e);
         }}>16/17</button>
         <button className='button-default' onClick={(e) => {
-          setArchive(archive17_18);
+          setArchive(prevState => archive17_18);
           buttonSelection(e);
         }}>17/18</button>
         <button className='button-default' onClick={(e) => {
-          setArchive(archive18_19);
+          setArchive(prevState => archive18_19);
           buttonSelection(e);
         }}>18/19</button>
         <button className='button-default' onClick={(e) => {
-          setArchive(archive19_20);
+          setArchive(prevState => archive19_20);
           buttonSelection(e);
         }}>19/20</button>
         <button className='button-default' onClick={(e) => {
-          setArchive(archive20_21);
+          setArchive(prevState => archive20_21);
           buttonSelection(e);
         }}>20/21</button>
       </div>
