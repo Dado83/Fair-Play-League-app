@@ -31,7 +31,7 @@ export default function Login(props) {
                     console.log(role);
                     console.log('Success: ', data);
                     sessionStorage.setItem('role', role);
-                    props.onChange(role);
+                    props.onRoleChange(role);
                     console.log('sess role: ', sessionStorage.getItem('role'))
                     if (role == 'not-admin') {
                         setError('netacna lozinka');
