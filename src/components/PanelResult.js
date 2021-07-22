@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function PanelResult(props) {
     const [result, setResult] = useState([]);
-    const [info, setInfo] = useState('');
+    const [info, setInfo] = useState([]);
 
     useEffect(() => {
         let mounted = true;
@@ -29,6 +29,7 @@ export default function PanelResult(props) {
             .then(response => response.json())
             .then(data => setInfo(data))
             .catch(err => console.log(err));
+        window.location.reload();// to be changed to something more react appropriate :)
     }
 
     return (
