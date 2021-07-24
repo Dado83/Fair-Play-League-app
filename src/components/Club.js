@@ -7,14 +7,14 @@ export default function Clubs(props) {
     useEffect(() => {
         fetch(`http://${props.site}/api/teams.php?id=${props.id}`)
             .then(response => response.json())
-            .then(data => setClub(data))
+            .then(data => setClub(prevState => data))
             .catch(err => console.log(err))
     }, [props.id]);
 
     useEffect(() => {
         fetch(`http://${props.site}/api/results.php?clubid=${props.id}`)
             .then(response => response.json())
-            .then(data => setResults(data))
+            .then(data => setResults(prevState => data))
             .catch(err => console.log(err))
     }, [props.id]);
 

@@ -35,39 +35,39 @@ export default function Archives() {
     fetch(urls.get(archive14_15))
       .then(response => response.json())
       .then(data => {
-        setArchive(data);
-        setArchive14_15(data);
+        setArchive(prevState => data);
+        setArchive14_15(prevState => data);
       })
       .catch(err => console.log(err))
 
     fetch(urls.get(archive15_16))
       .then(response => response.json())
-      .then(data => setArchive15_16(data))
+      .then(data => setArchive15_16(prevState => data))
       .catch(err => console.log(err))
 
     fetch(urls.get(archive16_17))
       .then(response => response.json())
-      .then(data => setArchive16_17(data))
+      .then(data => setArchive16_17(prevState => data))
       .catch(err => console.log(err))
 
     fetch(urls.get(archive17_18))
       .then(response => response.json())
-      .then(data => setArchive17_18(data))
+      .then(data => setArchive17_18(prevState => data))
       .catch(err => console.log(err))
 
     fetch(urls.get(archive18_19))
       .then(response => response.json())
-      .then(data => setArchive18_19(data))
+      .then(data => setArchive18_19(prevState => data))
       .catch(err => console.log(err))
 
     fetch(urls.get(archive19_20))
       .then(response => response.json())
-      .then(data => setArchive19_20(data))
+      .then(data => setArchive19_20(prevState => data))
       .catch(err => console.log(err))
 
     fetch(urls.get(archive20_21))
       .then(response => response.json())
-      .then(data => setArchive20_21(data))
+      .then(data => setArchive20_21(prevState => data))
       .catch(err => console.log(err))
   }, []);
 

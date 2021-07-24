@@ -11,7 +11,7 @@ export default function PanelResult(props) {
             .then(response => response.json())
             .then(data => {
                 if (mounted) {
-                    setResult(data);
+                    setResult(prevState => data);
                 }
             })
             .catch(err => console.log(err));
@@ -27,7 +27,7 @@ export default function PanelResult(props) {
         console.log(gameID);
         fetch(`http://${props.site}/api/game.php?game=delete&gameID=${gameID}`)
             .then(response => response.json())
-            .then(data => setInfo(data))
+            .then(data => setInfo(prevState => data))
             .catch(err => console.log(err));
         window.location.reload();// to be changed to something more react appropriate :)
     }

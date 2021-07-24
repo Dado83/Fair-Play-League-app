@@ -12,7 +12,7 @@ export default function Login(props) {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                setUsers(data);
+                setUsers(prevState => data);
                 console.log(users.role);
             })
             .catch(error => console.log(error));
@@ -21,7 +21,7 @@ export default function Login(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (userName !== 'admin') {
-            setError('korisnik ne postoji');
+            setError(prevState => 'korisnik ne postoji');
         } else {
             console.log(' admin: ', userName)
             fetch(`http://${props.site}/api/users.php?user=${userName}&pass=${password}`)
@@ -34,7 +34,7 @@ export default function Login(props) {
                     props.onRoleChange(role);
                     console.log('sess role: ', sessionStorage.getItem('role'))
                     if (role == 'not-admin') {
-                        setError('netacna lozinka');
+                        setError(prevState => 'netacna lozinka');
                     }
                 })
                 .catch((error) => {

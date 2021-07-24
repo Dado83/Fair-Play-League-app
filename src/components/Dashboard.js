@@ -10,7 +10,7 @@ export default function Dashboard(props) {
     useEffect(() => {
         fetch(`http://${site}/api/results.php?maxmday=true`)
             .then(response => response.json())
-            .then(data => setMday(data))
+            .then(data => setMday(prevState => data))
             .catch(err => console.log(err));
     }, []);
 

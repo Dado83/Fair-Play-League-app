@@ -10,7 +10,7 @@ export default function Result(props) {
             .then(response => response.json())
             .then(data => {
                 if (mounted) {
-                    setResult(data);
+                    setResult(prevState => data);
                 }
             })
             .catch(err => console.log(err));
@@ -26,7 +26,7 @@ export default function Result(props) {
             .then(response => response.json())
             .then(data => {
                 if (mounted) {
-                    setGameDate(data);
+                    setGameDate(prevState => data);
                 }
             })
             .catch(err => console.log(err));

@@ -7,7 +7,7 @@ export default function PanelFixture(props) {
     useEffect(() => {
         fetch(`http://${props.site}/api/fixtures.php?notPlayed=notPlayed&mday=${props.mDay}`)
             .then(response => response.json())
-            .then(data => setFixture(data))
+            .then(data => setFixture(prevState => data))
             .catch(err => console.log(err))
     }, [props.mDay]);
 

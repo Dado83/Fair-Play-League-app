@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Fixture from '../components/Fixture';
 import Table from '../components/Table';
 import Result from '../components/Result';
 import Loader from '../components/Loader';
@@ -6,7 +7,8 @@ import Loader from '../components/Loader';
 
 export default function Home() {
   const site = document.location.hostname; console.log(site);
-  const [mDay, setMday] = useState('');
+  const [nextMday, setNextMday] = useState('');
+  const [prevRes, setprevRes] = useState('');
   const [table7, setTable7] = useState([]);
   const [table8, setTable8] = useState([]);
   const [table9, setTable9] = useState([]);
@@ -39,36 +41,41 @@ export default function Home() {
       .then(response => response.json())
       .then(data => {
         setSelection('2007');
-        setTable(data);
-        setTable7(data);
+        setTable(prevState => data);
+        setTable7(prevState => data);
       })
       .catch(err => console.log(err));
 
     fetch(url.get(8))
       .then(response => response.json())
-      .then(data => setTable8(data))
+      .then(data => setTable8(prevState => data))
       .catch(err => console.log(err));
 
     fetch(url.get(9))
       .then(response => response.json())
-      .then(data => setTable9(data))
+      .then(data => setTable9(prevState => data))
       .catch(err => console.log(err));
 
     fetch(url.get(10))
       .then(response => response.json())
-      .then(data => setTable10(data))
+      .then(data => setTable10(prevState => data))
       .catch(err => console.log(err));
 
     fetch(url.get(11))
       .then(response => response.json())
-      .then(data => setTable11(data))
+      .then(data => setTable11(prevState => data))
       .catch(err => console.log(err));
-  }, [])
+  }, []);
 
   useEffect(() => {
-    fetch(`http://${site}/api/results.php?maxmday=true`)
+    fetch(`http://${site}/api/results.php?prevres=prevres`)
       .then(response => response.json())
-      .then(data => setMday(data))
+      .then(data => setprevRes(prevState => data))
+      .catch(err => console.log(err));
+
+    fetch(`http://${site}/api/results.php?nextfix=nextfix`)
+      .then(response => response.json())
+      .then(data => setNextMday(prevState => data))
       .catch(err => console.log(err));
   }, []);
 
@@ -82,6 +89,7 @@ export default function Home() {
 
   return (
     <>
+      {nextMday ? <Fixture site={site} mDay={nextMday} /> : ''}
       <div className='home-button'>
         <button className='button-selected' onClick={(e) => {
           setSelection('2007');
@@ -116,7 +124,7 @@ export default function Home() {
       </div>
       <div className='content'>
         {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
-        {mDay ? <Result mDay={mDay} {...youth} site={site} /> : <Loader />}
+        {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : <Loader />}
       </div>
     </>
   );
