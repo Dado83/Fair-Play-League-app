@@ -89,7 +89,6 @@ export default function Home() {
 
   return (
     <>
-      {nextMday ? <Fixture site={site} mDay={nextMday} /> : ''}
       <div className='home-button'>
         <button className='button-selected' onClick={(e) => {
           setSelection('2007');
@@ -125,6 +124,7 @@ export default function Home() {
       <div className='content'>
         {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
         {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : <Loader />}
+        {nextMday ? <Fixture site={site} mDay={nextMday} /> : ''}
       </div>
     </>
   );
