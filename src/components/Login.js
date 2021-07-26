@@ -7,39 +7,35 @@ export default function Login(props) {
     const [users, setUsers] = useState({});
     const [error, setError] = useState('');
 
-    useEffect(() => {
-        fetch(`http://${props.site}/api/users.php`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                setUsers(prevState => data);
-                console.log(users.role);
-            })
-            .catch(error => console.log(error));
-    }, [userName]);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (userName !== 'admin') {
             setError(prevState => 'korisnik ne postoji');
         } else {
-            console.log(' admin: ', userName)
-            fetch(`http://${props.site}/api/users.php?user=${userName}&pass=${password}`)
+            const credentials = {
+                user: userName,
+                pass: password,
+            };
+            const reqOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                },
+                body: JSON.stringify(credentials)
+            };
+            fetch(`http://${props.site}/api/users.php`, reqOptions)
                 .then(response => response.json())
                 .then(data => {
                     let role = data;
-                    console.log(role);
-                    console.log('Success: ', data);
                     sessionStorage.setItem('role', role);
                     props.onRoleChange(role);
-                    console.log('sess role: ', sessionStorage.getItem('role'))
+                    console.log('sess role --->', sessionStorage.getItem('role'));
                     if (role == 'not-admin') {
-                        setError(prevState => 'netacna lozinka');
+                        setError(prevState => 'netacna lozinka po novom');
                     }
                 })
-                .catch((error) => {
-                    console.log('Error: ', error)
-                });
+                .catch(err => console.log('err new ---> ', err));
         }
     }
 
