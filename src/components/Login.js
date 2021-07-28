@@ -30,12 +30,12 @@ export default function Login(props) {
                     let role = data;
                     sessionStorage.setItem('role', role);
                     props.onRoleChange(role);
-                    console.log('sess role --->', sessionStorage.getItem('role'));
+                    console.log('sess role: ', sessionStorage.getItem('role'));
                     if (role == 'not-admin') {
-                        setError(prevState => 'netacna lozinka po novom');
+                        setError(prevState => 'netacna lozinka');
                     }
                 })
-                .catch(err => console.log('err new ---> ', err));
+                .catch(err => console.log('error: ', err));
         }
     }
 
