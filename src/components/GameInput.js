@@ -3,14 +3,9 @@ import { useLocation } from 'react-router-dom';
 
 
 export default function GameInput(props) {
+    const site = document.location.hostname;
     const game = useLocation();
     const { mday, id, homeID, homeTeam, awayID, awayTeam } = game.state;
-    /* useEffect(() => {
-        fetch()
-            .then()
-            .then()
-            .catch(err => console.log(err));
-    }, []); */
 
     let no7 = ((homeID == 5 || awayID == 5)
         || (homeID == 8 || awayID == 8)
@@ -58,7 +53,29 @@ export default function GameInput(props) {
 
     const submit = (e) => {
         e.preventDefault();
-        console.log(values);
+        let gameData = {
+            id: id,
+            mday: mday,
+            home: homeTeam,
+            homeID: homeID,
+            away: awayTeam,
+            awayID: awayID
+        };
+        let formDataToSubmit = { ...gameData, ...values };
+        console.log(formDataToSubmit);
+
+        const $reqOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify(formDataToSubmit)
+        };
+        fetch(`http://${site}/api/game.php`, $reqOptions)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
     };
 
     return (
