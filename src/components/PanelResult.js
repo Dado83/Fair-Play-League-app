@@ -22,14 +22,17 @@ export default function PanelResult(props) {
     }, [props.mDay]);
 
     const deleteGame = (id) => {
-        console.log(id);
-        let gameID = JSON.parse(id);
-        console.log(gameID);
-        fetch(`http://${props.site}/api/game.php?game=delete&gameID=${gameID}`)
-            .then(response => response.json())
-            .then(data => setInfo(prevState => data))
-            .catch(err => console.log(err));
-        window.location.reload();// to be changed to something more react appropriate :)
+        let ok = window.confirm('Brisem rezultat?');
+        if (ok) {
+            console.log(id);
+            let gameID = JSON.parse(id);
+            console.log(gameID);
+            fetch(`http://${props.site}/api/game.php?game=delete&gameID=${gameID}`)
+                .then(response => response.json())
+                .then(data => setInfo(prevState => data))
+                .catch(err => console.log(err));
+            window.location.reload();// to be changed to something more react appropriate :)
+        }
     }
 
     return (
