@@ -198,7 +198,7 @@ ODAVDE CE DA IDE SCSS
 }
 
 /* fixture */
-.fixture {
+@mixin fixture {
   box-shadow: 0 0 0.1em $color3;
   font-size: 0.9em;
 
@@ -210,6 +210,10 @@ ODAVDE CE DA IDE SCSS
       float: right;
     }
   }
+}
+
+.fixture {
+  @include fixture;
 
   td:nth-of-type(1),
   td:nth-of-type(3) {
@@ -229,11 +233,34 @@ ODAVDE CE DA IDE SCSS
   }
 }
 
+.fixture-panel {
+  @include fixture;
+
+  td:nth-of-type(2) {
+    text-align: right;
+    width: 38%;
+  }
+
+  td:nth-of-type(3) {
+    text-align: center;
+    width: 2%;
+
+    td:nth-of-type(4) {
+      width: 52%;
+    }
+  }
+
+  button {
+    float: right;
+  }
+}
+
 /* result */
 .result {
   box-shadow: 0 0 0.1em $color3;
   font-size: 0.9em;
   border-collapse: collapse;
+
 
   thead {
     background: $color1;
@@ -245,6 +272,16 @@ ODAVDE CE DA IDE SCSS
 
   td:nth-of-type(1) {
     text-align: right;
+    width: 45%;
+  }
+
+  td:nth-of-type(2) {
+    width: 2%;
+    text-align: center;
+  }
+
+  td:nth-of-type(3) {
+    width: 45%;
   }
 
   img {
