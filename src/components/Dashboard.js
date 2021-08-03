@@ -19,19 +19,13 @@ export default function Dashboard(props) {
         results[i] = <PanelResult key={i} mDay={i} site={site} />
     }
 
-    let fixtures = [];
-    for (let i = 1; i <= 11; i++) {
-        fixtures[i] = <PanelFixture key={i} site={site} mDay={i} />
-    }
-
     return (
         <>
             <div className='content'>
                 <p>Rezultati:</p>
                 {results.map(res =>
                     res)}
-                <p>Raspored:</p>
-                {fixtures.map(fix => fix)}
+                <PanelFixture site={site} />
             </div>
         </>
     )
