@@ -256,6 +256,23 @@ ODAVDE CE DA IDE SCSS
 }
 
 /* result */
+@mixin res {
+  width: 45%;
+}
+
+.result-home {
+  @include res;
+  text-align: right;
+}
+
+.result-score {
+  width: 2%
+}
+
+.result-away {
+  @include res;
+}
+
 .result {
   box-shadow: 0 0 0.1em $color3;
   font-size: 0.9em;
@@ -270,19 +287,19 @@ ODAVDE CE DA IDE SCSS
     text-align: left;
   }
 
-  td:nth-of-type(1) {
-    text-align: right;
-    width: 45%;
-  }
+  /* td:nth-of-type(1) {
+  text-align: right;
+  width: 45%;
+}
 
-  td:nth-of-type(2) {
-    width: 2%;
-    text-align: center;
-  }
+td:nth-of-type(2) {
+  width: 2%;
+  text-align: center;
+}
 
-  td:nth-of-type(3) {
-    width: 45%;
-  }
+td:nth-of-type(3) {
+  width: 45%;
+} */
 
   img {
     @include club-logo;

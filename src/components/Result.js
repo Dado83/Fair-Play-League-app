@@ -36,7 +36,7 @@ export default function Result(props) {
             <tbody>
                 {result.map(res => (
                     <tr key={res.id}>
-                        <td>{res.home_name}<img src={`http://${props.site}/api/logos/${res.home_id}.png`} /></td>
+                        <td className='result-home'>{res.home_name}<img src={`http://${props.site}/api/logos/${res.home_id}.png`} /></td>
                         <td className={props.gen7}>{res.goals_home7 != -1 ? res.goals_home7 : '*'}</td>
                         <td className={props.gen7}>-</td>
                         <td className={props.gen7}>{res.goals_away7 != -1 ? res.goals_away7 : '*'}</td>
@@ -52,7 +52,7 @@ export default function Result(props) {
                         <td className={props.gen11}>{res.goals_home11 != -1 ? res.goals_home11 : '*'}</td>
                         <td className={props.gen11}>-</td>
                         <td className={props.gen11}>{res.goals_away11 != -1 ? res.goals_away11 : '*'}</td>
-                        <td><img src={`http://${props.site}/api/logos/${res.away_id}.png`} />{res.away_name}</td>
+                        <td className='result-away'><img src={`http://${props.site}/api/logos/${res.away_id}.png`} />{res.away_name}</td>
                     </tr>
                 ))}
             </tbody>

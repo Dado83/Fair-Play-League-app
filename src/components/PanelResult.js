@@ -45,9 +45,9 @@ export default function PanelResult(props) {
             <tbody>
                 {result.map(res => (
                     <tr key={res.id}>
-                        <td>{res.home_name}<img src={`http://${props.site}/api/logos/${res.home_id}.png`} /></td>
-                        <td>-</td>
-                        <td><img src={`http://${props.site}/api/logos/${res.away_id}.png`} />{res.away_name}</td>
+                        <td className='result-home'>{res.home_name}<img src={`http://${props.site}/api/logos/${res.home_id}.png`} /></td>
+                        <td className='result-score'></td>
+                        <td className='result-away'><img src={`http://${props.site}/api/logos/${res.away_id}.png`} />{res.away_name}</td>
                         <button onClick={() => deleteGame(res.id)}>Brisi</button>
                     </tr>
                 ))}
