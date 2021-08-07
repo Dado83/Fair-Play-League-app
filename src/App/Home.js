@@ -123,7 +123,7 @@ export default function Home() {
       </div>
       <div className='content'>
         {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
-        {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : <Loader />}
+        {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : ''}
         {nextMday ? <Fixture site={site} mDay={nextMday} /> : ''}
       </div>
     </>
