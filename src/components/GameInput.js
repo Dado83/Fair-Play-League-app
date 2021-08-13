@@ -1,11 +1,13 @@
+import { render } from '@testing-library/react';
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Redirect } from 'react-router-dom';
 
 
 export default function GameInput(props) {
     const site = document.location.hostname;
     const game = useLocation();
     const { mday, id, homeID, homeTeam, awayID, awayTeam } = game.state;
+    const [gameInput, setGameInput] = useState(false);
 
     let no7 = ((homeID == 5 || awayID == 5)
         || (homeID == 8 || awayID == 8)
@@ -76,7 +78,16 @@ export default function GameInput(props) {
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(err => console.log(err));
+        console.log('redirect');
+
+        setGameInput(true);
     };
+
+    if (gameInput) {
+        return (
+            <Redirect to='/admin' />
+        )
+    }
 
     return (
         <div class="game-input">
