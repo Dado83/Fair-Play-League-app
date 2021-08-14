@@ -14,7 +14,7 @@ export default function Admin(props) {
   if (sessionStorage.getItem('role') != 'admin') {
     return (
       <div className='content'>
-        <h2>Panel: {user}</h2>
+        <h2>Panel</h2>
         <Login onRoleChange={handleChange} site={site} />
       </div>
     );
@@ -22,7 +22,7 @@ export default function Admin(props) {
 
   return (
     <>
-      <h2>Panel: {user}
+      <h2>Panel
         <button style={{ float: 'right' }} onClick={() => {
           setUser(user => sessionStorage.removeItem('role'))
         }}>logout</button></h2>
