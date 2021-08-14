@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
 import React, { useState, useEffect } from 'react';
-import { useLocation, Redirect } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 export default function GameInput(props) {
@@ -79,15 +78,8 @@ export default function GameInput(props) {
             .then(data => console.log(data))
             .catch(err => console.log(err));
         console.log('redirect');
-
-        setGameInput(true);
+        window.location.replace('/admin');
     };
-
-    if (gameInput) {
-        return (
-            <Redirect to='/admin' />
-        )
-    }
 
     return (
         <div class="game-input">
