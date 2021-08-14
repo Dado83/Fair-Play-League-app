@@ -22,7 +22,6 @@ export default function Dashboard(props) {
     return (
         <>
             <div className='content'>
-                <p>Rezultati:</p>
                 {results.map(res =>
                     res)}
                 <PanelFixture site={site} />

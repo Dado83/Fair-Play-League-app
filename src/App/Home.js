@@ -77,7 +77,7 @@ export default function Home() {
     fetch(`http://${site}/api/results.php?nextfix=nextfix`)
       .then(response => response.json())
       .then(data => {
-        if (data == 12) {
+        if (data > 11) {
           setLeagueOver(true);
         }
         setNextMday(prevState => data)

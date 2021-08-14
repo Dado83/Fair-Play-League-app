@@ -21,12 +21,14 @@ export default function Admin(props) {
   }
 
   return (
-    <div className='content'>
-      <h2>Panel: {user}</h2>
-      <button onClick={() => {
-        setUser(user => sessionStorage.removeItem('role'))
-      }}>logout</button>
-      <Dashboard />
-    </div>
+    <>
+      <h2>Panel: {user}
+        <button style={{ float: 'right' }} onClick={() => {
+          setUser(user => sessionStorage.removeItem('role'))
+        }}>logout</button></h2>
+      <div className='content'>
+        <Dashboard />
+      </div>
+    </>
   );
 }
