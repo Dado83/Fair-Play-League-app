@@ -7,6 +7,7 @@ import Loader from '../components/Loader';
 
 export default function Home() {
   const site = document.location.hostname; console.log(site);
+  const [leagueOver, setLeagueOver] = useState(false);/* set to true if setNextMday returns non-existant mday */
   const [nextMday, setNextMday] = useState('');
   const [prevRes, setprevRes] = useState('');
   const [table7, setTable7] = useState([]);
@@ -75,7 +76,12 @@ export default function Home() {
 
     fetch(`http://${site}/api/results.php?nextfix=nextfix`)
       .then(response => response.json())
-      .then(data => setNextMday(prevState => data))
+      .then(data => {
+        if (data == 12) {
+          setLeagueOver(true);
+        }
+        setNextMday(prevState => data)
+      })
       .catch(err => console.log(err));
   }, []);
 
@@ -124,7 +130,7 @@ export default function Home() {
       <div className='content'>
         {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
         {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : ''}
-        {nextMday ? <Fixture site={site} mDay={nextMday} /> : ''}
+        {(nextMday && !leagueOver) ? <Fixture site={site} mDay={nextMday} /> : ''}
       </div>
     </>
   );
