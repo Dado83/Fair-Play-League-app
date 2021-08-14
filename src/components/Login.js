@@ -40,17 +40,26 @@ export default function Login(props) {
     }
 
     return (
-        <>
+        <div className='login'>
             <p>{error}</p>
             <form onSubmit={handleSubmit}>
-                <label for='user'>Korisnik: {userName}
-                </label>
-                <input type='text' name='user' onChange={(e) => { setUsername(e.target.value) }} />
-                <label for='pass'>Lozinka: {password}
-                </label>
-                <input type='password' name='pass' onChange={(e) => { setPassword(e.target.value) }} />
-                <input type='submit' value='dalje' />
+                <fieldset>
+                    <legend>Prijava korisnika</legend>
+                    <table>
+                        <tr>
+                            <td><label for='user'>Korisnik: {userName}</label></td>
+                            <td><input type='text' name='user' onChange={(e) => { setUsername(e.target.value) }} /></td>
+                        </tr>
+                        <tr>
+                            <td><label for='pass'>Lozinka: {password}</label></td>
+                            <td><input type='password' name='pass' onChange={(e) => { setPassword(e.target.value) }} /></td>
+                        </tr>
+                        <tr>
+                            <td><input type='submit' value='dalje' /></td>
+                        </tr>
+                    </table>
+                </fieldset>
             </form>
-        </>
+        </div>
     )
 }
