@@ -19,6 +19,11 @@ html {
   font-family: Tahoma, Geneva CE, Lucida Sans, Arial, Helvetica, sans-serif;
 }
 
+body {
+  max-width: 1440px;
+  margin: auto;
+}
+
 .content {
   display: grid;
   align-items: center;
