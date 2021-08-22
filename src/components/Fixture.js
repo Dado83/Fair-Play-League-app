@@ -11,7 +11,7 @@ export default function Fixture(props) {
     }, [props.mDay]);
 
     return (
-        <table className='fixture'>
+        <table className='fixture ar-increase'>
             <thead>
                 <tr>
                     <th colSpan='3'>{props.mDay}. kolo <span>{fixture[0]?.game_date}</span></th>

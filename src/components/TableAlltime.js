@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function TableAlltime(props) {
   return (
-    <table className='archive table'>
+    <table className='archive table ar-increase'>
       <tr>
         <td>#</td>
         <td>Tim</td>

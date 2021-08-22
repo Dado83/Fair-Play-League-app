@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Table(props) {
   return (
-    <table className='table'>
+    <table className='table ar-increase'>
       <tr>
         <td>#</td>
         <td>{props.selection}. godište</td>

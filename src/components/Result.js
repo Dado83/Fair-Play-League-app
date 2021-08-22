@@ -21,7 +21,7 @@ export default function Result(props) {
     }, [props.mDay]);
 
     return (
-        <table className='result'>
+        <table className='result ar-increase'>
             <thead>
                 <tr>
                     <th>{props.mDay}. kolo</th>
