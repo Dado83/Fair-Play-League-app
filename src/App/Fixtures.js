@@ -1,8 +1,15 @@
 import Fixture from '../components/Fixture';
+import React, { useEffect } from 'react';
 
 
 export default function Fixtures() {
   const site = document.location.hostname;
+
+  const url = window.location.href;
+  useEffect(() => {
+    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+  }, []);
+
   let fixtures = [];
   for (let i = 1; i <= 11; i++) {
     fixtures[i] = <Fixture key={i} mDay={i} site={site} />;

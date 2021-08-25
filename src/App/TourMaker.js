@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
 
 
 export default function TourMaker(props) {
+  const url = window.location.href;
+  useEffect(() => {
+    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+  }, []);
 
   return (
     <div className='content'>

@@ -26,6 +26,11 @@ export default function Home() {
   };
   const [youth, setYouth] = useState({ ...youthInit });
 
+  const url = window.location.href;
+  useEffect(() => {
+    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+  }, []);
+
   useEffect(() => {
     setYouth({ ...youthInit, gen7: 'result-shown' });
   }, []);

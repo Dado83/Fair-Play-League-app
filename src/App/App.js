@@ -15,14 +15,11 @@ import GameInput from '../components/GameInput';
 
 
 export default function App() {
-
-  /* test */
   useEffect(() => {
-    //sessionStorage.setItem('role', 'admin');
-    //console.log(sessionStorage.getItem('role'));
-    //fetch(`http://localhost/api/visitors.php`);
+    fetch(`http://localhost/api/visitors.php?counter=visit`);
   }, []);
-  console.log('user: ' + sessionStorage.getItem('user'))
+
+  console.log(window.location.href);
   return (
     <Router>
       <Navbar />

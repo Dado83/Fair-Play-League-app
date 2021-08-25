@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import FPAbout from '../components/FPabout';
 
 
 export default function About() {
-  const [year, setYear] = useState('archive14_15');
+  const url = window.location.href;
+  useEffect(() => {
+    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+  }, []);
 
   return (
     <div className='content'>

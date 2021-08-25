@@ -15,6 +15,11 @@ export default function Archives() {
   const [archive20_21, setArchive20_21] = useState([]);
   const [archive, setArchive] = useState([]);
 
+  const url = window.location.href;
+  useEffect(() => {
+    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+  }, []);
+
   useEffect(() => {
     let url = fetch(`http://${site}/api/archive.php?year=alltime`);
     url.then(response => response.json())

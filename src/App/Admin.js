@@ -7,6 +7,11 @@ export default function Admin(props) {
   const site = document.location.hostname;
   const [user, setUser] = useState('');
 
+  const url = window.location.href;
+  useEffect(() => {
+    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+  }, []);
+
   const handleChange = (param) => {
     setUser(user => param);
   }
