@@ -7,7 +7,7 @@ export default function Fixtures() {
 
   const url = window.location.href;
   useEffect(() => {
-    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+    fetch(`http://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   let fixtures = [];

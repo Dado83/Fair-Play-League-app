@@ -3,9 +3,10 @@ import React, { useEffect } from 'react';
 
 
 export default function Err404() {
+  const site = document.location.hostname;
   const url = window.location.href;
   useEffect(() => {
-    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+    fetch(`http://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   return (

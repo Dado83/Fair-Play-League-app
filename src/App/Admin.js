@@ -13,26 +13,26 @@ export default function Admin(props) {
 
   const url = window.location.href;
   useEffect(() => {
-    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+    fetch(`http://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost/api/visitors.php?counter=getvisits`)
+    fetch(`http://${site}/api/visitors.php?counter=getvisits`)
       .then(response => response.json())
       .then(data => setVisits(prevState => data))
       .catch(err => console.log(err));
 
-    fetch(`http://localhost/api/visitors.php?counter=gethits`)
+    fetch(`http://${site}/api/visitors.php?counter=gethits`)
       .then(response => response.json())
       .then(data => setHits(prevState => data))
       .catch(err => console.log(err));
 
-    fetch(`http://localhost/api/visitors.php?counter=getday`)
+    fetch(`http://${site}/api/visitors.php?counter=getday`)
       .then(response => response.json())
       .then(data => setLastDay(prevState => data))
       .catch(err => console.log(err));
 
-    fetch(`http://localhost/api/visitors.php?counter=get2hrs`)
+    fetch(`http://${site}/api/visitors.php?counter=get2hrs`)
       .then(response => response.json())
       .then(data => setLast2hrs(prevState => data))
       .catch(err => console.log(err));

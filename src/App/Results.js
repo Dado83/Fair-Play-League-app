@@ -7,7 +7,7 @@ export default function Results() {
   const url = window.location.href;
 
   useEffect(() => {
-    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+    fetch(`http://${site}/api/visitors.php?counter=${url}`);
   }, []);
   let results = [];
   for (let i = 1; i <= 11; i++) {

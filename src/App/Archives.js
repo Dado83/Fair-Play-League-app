@@ -17,7 +17,7 @@ export default function Archives() {
 
   const url = window.location.href;
   useEffect(() => {
-    fetch(`http://localhost/api/visitors.php?counter=${url}`);
+    fetch(`http://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   useEffect(() => {

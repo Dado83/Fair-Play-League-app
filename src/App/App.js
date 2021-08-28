@@ -15,8 +15,9 @@ import GameInput from '../components/GameInput';
 
 
 export default function App() {
+  const site = document.location.hostname;
   useEffect(() => {
-    fetch(`http://localhost/api/visitors.php?counter=visit`);
+    fetch(`http://${site}/api/visitors.php?counter=visit`);
   }, []);
 
   console.log(window.location.href);
