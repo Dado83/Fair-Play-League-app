@@ -47,11 +47,11 @@ export default function Login(props) {
                     <legend>Prijava korisnika</legend>
                     <table>
                         <tr>
-                            <td><label for='user'>Korisnik: {userName}</label></td>
+                            <td><label for='user'>Korisnik:</label></td>
                             <td><input type='text' name='user' onChange={(e) => { setUsername(e.target.value) }} /></td>
                         </tr>
                         <tr>
-                            <td><label for='pass'>Lozinka: {password}</label></td>
+                            <td><label for='pass'>Lozinka:</label></td>
                             <td><input type='password' name='pass' onChange={(e) => { setPassword(e.target.value) }} /></td>
                         </tr>
                         <tr>
