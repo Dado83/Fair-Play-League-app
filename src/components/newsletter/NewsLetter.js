@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ResultPage from './ResultPage';
-import Table from './Table';
-import Fixture from './Fixture';
+import NRPage from './NRPage';
+import NFix from './NFix';
+import NTable from './NTable';
 
 
 export default function NewsLetter(props) {
@@ -64,15 +64,20 @@ export default function NewsLetter(props) {
     //ispraviti Fixture kad podesim css
     return (
         <>
-            <p>Bilten</p>
-            <p>biltencic</p>
-            <ResultPage mDay={2} site={site} />
-            <Table site={site} table={table7} selection={2007} />
-            <Table site={site} table={table8} selection={2008} />
-            <Table site={site} table={table9} selection={2009} />
-            <Table site={site} table={table10} selection={2010} />
-            <Table site={site} table={table11} selection={2011} />
-            <Fixture site={site} mDay={11} />
+            <h1>FAIR PLAY Liga Budućih Šampiona</h1>
+            <h2>takmičarska sezona 2020/21</h2>
+            <h3>Bilten br. 4</h3>
+            <p>1. Registracija utakmica 4. kola</p>
+            <p>2. Raspored utakmica 5. kola</p>
+            <p>ad 1)</p>
+            <NRPage mDay={2} site={site} />
+            <NTable site={site} table={table7} selection={2007} />
+            <NTable site={site} table={table8} selection={2008} />
+            <NTable site={site} table={table9} selection={2009} />
+            <NTable site={site} table={table10} selection={2010} />
+            <NTable site={site} table={table11} selection={2011} />
+            <p>ad 2)</p>
+            <NFix site={site} mDay={11} />
         </>
     )
 }

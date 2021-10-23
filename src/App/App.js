@@ -12,7 +12,7 @@ import TourMaker from './TourMaker';
 import Err404 from './Err404';
 import { useEffect } from 'react';
 import GameInput from '../components/GameInput';
-import NewsLetter from '../components/NewsLetter';
+import NewsLetter from '../components/newsletter/NewsLetter';
 
 
 export default function App() {
