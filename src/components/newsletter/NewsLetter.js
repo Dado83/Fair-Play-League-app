@@ -64,19 +64,21 @@ export default function NewsLetter(props) {
     //ispraviti Fixture kad podesim css
     return (
         <>
-            <h1>FAIR PLAY Liga Budućih Šampiona</h1>
-            <h2>takmičarska sezona 2020/21</h2>
-            <h3>Bilten br. 4</h3>
-            <p>1. Registracija utakmica 4. kola</p>
-            <p>2. Raspored utakmica 5. kola</p>
-            <p>ad 1)</p>
+            <div className='newsletter'>
+                <h1>FAIR PLAY Liga Budućih Šampiona</h1>
+                <h2>takmičarska sezona 2020/21</h2>
+                <h3>Bilten br. ??4</h3>
+                <p>1. Registracija utakmica 4. kola</p>
+                <p>2. Raspored utakmica 5. kola</p>
+            </div>
+            <p className='ad'>ad 1)</p>
             <NRPage mDay={2} site={site} />
             <NTable site={site} table={table7} selection={2007} />
             <NTable site={site} table={table8} selection={2008} />
             <NTable site={site} table={table9} selection={2009} />
             <NTable site={site} table={table10} selection={2010} />
             <NTable site={site} table={table11} selection={2011} />
-            <p>ad 2)</p>
+            <p className='ad'>ad 2)</p>
             <NFix site={site} mDay={11} />
         </>
     )

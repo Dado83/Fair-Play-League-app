@@ -11,7 +11,7 @@ export default function NFix(props) {
     }, [props.mDay]);
 
     return (
-        <table className='fixture ar-increase  newsletter'>
+        <table className='fixture ar-increase  newsletterF'>
             <thead>
                 <tr>
                     <th colSpan='3'>{props.mDay}. kolo <span>{fixture[0]?.game_date}</span></th>

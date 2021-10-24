@@ -35,7 +35,7 @@ export default function NRPage(props) {
     }, props.mDay);
 
     return (
-        <table className='result-page newsletter'>
+        <table className='result-page newsletterR'>
             <thead>
                 <tr>
                     <th>{props.mDay}. kolo ({gameDate[0].game_date})</th>

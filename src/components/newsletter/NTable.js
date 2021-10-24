@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function NTable(props) {
   return (
-    <table className='table ar-increase  newsletter'>
+    <table className='table ar-increase  newsletterT'>
       <tr>
         <td>#</td>
         <td>{props.selection}. godište</td>
