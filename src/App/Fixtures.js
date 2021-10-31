@@ -11,7 +11,7 @@ export default function Fixtures() {
   }, []);
 
   let fixtures = [];
-  for (let i = 1; i <= 11; i++) {
+  for (let i = 1; i <= 7; i++) {
     fixtures[i] = <Fixture key={i} mDay={i} site={site} />;
   }
 
