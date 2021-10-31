@@ -10,51 +10,46 @@ export default function Home() {
   const [leagueOver, setLeagueOver] = useState(false);/* set to true if setNextMday returns non-existant mday */
   const [nextMday, setNextMday] = useState('');
   const [prevRes, setprevRes] = useState('');
-  const [table7, setTable7] = useState([]);
   const [table8, setTable8] = useState([]);
   const [table9, setTable9] = useState([]);
   const [table10, setTable10] = useState([]);
   const [table11, setTable11] = useState([]);
+  const [table7, setTable12] = useState([]);
   const [table, setTable] = useState([]);
   const [selection, setSelection] = useState('');
   const youthInit = {
-    gen7: 'result-hidden',
     gen8: 'result-hidden',
     gen9: 'result-hidden',
     gen10: 'result-hidden',
     gen11: 'result-hidden',
+    gen12: 'result-hidden',
   };
   const [youth, setYouth] = useState({ ...youthInit });
-
   const url = window.location.href;
+
   useEffect(() => {
     fetch(`http://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   useEffect(() => {
-    setYouth({ ...youthInit, gen7: 'result-shown' });
+    setYouth({ ...youthInit, gen8: 'result-shown' });
   }, []);
 
   useEffect(() => {
     let url = new Map();
-    url.set(7, `http://${site}/api/table.php?table=table7&id1=5&id2=8&id3=9&id4=10`);
     url.set(8, `http://${site}/api/table.php?table=table8`);
-    url.set(9, `http://${site}/api/table.php?table=table9`);
-    url.set(10, `http://${site}/api/table.php?table=table10&id1=11`);
-    url.set(11, `http://${site}/api/table.php?table=table11&id1=4`);
-
-    fetch(url.get(7))
-      .then(response => response.json())
-      .then(data => {
-        setSelection('2007');
-        setTable(prevState => data);
-        setTable7(prevState => data);
-      })
-      .catch(err => console.log(err));
+    url.set(9, `http://${site}/api/table.php?table=table9&id1=1`);
+    url.set(10, `http://${site}/api/table.php?table=table10`);
+    url.set(11, `http://${site}/api/table.php?table=table11`);
+    url.set(12, `http://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`);
 
     fetch(url.get(8))
       .then(response => response.json())
-      .then(data => setTable8(prevState => data))
+      .then(data => {
+        setSelection('2008');
+        setTable(prevState => data);
+        setTable8(prevState => data);
+      })
       .catch(err => console.log(err));
 
     fetch(url.get(9))
@@ -71,7 +66,13 @@ export default function Home() {
       .then(response => response.json())
       .then(data => setTable11(prevState => data))
       .catch(err => console.log(err));
+
+    fetch(url.get(12))
+      .then(response => response.json())
+      .then(data => setTable12(prevState => data))
+      .catch(err => console.log(err));
   }, []);
+
 
   useEffect(() => {
     fetch(`http://${site}/api/results.php?prevres=prevres`)
@@ -101,13 +102,8 @@ export default function Home() {
   return (
     <>
       <div className='home-button'>
+
         <button className='button-selected' onClick={(e) => {
-          setSelection('2007');
-          setTable(prevState => table7);
-          setYouth(prevState => ({ ...youthInit, gen7: 'result-shown' }));
-          buttonSelection(e);
-        }}>2007</button>
-        <button className='button-default' onClick={(e) => {
           setSelection('2008');
           setTable(prevState => table8);
           setYouth(prevState => ({ ...youthInit, gen8: 'result-shown' }));
@@ -131,6 +127,12 @@ export default function Home() {
           setYouth(prevState => ({ ...youthInit, gen11: 'result-shown' }));
           buttonSelection(e);
         }}>2011</button>
+        <button className='button-default' onClick={(e) => {
+          setSelection('2012');
+          setTable(prevState => table7);
+          setYouth(prevState => ({ ...youthInit, gen7: 'result-shown' }));
+          buttonSelection(e);
+        }}>2012</button>
       </div>
       <div className='content'>
         {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
