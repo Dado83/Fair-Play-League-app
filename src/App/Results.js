@@ -10,7 +10,7 @@ export default function Results() {
     fetch(`http://${site}/api/visitors.php?counter=${url}`);
   }, []);
   let results = [];
-  for (let i = 1; i <= 11; i++) {
+  for (let i = 1; i <= 7; i++) {
     results[i] = <ResultPage key={i} mDay={i} site={site} />;
   }
 
