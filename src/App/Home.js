@@ -14,7 +14,7 @@ export default function Home() {
   const [table9, setTable9] = useState([]);
   const [table10, setTable10] = useState([]);
   const [table11, setTable11] = useState([]);
-  const [table7, setTable12] = useState([]);
+  const [table12, setTable12] = useState([]);
   const [table, setTable] = useState([]);
   const [selection, setSelection] = useState('');
   const youthInit = {
@@ -129,8 +129,8 @@ export default function Home() {
         }}>2011</button>
         <button className='button-default' onClick={(e) => {
           setSelection('2012');
-          setTable(prevState => table7);
-          setYouth(prevState => ({ ...youthInit, gen7: 'result-shown' }));
+          setTable(prevState => table12);
+          setYouth(prevState => ({ ...youthInit, gen12: 'result-shown' }));
           buttonSelection(e);
         }}>2012</button>
       </div>
