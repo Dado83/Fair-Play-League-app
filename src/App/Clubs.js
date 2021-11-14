@@ -1,6 +1,5 @@
-import Club from '../components/Club';
-import React, { useEffect } from 'react';
-
+import Club from "../components/Club";
+import React, { useEffect } from "react";
 
 export default function Clubs() {
   const site = document.location.hostname;
@@ -15,9 +14,5 @@ export default function Clubs() {
     clubs[i] = <Club key={i} id={i} site={site} />;
   }
 
-  return (
-    <div className='content'>
-      {clubs.map(club => club)}
-    </div>
-  );
+  return clubs.map((club) => club);
 }

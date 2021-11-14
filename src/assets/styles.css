@@ -111,8 +111,13 @@ body {
   box-shadow: 0 0 0.1em #000;
 }
 .club-results {
-  background: whitesmoke;
+  padding: 1em;
 }
+
+.club-results table {
+  margin: auto;
+}
+
 .club-results--shown {
   display: block;
 }
@@ -319,11 +324,14 @@ body {
 }
 /* club */
 .club-info {
-  padding-left: 0.5em;
+  padding: 0.5em;
+  max-width: 40em;
+  margin: auto;
+  text-align: center;
 }
 .club-info img {
-  float: right;
-  width: 4em;
+  width: 50%;
+  padding: 0.2em;
 }
 .club-info p:nth-of-type(1) {
   font-weight: bold;
