@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import Home from "./Home";
 import Fixtures from "./Fixtures";
 import Results from "./Results";
-import Clubs from "./Clubs";
 import Club from "../components/Club";
 import Archives from "./Archives";
 import About from "./About";
@@ -34,9 +33,6 @@ export default function App() {
         </Route>
         <Route path="/rezultati">
           <Results />
-        </Route>
-        <Route path="/klubovi">
-          <Clubs />
         </Route>
         <Route path="/klub">
           <Club />
