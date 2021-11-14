@@ -1,32 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router";
 
 export default function Clubs(props) {
   const [club, setClub] = useState([]);
   const [results, setResults] = useState([]);
+  const clubInfo = useLocation();
+  const { id } = clubInfo.state;
+  const site = document.location.hostname;
 
   useEffect(() => {
-    fetch(`http://${props.site}/api/teams.php?id=${props.id}`)
+    fetch(`http://${site}/api/teams.php?id=${id}`)
       .then((response) => response.json())
       .then((data) => setClub((prevState) => data))
       .catch((err) => console.log(err));
-  }, [props.id]);
+  }, [id]);
 
   useEffect(() => {
-    fetch(`http://${props.site}/api/results.php?clubid=${props.id}`)
+    fetch(`http://${site}/api/results.php?clubid=${id}`)
       .then((response) => response.json())
       .then((data) => setResults((prevState) => data))
       .catch((err) => console.log(err));
-  }, [props.id]);
+  }, [id]);
 
   return (
     <div className="club-info">
-      <img src={`http://${props.site}/api/logos-big/${props.id}.png`} />
+      <img src={`http://${site}/api/logos-big/${id}.png`} />
       <p>{club.team_name}</p>
       <p>{club.team_city}</p>
       <p>{club.kit_color}</p>
       <p>{club.venue}</p>
       <p>{club.game_time}</p>
-      <div className="club-results" id={`club${props.id}`}>
+      <div className="club-results" id={`club${id}`}>
         <p>Rezultati:</p>
         <table>
           <thead>
