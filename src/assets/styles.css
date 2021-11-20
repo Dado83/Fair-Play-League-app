@@ -109,7 +109,9 @@ body {
 /* club */
 .club-info {
   box-shadow: 0 0 0.1em #000;
+  border-radius: 0.4em;
 }
+
 .club-results {
   padding: 1em;
 }
@@ -121,8 +123,36 @@ body {
 .club-results--shown {
   display: block;
 }
+
 .club-results--hidden {
   display: none;
+}
+
+.club-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.club-navlink {
+  margin: 0.1em;
+  padding: 0.3em;
+  border-top-left-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color2);
+  box-shadow: 0 0 0.3em var(--color2);
+}
+
+.club-navlink--isselected {
+  background: var(--color1);
+  box-shadow: inset 0em 0 0.1em var(--color2);
+}
+
+.club-navlink:hover {
+  background: var(--color1);
+  box-shadow: inset 0 0 0.1em var(--color2);
 }
 
 /* home */

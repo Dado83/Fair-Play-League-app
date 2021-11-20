@@ -25,39 +25,17 @@ export default function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/raspored">
-          <Fixtures />
-        </Route>
-        <Route path="/rezultati">
-          <Results />
-        </Route>
-        <Route path="/klub">
-          <Club />
-        </Route>
-        <Route path="/arhiva">
-          <Archives />
-        </Route>
-        <Route path="/o-nama">
-          <About />
-        </Route>
-        <Route path="/admin">
-          <Admin />
-        </Route>
-        <Route path="/input">
-          <GameInput />
-        </Route>
-        <Route path="/napravi-raspored">
-          <TourMaker />
-        </Route>
-        <Route path="/bilten">
-          <NewsLetter />
-        </Route>
-        <Route>
-          <Err404 />
-        </Route>
+        <Route exact path="/" component={Home}></Route>
+        <Route path="/raspored" component={Fixtures}></Route>
+        <Route path="/rezultati" component={Results}></Route>
+        <Route path="/klub" component={Club}></Route>
+        <Route path="/arhiva" component={Archives}></Route>
+        <Route path="/o-nama" component={About}></Route>
+        <Route path="/admin" component={Admin}></Route>
+        <Route path="/input" component={GameInput}></Route>
+        <Route path="/napravi-raspored" component={TourMaker}></Route>
+        <Route path="/bilten" component={NewsLetter}></Route>
+        <Route component={Err404}></Route>
       </Switch>
     </Router>
   );
