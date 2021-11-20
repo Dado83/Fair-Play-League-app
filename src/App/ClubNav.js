@@ -30,7 +30,9 @@ export default function Clubs() {
 
   return (
     <nav className='club-nav'>
-      <Link to={{ pathname: '/klub', state: { id: 1 } }} className='club-navlink'>
+      <Link
+        to={{ pathname: '/klub', state: { id: 1 } }}
+        className='club-navlink club-navlink--isselected'>
         {clubs.get(1)}
       </Link>
       <Link to={{ pathname: '/klub', state: { id: 2 } }} className='club-navlink'>
