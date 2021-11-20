@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import FPAbout from '../components/FPabout';
-
+import React, { useEffect } from "react";
+import FPAbout from "../components/FPabout";
 
 export default function About() {
   const site = document.location.hostname;
@@ -10,7 +9,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className='content'>
+    <div className="content">
       <FPAbout />
     </div>
   );
