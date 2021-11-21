@@ -4,10 +4,11 @@ import Table from '../components/Table';
 import Result from '../components/Result';
 import Loader from '../components/Loader';
 
-
 export default function Home() {
-  const site = document.location.hostname; console.log(site);
-  const [leagueOver, setLeagueOver] = useState(false);/* set to true if setNextMday returns non-existant mday */
+  const site = document.location.hostname;
+  console.log(site);
+  const [leagueOver, setLeagueOver] =
+    useState(false); /* set to true if setNextMday returns non-existant mday */
   const [nextMday, setNextMday] = useState('');
   const [prevRes, setprevRes] = useState('');
   const [table8, setTable8] = useState([]);
@@ -37,58 +38,74 @@ export default function Home() {
 
   useEffect(() => {
     let url = new Map();
-    url.set(8, `http://${site}/api/table.php?table=table8`);
-    url.set(9, `http://${site}/api/table.php?table=table9&id1=1`);
-    url.set(10, `http://${site}/api/table.php?table=table10`);
-    url.set(11, `http://${site}/api/table.php?table=table11`);
-    url.set(12, `http://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`);
+    url.set(8, fetch(`http://${site}/api/table.php?table=table8`));
+    url.set(9, fetch(`http://${site}/api/table.php?table=table9&id1=1`));
+    url.set(10, fetch(`http://${site}/api/table.php?table=table10`));
+    url.set(11, fetch(`http://${site}/api/table.php?table=table11`));
+    url.set(12, fetch(`http://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`));
 
-    fetch(url.get(8))
-      .then(response => response.json())
-      .then(data => {
+    const getData = async () => {
+      try {
+        const [s8, s9, s10, s11, s12] = await Promise.all([
+          url.get(8),
+          url.get(9),
+          url.get(10),
+          url.get(11),
+          url.get(12),
+        ]);
+
+        if (!s8.ok) {
+          throw Error('response not ok');
+        }
+
+        const sel8 = await s8.json();
+        const sel9 = await s9.json();
+        const sel10 = await s10.json();
+        const sel11 = await s11.json();
+        const sel12 = await s12.json();
+
         setSelection('2008');
-        setTable(prevState => data);
-        setTable8(prevState => data);
-      })
-      .catch(err => console.log(err));
+        setTable((prevState) => sel8);
+        setTable8((prevState) => sel8);
+        setTable9((prevState) => sel9);
+        setTable10((prevState) => sel10);
+        setTable11((prevState) => sel11);
+        setTable12((prevState) => sel12);
+      } catch (e) {
+        console.log(e);
+      }
+    };
 
-    fetch(url.get(9))
-      .then(response => response.json())
-      .then(data => setTable9(prevState => data))
-      .catch(err => console.log(err));
-
-    fetch(url.get(10))
-      .then(response => response.json())
-      .then(data => setTable10(prevState => data))
-      .catch(err => console.log(err));
-
-    fetch(url.get(11))
-      .then(response => response.json())
-      .then(data => setTable11(prevState => data))
-      .catch(err => console.log(err));
-
-    fetch(url.get(12))
-      .then(response => response.json())
-      .then(data => setTable12(prevState => data))
-      .catch(err => console.log(err));
+    getData();
   }, []);
 
-
   useEffect(() => {
-    fetch(`http://${site}/api/results.php?prevres=prevres`)
-      .then(response => response.json())
-      .then(data => setprevRes(prevState => data))
-      .catch(err => console.log(err));
+    const getData = async () => {
+      try {
+        const prevRes = fetch(`http://${site}/api/results.php?prevres=prevres`);
+        const nextFix = fetch(`http://${site}/api/results.php?nextfix=nextfix`);
 
-    fetch(`http://${site}/api/results.php?nextfix=nextfix`)
-      .then(response => response.json())
-      .then(data => {
-        if (data > 11) {
+        const [res, fix] = await Promise.all([prevRes, nextFix]);
+
+        if (!res.ok) {
+          throw Error('response not ok');
+        }
+
+        const dataRes = await res.json();
+        const dataFix = await fix.json();
+
+        setprevRes((prevState) => dataRes);
+
+        if (dataFix > 11) {
           setLeagueOver(true);
         }
-        setNextMday(prevState => data)
-      })
-      .catch(err => console.log(err));
+        setNextMday((prevState) => dataFix);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
   }, []);
 
   const buttonSelection = (param) => {
@@ -96,48 +113,67 @@ export default function Home() {
     for (let s of siblings) {
       s.className = 'button-default';
     }
-    param.target.className = 'button-selected'
-  }
+    param.target.className = 'button-selected';
+  };
 
   return (
     <>
       <div className='home-button'>
-
-        <button className='button-selected' onClick={(e) => {
-          setSelection('2008');
-          setTable(prevState => table8);
-          setYouth(prevState => ({ ...youthInit, gen8: 'result-shown' }));
-          buttonSelection(e);
-        }}>2008</button>
-        <button className='button-default' onClick={(e) => {
-          setSelection('2009');
-          setTable(prevState => table9);
-          setYouth(prevState => ({ ...youthInit, gen9: 'result-shown' }));
-          buttonSelection(e);
-        }}>2009</button>
-        <button className='button-default' onClick={(e) => {
-          setSelection('2010');
-          setTable(prevState => table10);
-          setYouth(prevState => ({ ...youthInit, gen10: 'result-shown' }));
-          buttonSelection(e);
-        }}>2010</button>
-        <button className='button-default' onClick={(e) => {
-          setSelection('2011');
-          setTable(prevState => table11);
-          setYouth(prevState => ({ ...youthInit, gen11: 'result-shown' }));
-          buttonSelection(e);
-        }}>2011</button>
-        <button className='button-default' onClick={(e) => {
-          setSelection('2012');
-          setTable(prevState => table12);
-          setYouth(prevState => ({ ...youthInit, gen12: 'result-shown' }));
-          buttonSelection(e);
-        }}>2012</button>
+        <button
+          className='button-selected'
+          onClick={(e) => {
+            setSelection('2008');
+            setTable((prevState) => table8);
+            setYouth((prevState) => ({ ...youthInit, gen8: 'result-shown' }));
+            buttonSelection(e);
+          }}>
+          2008
+        </button>
+        <button
+          className='button-default'
+          onClick={(e) => {
+            setSelection('2009');
+            setTable((prevState) => table9);
+            setYouth((prevState) => ({ ...youthInit, gen9: 'result-shown' }));
+            buttonSelection(e);
+          }}>
+          2009
+        </button>
+        <button
+          className='button-default'
+          onClick={(e) => {
+            setSelection('2010');
+            setTable((prevState) => table10);
+            setYouth((prevState) => ({ ...youthInit, gen10: 'result-shown' }));
+            buttonSelection(e);
+          }}>
+          2010
+        </button>
+        <button
+          className='button-default'
+          onClick={(e) => {
+            setSelection('2011');
+            setTable((prevState) => table11);
+            setYouth((prevState) => ({ ...youthInit, gen11: 'result-shown' }));
+            buttonSelection(e);
+          }}>
+          2011
+        </button>
+        <button
+          className='button-default'
+          onClick={(e) => {
+            setSelection('2012');
+            setTable((prevState) => table12);
+            setYouth((prevState) => ({ ...youthInit, gen12: 'result-shown' }));
+            buttonSelection(e);
+          }}>
+          2012
+        </button>
       </div>
       <div className='content'>
         {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
         {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : ''}
-        {(nextMday && !leagueOver) ? <Fixture site={site} mDay={nextMday} /> : ''}
+        {nextMday && !leagueOver ? <Fixture site={site} mDay={nextMday} /> : ''}
       </div>
     </>
   );
