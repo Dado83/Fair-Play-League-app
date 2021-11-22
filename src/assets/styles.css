@@ -132,13 +132,13 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .club-navlink {
   margin: 0.1em;
   padding: 0.3em;
-  border-top-left-radius: 0.4em;
-  border-top-right-radius: 0.4em;
+  border-radius: 0.4em;
   text-align: center;
   text-decoration: none;
   color: var(--color2);
