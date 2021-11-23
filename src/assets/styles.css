@@ -94,6 +94,7 @@ body {
 .menu {
   margin-right: 0.7rem;
 }
+
 .bar1-pressed {
   transform: rotate(-45deg) translate(-6px, 5px);
 }
