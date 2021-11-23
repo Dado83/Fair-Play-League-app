@@ -1,12 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import ClubNav from '../App/ClubNav';
+import logo1 from '../assets/club-big/1.png';
+import logo2 from '../assets/club-big/2.png';
+import logo3 from '../assets/club-big/3.png';
+import logo4 from '../assets/club-big/4.png';
+import logo5 from '../assets/club-big/5.png';
+import logo6 from '../assets/club-big/6.png';
+import logo7 from '../assets/club-big/7.png';
+import logo8 from '../assets/club-big/8.png';
 
 export default function Club(props) {
   const site = document.location.hostname;
   const [club, setClub] = useState([]);
   const [results, setResults] = useState([]);
   const clubInfo = useLocation();
+  const logos = new Map();
+  logos.set(1, logo1);
+  logos.set(2, logo2);
+  logos.set(3, logo3);
+  logos.set(4, logo4);
+  logos.set(5, logo5);
+  logos.set(6, logo6);
+  logos.set(7, logo7);
+  logos.set(8, logo8);
   let id;
 
   if (typeof clubInfo.state != 'undefined') {
@@ -33,7 +50,7 @@ export default function Club(props) {
     <>
       <ClubNav />
       <div className='club-info'>
-        <img src={`http://${site}/api/logos-big/${id}.png`} />
+        <img src={logos.get(id)} />
         <h1>{club.team_name}</h1>
         <h3>{club.team_city}</h3>
         <p>{club.kit_color}</p>
