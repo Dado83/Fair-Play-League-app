@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Dashboard from '../components/Dashboard';
 import Login from '../components/Login';
 
-
 export default function Admin(props) {
   const site = document.location.hostname;
   const [user, setUser] = useState('');
@@ -17,30 +16,45 @@ export default function Admin(props) {
   }, []);
 
   useEffect(() => {
-    fetch(`http://${site}/api/visitors.php?counter=getvisits`)
-      .then(response => response.json())
-      .then(data => setVisits(prevState => data))
-      .catch(err => console.log(err));
+    let url = new Map();
+    url.set('vis', fetch(`http://${site}/api/visitors.php?counter=getvisits`));
+    url.set('hit', fetch(`http://${site}/api/visitors.php?counter=gethits`));
+    url.set('day', fetch(`http://${site}/api/visitors.php?counter=getday`));
+    url.set('hrs2', fetch(`http://${site}/api/visitors.php?counter=get2hrs`));
 
-    fetch(`http://${site}/api/visitors.php?counter=gethits`)
-      .then(response => response.json())
-      .then(data => setHits(prevState => data))
-      .catch(err => console.log(err));
+    const getData = async () => {
+      try {
+        const [vis, hit, day, hrs2] = await Promise.all([
+          url.get('vis'),
+          url.get('hit'),
+          url.get('day'),
+          url.get('hrs2'),
+        ]);
 
-    fetch(`http://${site}/api/visitors.php?counter=getday`)
-      .then(response => response.json())
-      .then(data => setLastDay(prevState => data))
-      .catch(err => console.log(err));
+        if (!vis.ok) {
+          throw Error('response not ok');
+        }
 
-    fetch(`http://${site}/api/visitors.php?counter=get2hrs`)
-      .then(response => response.json())
-      .then(data => setLast2hrs(prevState => data))
-      .catch(err => console.log(err));
+        const visJ = await vis.json();
+        const hitJ = await hit.json();
+        const dayJ = await day.json();
+        const hrs2J = await hrs2.json();
+
+        setVisits((prevState) => visJ);
+        setHits((prevState) => hitJ);
+        setLastDay((prevState) => dayJ);
+        setLast2hrs((prevState) => hrs2J);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getData();
   }, []);
 
   const handleChange = (param) => {
-    setUser(user => param);
-  }
+    setUser((user) => param);
+  };
 
   if (sessionStorage.getItem('role') != 'admin') {
     return (
@@ -53,10 +67,16 @@ export default function Admin(props) {
 
   return (
     <>
-      <h2>Panel
-        <button style={{ float: 'right' }} onClick={() => {
-          setUser(user => sessionStorage.removeItem('role'))
-        }}>logout</button></h2>
+      <h2>
+        Panel
+        <button
+          style={{ float: 'right' }}
+          onClick={() => {
+            setUser((user) => sessionStorage.removeItem('role'));
+          }}>
+          logout
+        </button>
+      </h2>
       <p>Posjete: {visits}</p>
       <p>Prethodni dan:{lastDay}</p>
       <p>Zadnja 2 sata:{last2hrs}</p>
