@@ -7,6 +7,7 @@ import logo5 from '../assets/club-small/5.png';
 import logo6 from '../assets/club-small/6.png';
 import logo7 from '../assets/club-small/7.png';
 import logo8 from '../assets/club-small/8.png';
+import { protocol } from '../utility/utility';
 
 export default function PanelResult(props) {
   const [result, setResult] = useState([]);
@@ -23,7 +24,7 @@ export default function PanelResult(props) {
 
   useEffect(() => {
     let mounted = true;
-    fetch(`http://${props.site}/api/results.php?mday=${props.mDay}`)
+    fetch(`${protocol}://${props.site}/api/results.php?mday=${props.mDay}`)
       .then((response) => response.json())
       .then((data) => {
         if (mounted) {
@@ -43,7 +44,7 @@ export default function PanelResult(props) {
       console.log(id);
       let gameID = JSON.parse(id);
       console.log(gameID);
-      fetch(`http://${props.site}/api/game.php?game=delete&gameID=${gameID}`)
+      fetch(`${protocol}://${props.site}/api/game.php?game=delete&gameID=${gameID}`)
         .then((response) => response.json())
         .then((data) => setInfo((prevState) => data))
         .catch((err) => console.log(err));

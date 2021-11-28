@@ -13,11 +13,20 @@ import Err404 from './Err404';
 import { useEffect } from 'react';
 import GameInput from '../components/GameInput';
 import NewsLetter from '../components/newsletter/NewsLetter';
+import { protocol } from '../utility/utility';
 
 export default function App() {
   const site = document.location.hostname;
+  console.log(protocol);
+
   useEffect(() => {
-    fetch(`http://${site}/api/visitors.php?counter=visit`);
+    fetch(`${protocol}://${site}/api/visitors.php?counter=visit`);
+
+    //for 000webhost banner removal//
+    /* window.addEventListener('load', function () {
+      var bannerNode = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+      bannerNode.parentNode.removeChild(bannerNode); 
+    });*/
   }, []);
 
   console.log(window.location.href);

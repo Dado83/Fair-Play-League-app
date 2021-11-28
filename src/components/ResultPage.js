@@ -7,6 +7,7 @@ import logo5 from '../assets/club-small/5.png';
 import logo6 from '../assets/club-small/6.png';
 import logo7 from '../assets/club-small/7.png';
 import logo8 from '../assets/club-small/8.png';
+import { protocol } from '../utility/utility';
 
 export default function Result(props) {
   const [result, setResult] = useState([]);
@@ -23,7 +24,7 @@ export default function Result(props) {
 
   useEffect(() => {
     let mounted = true;
-    fetch(`http://${props.site}/api/results.php?mday=${props.mDay}`)
+    fetch(`${protocol}://${props.site}/api/results.php?mday=${props.mDay}`)
       .then((response) => response.json())
       .then((data) => {
         if (mounted) {
@@ -39,7 +40,7 @@ export default function Result(props) {
 
   useEffect(() => {
     let mounted = true;
-    fetch(`http://${props.site}/api/fixtures.php?mday=${props.mDay}`)
+    fetch(`${protocol}://${props.site}/api/fixtures.php?mday=${props.mDay}`)
       .then((response) => response.json())
       .then((data) => {
         if (mounted) {

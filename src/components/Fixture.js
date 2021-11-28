@@ -7,6 +7,7 @@ import logo5 from '../assets/club-small/5.png';
 import logo6 from '../assets/club-small/6.png';
 import logo7 from '../assets/club-small/7.png';
 import logo8 from '../assets/club-small/8.png';
+import { protocol } from '../utility/utility';
 
 export default function Fixture(props) {
   const [fixture, setFixture] = useState([]);
@@ -21,7 +22,7 @@ export default function Fixture(props) {
   logos.set('8', logo8);
 
   useEffect(() => {
-    fetch(`http://${props.site}/api/fixtures.php?mday=${props.mDay}`)
+    fetch(`${protocol}://${props.site}/api/fixtures.php?mday=${props.mDay}`)
       .then((response) => response.json())
       .then((data) => setFixture((prevState) => data))
       .catch((err) => console.log(err));

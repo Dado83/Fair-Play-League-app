@@ -1,13 +1,13 @@
 import Fixture from '../components/Fixture';
 import React, { useEffect } from 'react';
-
+import { protocol } from '../utility/utility';
 
 export default function Fixtures() {
   const site = document.location.hostname;
-
   const url = window.location.href;
+
   useEffect(() => {
-    fetch(`http://${site}/api/visitors.php?counter=${url}`);
+    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   let fixtures = [];
@@ -18,10 +18,7 @@ export default function Fixtures() {
   return (
     <>
       <h1>Raspored:</h1>
-      <div className='content'>
-        {fixtures.map(fix =>
-          fix)}
-      </div>
+      <div className='content'>{fixtures.map((fix) => fix)}</div>
     </>
   );
 }

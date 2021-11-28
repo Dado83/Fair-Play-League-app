@@ -3,6 +3,7 @@ import Fixture from '../components/Fixture';
 import Table from '../components/Table';
 import Result from '../components/Result';
 import Loader from '../components/Loader';
+import { protocol } from '../utility/utility';
 
 export default function Home() {
   const site = document.location.hostname;
@@ -29,7 +30,7 @@ export default function Home() {
   const url = window.location.href;
 
   useEffect(() => {
-    fetch(`http://${site}/api/visitors.php?counter=${url}`);
+    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   useEffect(() => {
@@ -38,11 +39,11 @@ export default function Home() {
 
   useEffect(() => {
     let url = new Map();
-    url.set(8, fetch(`http://${site}/api/table.php?table=table8`));
-    url.set(9, fetch(`http://${site}/api/table.php?table=table9&id1=1`));
-    url.set(10, fetch(`http://${site}/api/table.php?table=table10`));
-    url.set(11, fetch(`http://${site}/api/table.php?table=table11`));
-    url.set(12, fetch(`http://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`));
+    url.set(8, fetch(`${protocol}://${site}/api/table.php?table=table8`));
+    url.set(9, fetch(`${protocol}://${site}/api/table.php?table=table9&id1=1`));
+    url.set(10, fetch(`${protocol}://${site}/api/table.php?table=table10`));
+    url.set(11, fetch(`${protocol}://${site}/api/table.php?table=table11`));
+    url.set(12, fetch(`${protocol}://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`));
 
     const getData = async () => {
       try {
@@ -82,8 +83,8 @@ export default function Home() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const prevRes = fetch(`http://${site}/api/results.php?prevres=prevres`);
-        const nextFix = fetch(`http://${site}/api/results.php?nextfix=nextfix`);
+        const prevRes = fetch(`${protocol}://${site}/api/results.php?prevres=prevres`);
+        const nextFix = fetch(`${protocol}://${site}/api/results.php?nextfix=nextfix`);
 
         const [res, fix] = await Promise.all([prevRes, nextFix]);
 

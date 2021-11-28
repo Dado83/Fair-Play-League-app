@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Archive from '../components/Archive';
 import TableAlltime from '../components/TableAlltime';
+import { protocol } from '../utility/utility';
 
 export default function Archives() {
   const site = document.location.hostname;
@@ -16,11 +17,11 @@ export default function Archives() {
 
   const url = window.location.href;
   useEffect(() => {
-    fetch(`http://${site}/api/visitors.php?counter=${url}`);
+    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   useEffect(() => {
-    let url = fetch(`http://${site}/api/archive.php?year=alltime`);
+    let url = fetch(`${protocol}://${site}/api/archive.php?year=alltime`);
     url
       .then((response) => response.json())
       .then((data) => setTable(data))
@@ -29,13 +30,13 @@ export default function Archives() {
 
   useEffect(() => {
     let urls = new Map();
-    urls.set(archive14_15, fetch(`http://${site}/api/archive.php?year=archive14_15`));
-    urls.set(archive15_16, fetch(`http://${site}/api/archive.php?year=archive15_16`));
-    urls.set(archive16_17, fetch(`http://${site}/api/archive.php?year=archive16_17`));
-    urls.set(archive17_18, fetch(`http://${site}/api/archive.php?year=archive17_18`));
-    urls.set(archive18_19, fetch(`http://${site}/api/archive.php?year=archive18_19`));
-    urls.set(archive19_20, fetch(`http://${site}/api/archive.php?year=archive19_20`));
-    urls.set(archive20_21, fetch(`http://${site}/api/archive.php?year=archive20_21`));
+    urls.set(archive14_15, fetch(`${protocol}://${site}/api/archive.php?year=archive14_15`));
+    urls.set(archive15_16, fetch(`${protocol}://${site}/api/archive.php?year=archive15_16`));
+    urls.set(archive16_17, fetch(`${protocol}://${site}/api/archive.php?year=archive16_17`));
+    urls.set(archive17_18, fetch(`${protocol}://${site}/api/archive.php?year=archive17_18`));
+    urls.set(archive18_19, fetch(`${protocol}://${site}/api/archive.php?year=archive18_19`));
+    urls.set(archive19_20, fetch(`${protocol}://${site}/api/archive.php?year=archive19_20`));
+    urls.set(archive20_21, fetch(`${protocol}://${site}/api/archive.php?year=archive20_21`));
 
     const getData = async () => {
       try {

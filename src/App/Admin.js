@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Dashboard from '../components/Dashboard';
 import Login from '../components/Login';
+import { protocol } from '../utility/utility';
 
 export default function Admin(props) {
   const site = document.location.hostname;
@@ -12,15 +13,15 @@ export default function Admin(props) {
 
   const url = window.location.href;
   useEffect(() => {
-    fetch(`http://${site}/api/visitors.php?counter=${url}`);
+    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   useEffect(() => {
     let url = new Map();
-    url.set('vis', fetch(`http://${site}/api/visitors.php?counter=getvisits`));
-    url.set('hit', fetch(`http://${site}/api/visitors.php?counter=gethits`));
-    url.set('day', fetch(`http://${site}/api/visitors.php?counter=getday`));
-    url.set('hrs2', fetch(`http://${site}/api/visitors.php?counter=get2hrs`));
+    url.set('vis', fetch(`${protocol}://${site}/api/visitors.php?counter=getvisits`));
+    url.set('hit', fetch(`${protocol}://${site}/api/visitors.php?counter=gethits`));
+    url.set('day', fetch(`${protocol}://${site}/api/visitors.php?counter=getday`));
+    url.set('hrs2', fetch(`${protocol}://${site}/api/visitors.php?counter=get2hrs`));
 
     const getData = async () => {
       try {

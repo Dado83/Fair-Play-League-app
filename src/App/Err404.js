@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
-
+import { protocol } from '../utility/utility';
 
 export default function Err404() {
   const site = document.location.hostname;
   const url = window.location.href;
+
   useEffect(() => {
-    fetch(`http://${site}/api/visitors.php?counter=${url}`);
+    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
   }, []);
 
   return (

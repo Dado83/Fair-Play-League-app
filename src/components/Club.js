@@ -9,6 +9,7 @@ import logo5 from '../assets/club-big/5.png';
 import logo6 from '../assets/club-big/6.png';
 import logo7 from '../assets/club-big/7.png';
 import logo8 from '../assets/club-big/8.png';
+import { protocol } from '../utility/utility';
 
 export default function Club(props) {
   const site = document.location.hostname;
@@ -33,14 +34,14 @@ export default function Club(props) {
   }
 
   useEffect(() => {
-    fetch(`http://${site}/api/teams.php?id=${id}`)
+    fetch(`${protocol}://${site}/api/teams.php?id=${id}`)
       .then((response) => response.json())
       .then((data) => setClub((prevState) => data))
       .catch((err) => console.log(err));
   }, [id]);
 
   useEffect(() => {
-    fetch(`http://${site}/api/results.php?clubid=${id}`)
+    fetch(`${protocol}://${site}/api/results.php?clubid=${id}`)
       .then((response) => response.json())
       .then((data) => setResults((prevState) => data))
       .catch((err) => console.log(err));
