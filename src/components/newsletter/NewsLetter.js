@@ -8,24 +8,24 @@ export default function NewsLetter(props) {
   const site = document.location.hostname;
   const [leagueOver, setLeagueOver] = useState(false);
   const [nextMday, setNextMday] = useState('');
-  const [table7, setTable7] = useState([]);
   const [table8, setTable8] = useState([]);
   const [table9, setTable9] = useState([]);
   const [table10, setTable10] = useState([]);
   const [table11, setTable11] = useState([]);
+  const [table12, setTable12] = useState([]);
   const [selection, setSelection] = useState('');
 
   useEffect(() => {
     let url = new Map();
-    url.set(7, `${protocol}://${site}/api/table.php?table=table7&id1=5&id2=8&id3=9&id4=10`);
+    url.set(12, `${protocol}://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`);
     url.set(8, `${protocol}://${site}/api/table.php?table=table8`);
-    url.set(9, `${protocol}://${site}/api/table.php?table=table9`);
-    url.set(10, `${protocol}://${site}/api/table.php?table=table10&id1=11`);
-    url.set(11, `${protocol}://${site}/api/table.php?table=table11&id1=4`);
+    url.set(9, `${protocol}://${site}/api/table.php?table=table9&id1=1`);
+    url.set(10, `${protocol}://${site}/api/table.php?table=table10`);
+    url.set(11, `${protocol}://${site}/api/table.php?table=table11`);
 
-    fetch(url.get(7))
+    fetch(url.get(12))
       .then((response) => response.json())
-      .then((data) => setTable7((prevState) => data))
+      .then((data) => setTable12((prevState) => data))
       .catch((err) => console.log(err));
 
     fetch(url.get(8))
@@ -67,19 +67,19 @@ export default function NewsLetter(props) {
       <div className='newsletter'>
         <h1>FAIR PLAY Liga Budućih Šampiona</h1>
         <h2>takmičarska sezona 2020/21</h2>
-        <h3>Bilten br. ??4</h3>
-        <p>1. Registracija utakmica 4. kola</p>
-        <p>2. Raspored utakmica 5. kola</p>
+        <h3>Bilten br. {nextMday - 1}</h3>
+        <p>1. Registracija utakmica {nextMday - 1}. kola</p>
+        <p>2. Raspored utakmica {nextMday}. kola</p>
       </div>
       <p className='ad'>ad 1)</p>
-      <NRPage mDay={2} site={site} />
-      <NTable site={site} table={table7} selection={2007} />
+      <NRPage mDay={nextMday - 1} site={site} />
       <NTable site={site} table={table8} selection={2008} />
       <NTable site={site} table={table9} selection={2009} />
       <NTable site={site} table={table10} selection={2010} />
       <NTable site={site} table={table11} selection={2011} />
+      <NTable site={site} table={table12} selection={2012} />
       <p className='ad'>ad 2)</p>
-      <NFix site={site} mDay={11} />
+      <NFix site={site} mDay={nextMday} />
     </>
   );
 }
