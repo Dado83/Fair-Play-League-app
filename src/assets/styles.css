@@ -520,6 +520,11 @@ body {
 }
 
 /* newsletter */
+.newsletter {
+  margin: auto;
+  width: 700px;
+}
+
 .newsletter h1,
 .newsletter h2,
 .newsletter h3 {
@@ -537,16 +542,20 @@ body {
 
 .ad {
   margin: 40px 0 20px 0;
+  font-style: italic;
 }
 
 .newsletterR {
   margin: 0 0 40px 0;
+  width: 100%;
 }
 
 .newsletterF {
-  margin: 0 0 20px 0;
+  margin: -20px 0 20px 0;
+  width: 100%;
 }
 
 .newsletterT {
   margin: 10px 0;
+  width: 100%;
 }

@@ -29,7 +29,7 @@ export default function NFix(props) {
   }, [props.mDay]);
 
   return (
-    <table className='fixture ar-increase  newsletterF'>
+    <table className='fixture ar-increase newsletterF'>
       <thead>
         <tr>
           <th colSpan='3'>

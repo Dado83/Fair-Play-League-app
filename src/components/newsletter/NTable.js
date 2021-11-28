@@ -21,7 +21,7 @@ export default function NTable(props) {
   logos.set('8', logo8);
 
   return (
-    <table className='table ar-increase  newsletterT'>
+    <table className='table ar-increase newsletterT'>
       <tr>
         <td>#</td>
         <td>{props.selection}. godište</td>
