@@ -17,36 +17,37 @@ export default function NewsLetter(props) {
 
   useEffect(() => {
     let url = new Map();
-    url.set(12, `${protocol}://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`);
-    url.set(8, `${protocol}://${site}/api/table.php?table=table8`);
-    url.set(9, `${protocol}://${site}/api/table.php?table=table9&id1=1`);
-    url.set(10, `${protocol}://${site}/api/table.php?table=table10`);
-    url.set(11, `${protocol}://${site}/api/table.php?table=table11`);
+    url.set(12, fetch(`${protocol}://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`));
+    url.set(8, fetch(`${protocol}://${site}/api/table.php?table=table8`));
+    url.set(9, fetch(`${protocol}://${site}/api/table.php?table=table9&id1=1`));
+    url.set(10, fetch(`${protocol}://${site}/api/table.php?table=table10`));
+    url.set(11, fetch(`${protocol}://${site}/api/table.php?table=table11`));
 
-    fetch(url.get(12))
-      .then((response) => response.json())
-      .then((data) => setTable12((prevState) => data))
-      .catch((err) => console.log(err));
+    const getData = async () => {
+      try {
+        const [s12, s8, s9, s10, s11] = await Promise.all([
+          url.get(12),
+          url.get(8),
+          url.get(9),
+          url.get(10),
+          url.get(11),
+        ]);
 
-    fetch(url.get(8))
-      .then((response) => response.json())
-      .then((data) => setTable8((prevState) => data))
-      .catch((err) => console.log(err));
+        const ss12 = await s12.json();
+        const ss8 = await s8.json();
+        const ss9 = await s9.json();
+        const ss10 = await s10.json();
+        const ss11 = await s11.json();
 
-    fetch(url.get(9))
-      .then((response) => response.json())
-      .then((data) => setTable9((prevState) => data))
-      .catch((err) => console.log(err));
+        setTable12((prevState) => ss12);
+        setTable8((prevState) => ss8);
+        setTable9((prevState) => ss9);
+        setTable10((prevState) => ss10);
+        setTable11((prevState) => ss11);
+      } catch (e) {}
+    };
 
-    fetch(url.get(10))
-      .then((response) => response.json())
-      .then((data) => setTable10((prevState) => data))
-      .catch((err) => console.log(err));
-
-    fetch(url.get(11))
-      .then((response) => response.json())
-      .then((data) => setTable11((prevState) => data))
-      .catch((err) => console.log(err));
+    getData();
   }, []);
 
   useEffect(() => {
