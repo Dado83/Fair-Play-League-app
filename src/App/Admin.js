@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import Login from '../components/Login';
 import { protocol } from '../utility/utility';
@@ -69,7 +70,7 @@ export default function Admin(props) {
   return (
     <>
       <h2>
-        Panel
+        Panel <Link to='/bilten'>Bilten</Link>
         <button
           style={{ float: 'right' }}
           onClick={() => {
@@ -78,10 +79,18 @@ export default function Admin(props) {
           logout
         </button>
       </h2>
-      <p>Posjete: {visits}</p>
-      <p>Prethodni dan:{lastDay}</p>
-      <p>Zadnja 2 sata:{last2hrs}</p>
-      <p>Pregledi:{hits}</p>
+      <p>
+        Posjete: <b>{visits}</b>
+      </p>
+      <p>
+        Zadnja 24h:<b>{lastDay}</b>
+      </p>
+      <p>
+        Zadnja 2h:<b>{last2hrs}</b>
+      </p>
+      <p>
+        Pregledi:<b>{hits}</b>
+      </p>
       <div className='content'>
         <Dashboard />
       </div>
