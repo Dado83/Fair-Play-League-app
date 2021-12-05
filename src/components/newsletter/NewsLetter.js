@@ -66,7 +66,7 @@ export default function NewsLetter(props) {
   return (
     <div className='newsletter'>
       <h1>FAIR PLAY Liga Budućih Šampiona</h1>
-      <h2>takmičarska sezona 2020/21</h2>
+      <h2>takmičarska sezona 2021/22</h2>
       <h3>Bilten br. {nextMday - 1}</h3>
       <p>1. Registracija utakmica {nextMday - 1}. kola</p>
       <p>2. Raspored utakmica {nextMday}. kola</p>
