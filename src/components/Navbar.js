@@ -54,7 +54,9 @@ export default function Navbar() {
       <Link className='header-logo' to='/'>
         <img id='logo' src={logo} />
       </Link>
-      <h3>Liga Budućih Šampiona</h3>
+      <h3>
+        <i>Liga Budućih Šampiona</i>
+      </h3>
       <nav className='menu'>
         <div id='menu-toggle'>
           <div className='bar1'></div>

@@ -87,29 +87,29 @@ export default function GameInput(props) {
           <table>
             <tr>
               <th>
-                godište
                 <input type='hidden' name='mday' value={mday} />
                 <input type='hidden' name='id' value={id} />
               </th>
-              <th>domaćin</th>
-              <th>gost</th>
             </tr>
             <tr>
               <td></td>
               <td>
-                {homeTeam}
+                <b>{homeTeam}</b>
                 <input type='hidden' name='homeID' value={homeID} />
                 <input type='hidden' name='home' value={homeTeam} />
               </td>
+              <td>-</td>
               <td>
-                {awayTeam}
+                <b>{awayTeam}</b>
                 <input type='hidden' name='awayID' value={awayID} />
                 <input type='hidden' name='away' value={awayTeam} />
               </td>
             </tr>
             {no12 ? (
               <tr class='game-input__row'>
-                <td class='game-input__sel'>2012</td>
+                <td class='game-input__sel'>
+                  <b>2012</b>
+                </td>
                 <td>
                   <input type='hidden' name='home12' value='-1' />
                 </td>
@@ -119,11 +119,15 @@ export default function GameInput(props) {
               </tr>
             ) : (
               <tr class='game-input__row'>
-                <td class='game-input__sel'>2012</td>
-                <td>
+                <td class='game-input__sel'>
+                  <b>2012</b>
+                </td>
+                <td colSpan='2'>
                   <input
                     type='number'
                     name='home12'
+                    min='0'
+                    max='99'
                     value={values.home12}
                     onChange={(e) => onChange(e)}
                   />
@@ -132,6 +136,8 @@ export default function GameInput(props) {
                   <input
                     type='number'
                     name='away12'
+                    min='0'
+                    max='99'
                     value={values.away12}
                     onChange={(e) => onChange(e)}
                   />
@@ -139,11 +145,15 @@ export default function GameInput(props) {
               </tr>
             )}
             <tr class='game-input__row'>
-              <td class='game-input__sel'>2011</td>
-              <td>
+              <td class='game-input__sel'>
+                <b>2011</b>
+              </td>
+              <td colSpan='2'>
                 <input
                   type='number'
                   name='home11'
+                  min='0'
+                  max='99'
                   value={values.home11}
                   onChange={(e) => onChange(e)}
                 />
@@ -152,17 +162,23 @@ export default function GameInput(props) {
                 <input
                   type='number'
                   name='away11'
+                  min='0'
+                  max='99'
                   value={values.away11}
                   onChange={(e) => onChange(e)}
                 />
               </td>
             </tr>
             <tr class='game-input__row'>
-              <td class='game-input__sel'>2010</td>
-              <td>
+              <td class='game-input__sel'>
+                <b>2010</b>
+              </td>
+              <td colSpan='2'>
                 <input
                   type='number'
                   name='home10'
+                  min='0'
+                  max='99'
                   value={values.home10}
                   onChange={(e) => onChange(e)}
                 />
@@ -171,6 +187,8 @@ export default function GameInput(props) {
                 <input
                   type='number'
                   name='away10'
+                  min='0'
+                  max='99'
                   value={values.away10}
                   onChange={(e) => onChange(e)}
                 />
@@ -178,7 +196,9 @@ export default function GameInput(props) {
             </tr>
             {no9 ? (
               <tr class='game-input__row'>
-                <td class='game-input__sel'>2009</td>
+                <td class='game-input__sel'>
+                  <b>2009</b>
+                </td>
                 <td>
                   <input type='hidden' name='home9' value='-1' />
                 </td>
@@ -188,11 +208,15 @@ export default function GameInput(props) {
               </tr>
             ) : (
               <tr class='game-input__row'>
-                <td class='game-input__sel'>2009</td>
-                <td>
+                <td class='game-input__sel'>
+                  <b>2009</b>
+                </td>
+                <td colSpan='2'>
                   <input
                     type='number'
                     name='home9'
+                    min='0'
+                    max='99'
                     value={values.home9}
                     onChange={(e) => onChange(e)}
                   />
@@ -201,6 +225,8 @@ export default function GameInput(props) {
                   <input
                     type='number'
                     name='away9'
+                    min='0'
+                    max='99'
                     value={values.away9}
                     onChange={(e) => onChange(e)}
                   />
@@ -208,11 +234,15 @@ export default function GameInput(props) {
               </tr>
             )}
             <tr class='game-input__row'>
-              <td class='game-input__sel'>2008</td>
-              <td>
+              <td class='game-input__sel'>
+                <b>2008</b>
+              </td>
+              <td colSpan='2'>
                 <input
                   type='number'
                   name='home8'
+                  min='0'
+                  max='99'
                   value={values.home8}
                   onChange={(e) => onChange(e)}
                 />
@@ -221,6 +251,8 @@ export default function GameInput(props) {
                 <input
                   type='number'
                   name='away8'
+                  min='0'
+                  max='99'
                   value={values.away8}
                   onChange={(e) => onChange(e)}
                 />
