@@ -70,9 +70,9 @@ export default function Admin(props) {
   return (
     <>
       <h2>
-        Panel <Link to='/bilten'>Bilten</Link>
+        Panel
         <button
-          style={{ float: 'right' }}
+          style={{ float: 'right', marginRight: '0.5em' }}
           onClick={() => {
             setUser((user) => sessionStorage.removeItem('role'));
           }}>
@@ -90,7 +90,11 @@ export default function Admin(props) {
       </p>
       <p>
         Pregledi:<b>{hits}</b>
+        <button className='newsletter-link'>
+          <Link to='/bilten'>Bilten</Link>
+        </button>
       </p>
+
       <div className='content'>
         <Dashboard />
       </div>
