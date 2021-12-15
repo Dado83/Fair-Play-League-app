@@ -79,6 +79,18 @@ export default function GameInput(props) {
     window.location.replace('/admin');
   };
 
+  useEffect(() => {
+    const firstInput = document.getElementsByName('home12')[0];
+    const secInput = document.getElementsByName('home11')[0];
+    if (!firstInput.disabled) {
+      firstInput.focus();
+      firstInput.select();
+    } else {
+      secInput.focus();
+      secInput.select();
+    }
+  }, []);
+
   return (
     <div class='game-input'>
       <form onSubmit={submit}>
@@ -110,11 +122,11 @@ export default function GameInput(props) {
                 <td class='game-input__sel'>
                   <b>2012</b>
                 </td>
-                <td>
-                  <input type='hidden' name='home12' value='-1' />
+                <td colSpan='2'>
+                  <input type='number' name='home12' value='-1' min='0' max='99' disabled />
                 </td>
                 <td>
-                  <input type='hidden' name='away12' value='-1' />
+                  <input type='number' name='away12' value='-1' min='0' max='99' disabled />
                 </td>
               </tr>
             ) : (
@@ -130,6 +142,7 @@ export default function GameInput(props) {
                     max='99'
                     value={values.home12}
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </td>
                 <td>
@@ -140,6 +153,7 @@ export default function GameInput(props) {
                     max='99'
                     value={values.away12}
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </td>
               </tr>
@@ -156,6 +170,7 @@ export default function GameInput(props) {
                   max='99'
                   value={values.home11}
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
               <td>
@@ -166,6 +181,7 @@ export default function GameInput(props) {
                   max='99'
                   value={values.away11}
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
             </tr>
@@ -181,6 +197,7 @@ export default function GameInput(props) {
                   max='99'
                   value={values.home10}
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
               <td>
@@ -191,6 +208,7 @@ export default function GameInput(props) {
                   max='99'
                   value={values.away10}
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
             </tr>
@@ -199,11 +217,11 @@ export default function GameInput(props) {
                 <td class='game-input__sel'>
                   <b>2009</b>
                 </td>
-                <td>
-                  <input type='hidden' name='home9' value='-1' />
+                <td colSpan='2'>
+                  <input type='number' name='home9' value='-1' min='0' max='99' disabled />
                 </td>
                 <td>
-                  <input type='hidden' name='away9' value='-1' />
+                  <input type='number' name='away9' value='-1' min='0' max='99' disabled />
                 </td>
               </tr>
             ) : (
@@ -219,6 +237,7 @@ export default function GameInput(props) {
                     max='99'
                     value={values.home9}
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </td>
                 <td>
@@ -229,6 +248,7 @@ export default function GameInput(props) {
                     max='99'
                     value={values.away9}
                     onChange={(e) => onChange(e)}
+                    required
                   />
                 </td>
               </tr>
@@ -245,6 +265,7 @@ export default function GameInput(props) {
                   max='99'
                   value={values.home8}
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
               <td>
@@ -255,6 +276,7 @@ export default function GameInput(props) {
                   max='99'
                   value={values.away8}
                   onChange={(e) => onChange(e)}
+                  required
                 />
               </td>
             </tr>

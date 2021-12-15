@@ -57,6 +57,7 @@ export default function Login(props) {
                   onChange={(e) => {
                     setUsername(e.target.value);
                   }}
+                  autoFocus
                 />
               </td>
             </tr>

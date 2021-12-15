@@ -94,7 +94,6 @@ export default function Admin(props) {
           <Link to='/bilten'>Bilten</Link>
         </button>
       </p>
-
       <div className='content'>
         <Dashboard />
       </div>
