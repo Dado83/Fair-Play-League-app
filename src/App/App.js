@@ -13,6 +13,7 @@ import Err404 from './Err404';
 import { useEffect } from 'react';
 import GameInput from '../components/GameInput';
 import NewsLetter from '../components/newsletter/NewsLetter';
+import SkTestplay from './SkTestplay';
 import { protocol } from '../utility/utility';
 
 export default function App() {
@@ -63,6 +64,9 @@ export default function App() {
         </Route>
         <Route path='/bilten'>
           <NewsLetter />
+        </Route>
+        <Route path='/sktestplay'>
+          <SkTestplay />
         </Route>
         <Route>Err404</Route>
       </Switch>
