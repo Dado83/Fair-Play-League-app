@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
+import { skTemp } from '../assets/sktestplay/skTemp';
+import { sk } from '../assets/sktestplay/sk';
 
 export default function SkTestplay(props) {
-  const [g, setg] = useState('');
-
   useEffect(() => {
     window.addEventListener('orientationchange', (event) => {
       window.location.reload();
     });
   }, []);
+
+  console.log(typeof skTemp);
 
   const submit = (e) => {
     e.preventDefault();
@@ -130,7 +132,17 @@ export default function SkTestplay(props) {
             <th class='hidden'>Platforma</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {sk.map((g) => (
+            <tr>
+              <td>{g.date}</td>
+              <td>{g.title}</td>
+              <td>{g.author}</td>
+              <td>{g.score}</td>
+              <td>{g.platform}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </>
   );
