@@ -1,10 +1,11 @@
 import { useState } from 'react/cjs/react.development';
+import { sk } from '../../assets/sktestplay/sk';
 
 export default function SkSearch(props) {
   let searchDef = {
     title: '',
     author: '',
-    score: 1,
+    score: '',
     platform: '',
   };
 
@@ -26,8 +27,14 @@ export default function SkSearch(props) {
     props.onSubmit(search);
   };
 
+  const formReset = (e) => {
+    e.preventDefault();
+    setSearch(searchDef);
+    props.onSubmit(searchDef);
+  };
+
   return (
-    <form onSubmit={submitSearch}>
+    <form onSubmit={submitSearch} onReset={formReset}>
       <p>
         <a href='https://www.sk.rs/arhiva/rubrika/test-play'>
           <span id='sk'>Svet Kompjutera</span>
