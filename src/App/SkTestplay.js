@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { skTemp } from '../assets/sktestplay/skTemp';
 import { sk } from '../assets/sktestplay/sk';
+import SkSearch from '../components/SkTestP/SkSearch';
+import SkGames from '../components/SkTestP/SkGames';
 
 export default function SkTestplay(props) {
   useEffect(() => {
@@ -100,50 +102,8 @@ export default function SkTestplay(props) {
 
   return (
     <>
-      <form onSubmit={submit}>
-        <p>
-          <a href='https://www.sk.rs/arhiva/rubrika/test-play'>
-            <span id='sk'>Svet Kompjutera</span>
-          </a>
-        </p>
-        <fieldset>
-          <legend>
-            TEST PLAY(<span id='links'></span>)
-          </legend>
-          <label for='title'>Naslov</label>
-          <input type='text' id='title' placeholder='The Witcher 3: Wild Hunt' />
-          <label for='author'>Autor</label>
-          <input type='text' id='author' placeholder='Miodrag KUZMANOVIĆ' />
-          <label for='score'>Ocjena</label>
-          <input type='number' id='score' min='1' max='99' placeholder='90' />
-          <label for='platform'>Platforma</label>
-          <input type='text' id='platform' placeholder='PC, PlayStation 4, Xbox One' />
-          <input type='reset' class='button' id='reset' value='Reset' />
-          <input type='submit' class='button' id='search' value='Pretraga' />
-        </fieldset>
-      </form>
-      <table>
-        <thead>
-          <tr class='row'>
-            <th>Datum</th>
-            <th>Naslov</th>
-            <th>Autor</th>
-            <th>Ocjena</th>
-            <th class='hidden'>Platforma</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sk.map((g) => (
-            <tr>
-              <td>{g.date}</td>
-              <td>{g.title}</td>
-              <td>{g.author}</td>
-              <td>{g.score}</td>
-              <td>{g.platform}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <SkSearch submit={submit} />
+      <SkGames list={sk} />
     </>
   );
 }
