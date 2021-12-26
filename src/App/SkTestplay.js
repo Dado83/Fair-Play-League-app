@@ -5,16 +5,18 @@ import SkSearch from '../components/SkTestP/SkSearch';
 import SkGames from '../components/SkTestP/SkGames';
 
 export default function SkTestplay(props) {
+  const [games, setGames] = useState(sk);
+  const [searchRes, setSearchRes] = useState([]);
+
   useEffect(() => {
     window.addEventListener('orientationchange', (event) => {
       window.location.reload();
     });
   }, []);
 
-  console.log(typeof skTemp);
-
-  const submit = (e) => {
-    e.preventDefault();
+  const submit = (param) => {
+    setSearchRes(param);
+    console.log('search: ', param);
   };
 
   /*
@@ -102,8 +104,8 @@ export default function SkTestplay(props) {
 
   return (
     <>
-      <SkSearch submit={submit} />
-      <SkGames list={sk} />
+      <SkSearch onSubmit={submit} />
+      <SkGames list={games} />
     </>
   );
 }
