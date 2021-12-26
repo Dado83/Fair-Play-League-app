@@ -10,10 +10,7 @@ export default function GameInput(props) {
 
   let no9 = homeID == 1 || awayID == 1 ? true : false;
 
-  let no12 =
-    homeID == 2 || awayID == 2 || homeID == 5 || awayID == 5 || homeID == 6 || awayID == 6
-      ? true
-      : false;
+  let no12 = homeID == 2 || awayID == 2 || homeID == 5 || awayID == 5 || homeID == 6 || awayID == 6 ? true : false;
 
   let valuesInit = {
     home12: 0,
