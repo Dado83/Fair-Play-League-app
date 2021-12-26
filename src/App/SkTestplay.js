@@ -6,7 +6,6 @@ import SkGames from '../components/SkTestP/SkGames';
 
 export default function SkTestplay(props) {
   const [games, setGames] = useState(sk);
-  const [searchRes, setSearchRes] = useState([]);
 
   useEffect(() => {
     window.addEventListener('orientationchange', (event) => {
@@ -14,9 +13,26 @@ export default function SkTestplay(props) {
     });
   }, []);
 
+  /* useEffect(() => {
+    console.log(games.length);
+
+  }, [games]); */
+
   const submit = (param) => {
-    setSearchRes(param);
+    const searchV = param;
     console.log('search: ', param);
+    console.log('games full: ', games.length);
+    let res = sk
+      .filter((g) => g.title.toLowerCase().includes(searchV.title.toLowerCase()))
+      .filter((g) => g.author.toLowerCase().includes(searchV.author.toLowerCase()))
+      .filter((g) => g.score >= searchV.score)
+      .filter((g) => g.platform.toLowerCase().includes(searchV.platform.toLowerCase()));
+
+    //console.log('game test: ', games[0]);
+
+    console.log('searchValues: ', searchV);
+    console.log('searched games: ', res.length);
+    setGames(res);
   };
 
   /*
