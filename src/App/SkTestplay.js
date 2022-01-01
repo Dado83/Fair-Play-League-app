@@ -5,7 +5,19 @@ import SkSearch from '../components/SkTestP/SkSearch';
 import SkGames from '../components/SkTestP/SkGames';
 
 export default function SkTestplay(props) {
-  const [games, setGames] = useState(sk);
+  const [games, setGames] = useState([]);
+  const [isTempList, setTempList] = useState(false);
+
+  useEffect(() => {
+    setGames(skTemp);
+    setTempList(true);
+  }, []);
+
+  useEffect(() => {
+    if (isTempList) {
+      setGames(sk);
+    }
+  }, [isTempList]);
 
   useEffect(() => {
     window.addEventListener('orientationchange', (event) => {
