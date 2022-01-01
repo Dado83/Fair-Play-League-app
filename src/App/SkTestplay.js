@@ -44,7 +44,7 @@ export default function SkTestplay(props) {
 
   return (
     <>
-      <SkSearch onSubmit={submit} />
+      <SkSearch onSubmit={submit} list={games.length} />
       <SkGames list={games} />
     </>
   );

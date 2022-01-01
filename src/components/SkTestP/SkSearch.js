@@ -42,7 +42,7 @@ export default function SkSearch(props) {
       </p>
       <fieldset>
         <legend>
-          TEST PLAY(<span id='links'></span>)
+          TEST PLAY(<span id='links'>{props.list}</span>)
         </legend>
         <label htmlFor='title'>Naslov</label>
         <input
