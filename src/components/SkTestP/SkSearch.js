@@ -34,7 +34,7 @@ export default function SkSearch(props) {
   };
 
   return (
-    <form onSubmit={submitSearch} onReset={formReset}>
+    <form className='sk-form' onSubmit={submitSearch} onReset={formReset}>
       <p>
         <a href='https://www.sk.rs/arhiva/rubrika/test-play'>
           <span id='sk'>Svet Kompjutera</span>
@@ -44,46 +44,56 @@ export default function SkSearch(props) {
         <legend>
           TEST PLAY(<span id='links'>{props.list}</span>)
         </legend>
-        <label htmlFor='title'>Naslov</label>
-        <input
-          type='text'
-          id='title'
-          name='title'
-          placeholder='The Witcher 3: Wild Hunt'
-          value={search.title}
-          onChange={(e) => onChange(e)}
-        />
-        <label htmlFor='author'>Autor</label>
-        <input
-          type='text'
-          id='author'
-          name='author'
-          placeholder='Miodrag KUZMANOVIĆ'
-          value={search.author}
-          onChange={(e) => onChange(e)}
-        />
-        <label htmlFor='score'>Ocjena</label>
-        <input
-          type='number'
-          id='score'
-          name='score'
-          min='1'
-          max='99'
-          placeholder='90'
-          value={search.score}
-          onChange={(e) => onChange(e)}
-        />
-        <label htmlFor='platform'>Platforma</label>
-        <input
-          type='text'
-          id='platform'
-          name='platform'
-          placeholder='PC, PlayStation 4, Xbox One'
-          value={search.platform}
-          onChange={(e) => onChange(e)}
-        />
-        <input type='reset' className='button' id='reset' value='Reset' />
-        <input type='submit' className='button' id='search' value='Pretraga' />
+        <section className='form-section'>
+          <label htmlFor='title' id='title-label'>
+            Naslov{' '}
+          </label>
+          <input
+            type='text'
+            id='title'
+            name='title'
+            placeholder='The Witcher 3: Wild Hunt'
+            value={search.title}
+            onChange={(e) => onChange(e)}
+          />
+          <label htmlFor='author' id='author-label'>
+            Autor{' '}
+          </label>
+          <input
+            type='text'
+            id='author'
+            name='author'
+            placeholder='Miodrag KUZMANOVIĆ'
+            value={search.author}
+            onChange={(e) => onChange(e)}
+          />
+          <label htmlFor='score' id='score-label'>
+            Ocjena{' '}
+          </label>
+          <input
+            type='number'
+            id='score'
+            name='score'
+            min='1'
+            max='99'
+            placeholder='90'
+            value={search.score}
+            onChange={(e) => onChange(e)}
+          />
+          <label htmlFor='platform' id='platform-label'>
+            Platforma{' '}
+          </label>
+          <input
+            type='text'
+            id='platform'
+            name='platform'
+            placeholder='PC, PlayStation 4, Xbox One'
+            value={search.platform}
+            onChange={(e) => onChange(e)}
+          />
+          <input type='reset' className='button' id='reset' value='Reset' />
+          <input type='submit' className='button' id='search' value='Pretraga' />
+        </section>
       </fieldset>
     </form>
   );

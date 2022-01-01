@@ -23,5 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 src/assets/
 !src/assets/styles.css
+!src/assets/stylesSk.css
 .eslintcache
 .gitignore

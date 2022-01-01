@@ -3,6 +3,7 @@ import { skTemp } from '../assets/sktestplay/skTemp';
 import { sk } from '../assets/sktestplay/sk';
 import SkSearch from '../components/SkTestP/SkSearch';
 import SkGames from '../components/SkTestP/SkGames';
+import '../assets/stylesSk.css';
 
 export default function SkTestplay(props) {
   const [games, setGames] = useState([]);
@@ -43,9 +44,9 @@ export default function SkTestplay(props) {
   };
 
   return (
-    <>
+    <article className='svet-kompjutera'>
       <SkSearch onSubmit={submit} list={games.length} />
       <SkGames list={games} />
-    </>
+    </article>
   );
 }
