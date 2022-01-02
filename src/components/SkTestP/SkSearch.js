@@ -1,4 +1,4 @@
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import { sk } from '../../assets/sktestplay/sk';
 
 export default function SkSearch(props) {
