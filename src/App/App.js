@@ -3,7 +3,7 @@ import '../assets/styles.css?v=0.1';
 import Navbar from '../components/Navbar';
 import Home from './Home';
 import Fixture from '../components/Fixture';
-import Results from './Results';
+import ResultPage from '../components/ResultPage';
 import Club from '../components/Club';
 import Archives from './Archives';
 import About from './About';
@@ -42,7 +42,7 @@ export default function App() {
           <Fixture />
         </Route>
         <Route path='/rezultati'>
-          <Results />
+          <ResultPage />
         </Route>
         <Route path='/klub'>
           <Club />

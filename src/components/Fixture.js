@@ -24,6 +24,10 @@ export default function Fixture(props) {
   logos.set('8', logo8);
 
   useEffect(() => {
+    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
+  }, []);
+
+  useEffect(() => {
     fetch(`${protocol}://${site}/api/fixturesPage.php`)
       .then((response) => response.json())
       .then((data) => setFixture((prevState) => data))

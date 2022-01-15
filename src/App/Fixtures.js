@@ -1,4 +1,4 @@
-import Fixture from '../components/Fixture';
+/* import Fixture from '../components/Fixture';
 import React, { useEffect } from 'react';
 import { protocol } from '../utility/utility';
 
@@ -22,3 +22,4 @@ export default function Fixtures() {
     </>
   );
 }
+ */

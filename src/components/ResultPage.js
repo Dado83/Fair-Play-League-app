@@ -9,9 +9,11 @@ import logo7 from '../assets/club-small/7.png';
 import logo8 from '../assets/club-small/8.png';
 import { protocol } from '../utility/utility';
 
-export default function Result(props) {
+export default function ResultPage(props) {
+  const site = document.location.hostname;
+  const url = window.location.href;
   const [result, setResult] = useState([]);
-  const [gameDate, setGameDate] = useState('/');
+  const [gameDate, setGameDate] = useState([]);
   const logos = new Map();
   logos.set(1, logo1);
   logos.set(2, logo2);
@@ -23,89 +25,90 @@ export default function Result(props) {
   logos.set(8, logo8);
 
   useEffect(() => {
-    let mounted = true;
-    fetch(`${protocol}://${props.site}/api/results.php?mday=${props.mDay}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (mounted) {
-          setResult((prevState) => data);
-        }
-      })
-      .catch((err) => console.log(err));
-
-    return () => {
-      mounted = false;
-    };
-  }, [props.mDay]);
+    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
+  }, []);
 
   useEffect(() => {
-    let mounted = true;
-    fetch(`${protocol}://${props.site}/api/fixtures.php?mday=${props.mDay}`)
-      .then((response) => response.json())
+    fetch(`${protocol}://${site}/api/resultsPage.php`)
+      .then((response) => {
+        console.log('res ', response);
+        return response.json();
+      })
       .then((data) => {
-        if (mounted) {
-          setGameDate((prevState) => data);
-        }
+        console.log('data ', data);
+        setResult((prevState) => Object.values(data['results']));
+        setGameDate((prevState) => Object.values(data['dates']));
+        console.log('dates ', gameDate);
       })
       .catch((err) => console.log(err));
+  }, []);
 
-    return () => {
-      mounted = false;
-    };
-  }, props.mDay);
-
+  /* useEffect(() => {
+    fetch(`${protocol}://${site}/api/fixtures.php?mday=1`)
+      .then((response) => response.json())
+      .then((data) => {
+        setGameDate((prevState) => data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+ */
   return (
-    <table className='result-page'>
-      <thead>
-        <tr>
-          <th>
-            {props.mDay}. kolo ({gameDate[0].game_date})
-          </th>
-          <th colSpan='' className={props.gen8}>
-            2008
-          </th>
-          <th colSpan='' className={props.gen9}>
-            2009
-          </th>
-          <th colSpan='' className={props.gen10}>
-            2010
-          </th>
-          <th colSpan='' className={props.gen11}>
-            2011
-          </th>
-          <th colSpan='' className={props.gen12}>
-            2012
-          </th>
-          <th></th>
-        </tr>
-      </thead>
-      {result.map((res) => (
-        <tbody>
-          <tr key={res.id}>
-            <td>
-              <img src={logos.get(res.home_id)} />
-              {res.home_name}
-            </td>
-            <td className={props.gen8}>{res.goals_home8}</td>
-            <td className={props.gen9}>{res.goals_home9 != -1 ? res.goals_home9 : '*'}</td>
-            <td className={props.gen10}>{res.goals_home10}</td>
-            <td className={props.gen11}>{res.goals_home11}</td>{' '}
-            <td className={props.gen12}>{res.goals_home12 != -1 ? res.goals_home12 : '*'}</td>
-          </tr>
-          <tr>
-            <td>
-              <img src={logos.get(res.away_id)} />
-              {res.away_name}
-            </td>
+    <>
+      <h2>Rezultati:</h2>
+      <div className='content'>
+        {result.map((r, i) => (
+          <table className='result-page'>
+            <thead>
+              <tr>
+                <th>{++i}. kolo</th>
+                <th colSpan='' className={props.gen8}>
+                  2008
+                </th>
+                <th colSpan='' className={props.gen9}>
+                  2009
+                </th>
+                <th colSpan='' className={props.gen10}>
+                  2010
+                </th>
+                <th colSpan='' className={props.gen11}>
+                  2011
+                </th>
+                <th colSpan='' className={props.gen12}>
+                  2012
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            {r.map((res) => (
+              <tbody>
+                <tr key={res.id}>
+                  <td>
+                    <img src={logos.get(res.home_id)} />
+                    {res.home_name}
+                  </td>
+                  <td className={props.gen8}>{res.goals_home8}</td>
+                  <td className={props.gen9}>{res.goals_home9 != -1 ? res.goals_home9 : '*'}</td>
+                  <td className={props.gen10}>{res.goals_home10}</td>
+                  <td className={props.gen11}>{res.goals_home11}</td>{' '}
+                  <td className={props.gen12}>{res.goals_home12 != -1 ? res.goals_home12 : '*'}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <img src={logos.get(res.away_id)} />
+                    {res.away_name}
+                  </td>
 
-            <td className={props.gen8}>{res.goals_away8}</td>
-            <td className={props.gen9}>{res.goals_away9 != -1 ? res.goals_away9 : '*'}</td>
-            <td className={props.gen10}>{res.goals_away10}</td>
-            <td className={props.gen11}>{res.goals_away11}</td>
-            <td className={props.gen12}>{res.goals_away12 != -1 ? res.goals_away12 : '*'}</td>
-          </tr>
-        </tbody>
-      ))}
-    </table>
+                  <td className={props.gen8}>{res.goals_away8}</td>
+                  <td className={props.gen9}>{res.goals_away9 != -1 ? res.goals_away9 : '*'}</td>
+                  <td className={props.gen10}>{res.goals_away10}</td>
+                  <td className={props.gen11}>{res.goals_away11}</td>
+                  <td className={props.gen12}>{res.goals_away12 != -1 ? res.goals_away12 : '*'}</td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
+        ))}
+      </div>
+    </>
   );
 }
