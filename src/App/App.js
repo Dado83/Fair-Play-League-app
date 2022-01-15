@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '../assets/styles.css?v=0.1';
 import Navbar from '../components/Navbar';
 import Home from './Home';
-import Fixture from '../components/Fixture';
-import ResultPage from '../components/ResultPage';
+import Fixtures from './Fixtures';
+import Results from './Results';
 import Club from '../components/Club';
 import Archives from './Archives';
 import About from './About';
@@ -39,10 +39,10 @@ export default function App() {
           <Home />
         </Route>
         <Route path='/raspored'>
-          <Fixture />
+          <Fixtures />
         </Route>
         <Route path='/rezultati'>
-          <ResultPage />
+          <Results />
         </Route>
         <Route path='/klub'>
           <Club />

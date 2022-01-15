@@ -10,8 +10,6 @@ import logo8 from '../assets/club-small/8.png';
 import { protocol } from '../utility/utility';
 
 export default function Fixture(props) {
-  const site = document.location.hostname;
-  const url = window.location.href;
   const [fixture, setFixture] = useState([]);
   const logos = new Map();
   logos.set('1', logo1);
@@ -24,47 +22,36 @@ export default function Fixture(props) {
   logos.set('8', logo8);
 
   useEffect(() => {
-    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
-  }, []);
-
-  useEffect(() => {
-    fetch(`${protocol}://${site}/api/fixturesPage.php`)
+    fetch(`${protocol}://${props.site}/api/fixtures.php?mday=${props.mDay}`)
       .then((response) => response.json())
       .then((data) => setFixture((prevState) => data))
       .catch((err) => console.log(err));
   }, [props.mDay]);
 
   return (
-    <>
-      <h2>Raspored:</h2>
-      <div className='content'>
-        {Object.values(fixture).map((f) => (
-          <table className='fixture ar-increase'>
-            <thead>
-              <tr>
-                <th colSpan='3'>
-                  {props.mDay}. kolo <span>{f[0]?.game_date}</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {f.map((fix) => (
-                <tr key={fix.id}>
-                  <td>
-                    {fix.home_club}
-                    <img src={logos.get(fix.home_team)} />
-                  </td>
-                  <td>-</td>
-                  <td>
-                    <img src={logos.get(fix.away_team)} />
-                    {fix.away_club}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <table className='fixture ar-increase'>
+      <thead>
+        <tr>
+          <th colSpan='3'>
+            {props.mDay}. kolo <span>{fixture[0]?.game_date}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {fixture.map((fix) => (
+          <tr key={fix.id}>
+            <td>
+              {fix.home_club}
+              <img src={logos.get(fix.home_team)} />
+            </td>
+            <td>-</td>
+            <td>
+              <img src={logos.get(fix.away_team)} />
+              {fix.away_club}
+            </td>
+          </tr>
         ))}
-      </div>
-    </>
+      </tbody>
+    </table>
   );
 }
