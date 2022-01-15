@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '../assets/styles.css?v=0.1';
 import Navbar from '../components/Navbar';
 import Home from './Home';
-import Fixtures from './Fixtures';
+import Fixture from '../components/Fixture';
 import Results from './Results';
 import Club from '../components/Club';
 import Archives from './Archives';
@@ -15,7 +15,6 @@ import GameInput from '../components/GameInput';
 import NewsLetter from '../components/newsletter/NewsLetter';
 import SkTestplay from './SkTestplay';
 import { protocol } from '../utility/utility';
-import Fixture from '../components/Fixture';
 
 export default function App() {
   const site = document.location.hostname;

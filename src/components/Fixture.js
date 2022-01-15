@@ -10,6 +10,8 @@ import logo8 from '../assets/club-small/8.png';
 import { protocol } from '../utility/utility';
 
 export default function Fixture(props) {
+  const site = document.location.hostname;
+  const url = window.location.href;
   const [fixture, setFixture] = useState([]);
   const logos = new Map();
   logos.set('1', logo1);
@@ -21,34 +23,23 @@ export default function Fixture(props) {
   logos.set('7', logo7);
   logos.set('8', logo8);
 
-  const site = document.location.hostname;
-  const url = window.location.href;
-
   useEffect(() => {
-    fetch(`${protocol}://${site}/api/fixtures.php`)
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setFixture((prevState) => data);
-      })
+    fetch(`${protocol}://${site}/api/fixturesPage.php`)
+      .then((response) => response.json())
+      .then((data) => setFixture((prevState) => data))
       .catch((err) => console.log(err));
   }, [props.mDay]);
 
-  console.log(fixture);
-
   return (
     <>
-      <h1>Raspored:</h1>
+      <h2>Raspored:</h2>
       <div className='content'>
-        {Object.values(fixture).map((f, i) => (
+        {Object.values(fixture).map((f) => (
           <table className='fixture ar-increase'>
             <thead>
               <tr>
                 <th colSpan='3'>
-                  {++i}. kolo <span>{f[0]?.game_date}</span>
+                  {props.mDay}. kolo <span>{f[0]?.game_date}</span>
                 </th>
               </tr>
             </thead>
