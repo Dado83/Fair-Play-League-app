@@ -15,6 +15,7 @@ import GameInput from '../components/GameInput';
 import NewsLetter from '../components/newsletter/NewsLetter';
 import SkTestplay from './SkTestplay';
 import { protocol } from '../utility/utility';
+import Fixture from '../components/Fixture';
 
 export default function App() {
   const site = document.location.hostname;
@@ -39,7 +40,7 @@ export default function App() {
           <Home />
         </Route>
         <Route path='/raspored'>
-          <Fixtures />
+          <Fixture />
         </Route>
         <Route path='/rezultati'>
           <Results />

@@ -21,37 +21,55 @@ export default function Fixture(props) {
   logos.set('7', logo7);
   logos.set('8', logo8);
 
+  const site = document.location.hostname;
+  const url = window.location.href;
+
   useEffect(() => {
-    fetch(`${protocol}://${props.site}/api/fixtures.php?mday=${props.mDay}`)
-      .then((response) => response.json())
-      .then((data) => setFixture((prevState) => data))
+    fetch(`${protocol}://${site}/api/fixtures.php`)
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setFixture((prevState) => data);
+      })
       .catch((err) => console.log(err));
   }, [props.mDay]);
 
+  console.log(fixture);
+
   return (
-    <table className='fixture ar-increase'>
-      <thead>
-        <tr>
-          <th colSpan='3'>
-            {props.mDay}. kolo <span>{fixture[0]?.game_date}</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {fixture.map((fix) => (
-          <tr key={fix.id}>
-            <td>
-              {fix.home_club}
-              <img src={logos.get(fix.home_team)} />
-            </td>
-            <td>-</td>
-            <td>
-              <img src={logos.get(fix.away_team)} />
-              {fix.away_club}
-            </td>
-          </tr>
+    <>
+      <h1>Raspored:</h1>
+      <div className='content'>
+        {Object.values(fixture).map((f, i) => (
+          <table className='fixture ar-increase'>
+            <thead>
+              <tr>
+                <th colSpan='3'>
+                  {++i}. kolo <span>{f[0]?.game_date}</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {f.map((fix) => (
+                <tr key={fix.id}>
+                  <td>
+                    {fix.home_club}
+                    <img src={logos.get(fix.home_team)} />
+                  </td>
+                  <td>-</td>
+                  <td>
+                    <img src={logos.get(fix.away_team)} />
+                    {fix.away_club}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         ))}
-      </tbody>
-    </table>
+      </div>
+    </>
   );
 }
