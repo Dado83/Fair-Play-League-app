@@ -52,7 +52,7 @@ export default function Result(props) {
     return () => {
       mounted = false;
     };
-  }, props.mDay);
+  }, [props.mDay]);
 
   return (
     <table className='result-page'>
