@@ -8,8 +8,7 @@ import { protocol } from '../utility/utility';
 export default function Home() {
   const site = document.location.hostname;
   console.log(site);
-  const [leagueOver, setLeagueOver] =
-    useState(false); /* set to true if setNextMday returns non-existant mday */
+  const [leagueOver, setLeagueOver] = useState(false); /* set to true if setNextMday returns non-existant mday */
   const [nextMday, setNextMday] = useState('');
   const [prevRes, setprevRes] = useState('');
   const [table8, setTable8] = useState([]);
@@ -81,7 +80,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const getData = async () => {
+    const getData1 = async () => {
       try {
         const prevRes = fetch(`${protocol}://${site}/api/results.php?prevres=prevres`);
         const nextFix = fetch(`${protocol}://${site}/api/results.php?nextfix=nextfix`);
@@ -106,7 +105,7 @@ export default function Home() {
       }
     };
 
-    getData();
+    getData1();
   }, []);
 
   const buttonSelection = (param) => {
