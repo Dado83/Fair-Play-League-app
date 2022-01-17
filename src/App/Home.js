@@ -83,7 +83,7 @@ export default function Home() {
         setTable11((prevState) => sel11);
         setTable12((prevState) => sel12);
 
-        if (dataFix > 11) {
+        if (dataFix > 7) {
           setLeagueOver(true);
         }
       } catch (e) {
