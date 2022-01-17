@@ -44,14 +44,19 @@ export default function Home() {
     url.set(11, fetch(`${protocol}://${site}/api/table.php?table=table11`));
     url.set(12, fetch(`${protocol}://${site}/api/table.php?table=table12&id1=2&id2=5&id3=6`));
 
+    const prevRes = fetch(`${protocol}://${site}/api/results.php?prevres=prevres`);
+    const nextFix = fetch(`${protocol}://${site}/api/results.php?nextfix=nextfix`);
+
     const getData = async () => {
       try {
-        const [s8, s9, s10, s11, s12] = await Promise.all([
+        const [s8, s9, s10, s11, s12, res, fix] = await Promise.all([
           url.get(8),
           url.get(9),
           url.get(10),
           url.get(11),
           url.get(12),
+          prevRes,
+          nextFix,
         ]);
 
         if (!s8.ok) {
@@ -64,6 +69,12 @@ export default function Home() {
         const sel11 = await s11.json();
         const sel12 = await s12.json();
 
+        const dataRes = await res.json();
+        const dataFix = await fix.json();
+
+        setprevRes((prevState) => dataRes);
+        setNextMday((prevState) => dataFix);
+
         setSelection('2008');
         setTable((prevState) => sel8);
         setTable8((prevState) => sel8);
@@ -71,41 +82,16 @@ export default function Home() {
         setTable10((prevState) => sel10);
         setTable11((prevState) => sel11);
         setTable12((prevState) => sel12);
+
+        if (dataFix > 11) {
+          setLeagueOver(true);
+        }
       } catch (e) {
         console.log(e);
       }
     };
 
     getData();
-  }, []);
-
-  useEffect(() => {
-    const getData1 = async () => {
-      try {
-        const prevRes = fetch(`${protocol}://${site}/api/results.php?prevres=prevres`);
-        const nextFix = fetch(`${protocol}://${site}/api/results.php?nextfix=nextfix`);
-
-        const [res, fix] = await Promise.all([prevRes, nextFix]);
-
-        if (!res.ok) {
-          throw Error('response not ok');
-        }
-
-        const dataRes = await res.json();
-        const dataFix = await fix.json();
-
-        setprevRes((prevState) => dataRes);
-
-        if (dataFix > 11) {
-          setLeagueOver(true);
-        }
-        setNextMday((prevState) => dataFix);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    getData1();
   }, []);
 
   const buttonSelection = (param) => {
