@@ -55,6 +55,7 @@ export default function Login(props) {
                   <input
                     type='text'
                     name='user'
+                    autoComplete='on'
                     onChange={(e) => {
                       setUsername(e.target.value);
                     }}
@@ -71,6 +72,7 @@ export default function Login(props) {
                   <input
                     type='password'
                     name='pass'
+                    autoComplete='on'
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
