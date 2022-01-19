@@ -6,7 +6,7 @@ export default function GameInput(props) {
   const site = document.location.hostname;
   const game = useLocation();
   const { mday, id, homeID, homeTeam, awayID, awayTeam } = game.state;
-  const [gameInput, setGameInput] = useState(false);
+  //const [gameInput, setGameInput] = useState(false);
 
   let no9 = homeID == 1 || awayID == 1 ? true : false;
 

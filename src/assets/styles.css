@@ -386,7 +386,7 @@ body {
   border-bottom: 1px solid #f0f0f0;
 }
 
-.table tr:nth-of-type(1) {
+.table thead tr:nth-of-type(1) {
   background: #f0f0f0;
 }
 
@@ -399,11 +399,11 @@ body {
   background: #f0f0f0;
 }
 
-.table tr:nth-of-type(n + 2) td:nth-of-type(8) {
+.table tbody tr:nth-of-type(n + 1) td:nth-of-type(8) {
   font-weight: bold;
 }
 
-.table tr:nth-of-type(n + 2):nth-of-type(-n + 5) td:nth-of-type(1) {
+.table tbody tr:nth-of-type(n + 1):nth-of-type(-n + 4) td:nth-of-type(1) {
   background-color: #992016;
   color: white;
 }
@@ -483,6 +483,10 @@ body {
 .archive tr:nth-of-type(n + 3):nth-of-type(-n + 5) td:nth-of-type(1) {
   background-color: #f0f0f0;
   color: inherit;
+}
+
+.archive td:nth-of-type(1) {
+  width: 2.5em;
 }
 
 @media only screen and (min-width: 760px) {

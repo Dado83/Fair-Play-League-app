@@ -13,7 +13,7 @@ export default function NewsLetter(props) {
   const [table10, setTable10] = useState([]);
   const [table11, setTable11] = useState([]);
   const [table12, setTable12] = useState([]);
-  const [selection, setSelection] = useState('');
+  //const [selection, setSelection] = useState('');
 
   useEffect(() => {
     let url = new Map();
@@ -78,7 +78,7 @@ export default function NewsLetter(props) {
       <NTable site={site} table={table11} selection={2011} />
       <NTable site={site} table={table12} selection={2012} />
       <p className='ad'>ad 2)</p>
-      <NFix site={site} mDay={nextMday} />
+      {!leagueOver ? <NFix site={site} mDay={nextMday} /> : 'Ligaški dio je završen'}
     </div>
   );
 }

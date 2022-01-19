@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Clubs() {
-  const site = document.location.hostname;
+  //const site = document.location.hostname;
   const clubs = new Map();
   clubs.set(1, 'ŠS Internacional');
   clubs.set(2, 'ŠF Lavovi');
@@ -12,16 +12,23 @@ export default function Clubs() {
   clubs.set(6, 'ŠN Perfect');
   clubs.set(7, 'NK Zvijezda');
   clubs.set(8, 'FK Proleter');
-  let navEl;
 
-  const select = (e) => {
+  /* const select = (e) => {
     navEl.childNodes.forEach((e) => {
       e.className = 'club-navlink';
     });
     e.target.className = 'club-navlink club-navlink--isselected';
-  };
+  }; */
 
   useEffect(() => {
+    let navEl;
+    const select = (e) => {
+      navEl.childNodes.forEach((e) => {
+        e.className = 'club-navlink';
+      });
+      e.target.className = 'club-navlink club-navlink--isselected';
+    };
+
     navEl = document.querySelector('.club-nav');
     navEl.childNodes.forEach((e) => {
       e.addEventListener('mouseup', select);
@@ -30,9 +37,7 @@ export default function Clubs() {
 
   return (
     <nav className='club-nav'>
-      <Link
-        to={{ pathname: '/klub', state: { id: 1 } }}
-        className='club-navlink club-navlink--isselected'>
+      <Link to={{ pathname: '/klub', state: { id: 1 } }} className='club-navlink club-navlink--isselected'>
         {clubs.get(1)}
       </Link>
       <Link to={{ pathname: '/klub', state: { id: 2 } }} className='club-navlink'>

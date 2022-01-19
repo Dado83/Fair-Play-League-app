@@ -27,22 +27,24 @@ export default function PanelFixture(props) {
             <td>{fix.home}</td>
             <td>-</td>
             <td>{fix.away}</td>
-            <button>
-              <Link
-                to={{
-                  pathname: '/input',
-                  state: {
-                    mday: fix.m_day,
-                    id: fix.id,
-                    homeID: fix.home_team,
-                    homeTeam: fix.home,
-                    awayID: fix.away_team,
-                    awayTeam: fix.away,
-                  },
-                }}>
-                unesi
-              </Link>
-            </button>
+            <td>
+              <button>
+                <Link
+                  to={{
+                    pathname: '/input',
+                    state: {
+                      mday: fix.m_day,
+                      id: fix.id,
+                      homeID: fix.home_team,
+                      homeTeam: fix.home,
+                      awayID: fix.away_team,
+                      awayTeam: fix.away,
+                    },
+                  }}>
+                  unesi
+                </Link>
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>

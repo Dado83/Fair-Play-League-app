@@ -157,7 +157,7 @@ export default function Home() {
         </button>
       </div>
       <div className='content'>
-        {table.length != 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
+        {table.length !== 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
         {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : ''}
         {nextMday && !leagueOver ? <Fixture site={site} mDay={nextMday} /> : ''}
       </div>

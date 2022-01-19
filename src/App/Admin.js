@@ -58,7 +58,7 @@ export default function Admin(props) {
     setUser((user) => param);
   };
 
-  if (sessionStorage.getItem('role') != 'admin') {
+  if (sessionStorage.getItem('role') !== 'admin') {
     return (
       <div className='content'>
         <h2>Panel</h2>

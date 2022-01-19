@@ -42,11 +42,11 @@ export default function Fixture(props) {
           <tr key={fix.id}>
             <td>
               {fix.home_club}
-              <img src={logos.get(fix.home_team)} />
+              <img src={logos.get(fix.home_team)} alt='logo' />
             </td>
             <td>-</td>
             <td>
-              <img src={logos.get(fix.away_team)} />
+              <img src={logos.get(fix.away_team)} alt='logo' />
               {fix.away_club}
             </td>
           </tr>

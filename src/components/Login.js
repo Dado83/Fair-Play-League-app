@@ -4,7 +4,7 @@ import { protocol } from '../utility/utility';
 export default function Login(props) {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [users, setUsers] = useState({});
+  //const [users, setUsers] = useState({});
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -31,7 +31,7 @@ export default function Login(props) {
           sessionStorage.setItem('role', role);
           props.onRoleChange(role);
           console.log('sess role: ', sessionStorage.getItem('role'));
-          if (role == 'not-admin') {
+          if (role === 'not-admin') {
             setError((prevState) => 'netacna lozinka');
           }
         })
@@ -46,40 +46,43 @@ export default function Login(props) {
         <fieldset>
           <legend>Prijava korisnika</legend>
           <table>
-            <tr>
-              <td>
-                <label for='user'>Korisnik:</label>
-              </td>
-              <td>
-                <input
-                  type='text'
-                  name='user'
-                  onChange={(e) => {
-                    setUsername(e.target.value);
-                  }}
-                  autoFocus
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label for='pass'>Lozinka:</label>
-              </td>
-              <td>
-                <input
-                  type='password'
-                  name='pass'
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type='submit' value='dalje' />
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>
+                  <label htmlFor='user'>Korisnik:</label>
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    name='user'
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                    }}
+                    autoFocus
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <label htmlFor='pass'>Lozinka:</label>
+                </td>
+                <td>
+                  <input
+                    type='password'
+                    name='pass'
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type='submit' value='dalje' />
+                </td>
+              </tr>
+            </tbody>
           </table>
         </fieldset>
       </form>

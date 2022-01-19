@@ -68,7 +68,9 @@ export default function App() {
         <Route path='/sktestplay'>
           <SkTestplay />
         </Route>
-        <Route>Err404</Route>
+        <Route>
+          <Err404 />
+        </Route>
       </Switch>
     </Router>
   );

@@ -76,33 +76,31 @@ export default function Result(props) {
           <th colSpan='' className={props.gen12}>
             2012
           </th>
-          <th></th>
         </tr>
       </thead>
-      {result.map((res) => (
-        <tbody>
+      {result.map((res, index) => (
+        <tbody key={index}>
           <tr key={res.id}>
             <td>
-              <img src={logos.get(res.home_id)} />
+              <img src={logos.get(res.home_id)} alt='logo' />
               {res.home_name}
             </td>
             <td className={props.gen8}>{res.goals_home8}</td>
-            <td className={props.gen9}>{res.goals_home9 != -1 ? res.goals_home9 : '*'}</td>
+            <td className={props.gen9}>{res.goals_home9 !== -1 ? res.goals_home9 : '*'}</td>
             <td className={props.gen10}>{res.goals_home10}</td>
-            <td className={props.gen11}>{res.goals_home11}</td>{' '}
-            <td className={props.gen12}>{res.goals_home12 != -1 ? res.goals_home12 : '*'}</td>
+            <td className={props.gen11}>{res.goals_home11}</td>
+            <td className={props.gen12}>{res.goals_home12 !== -1 ? res.goals_home12 : '*'}</td>
           </tr>
           <tr>
             <td>
-              <img src={logos.get(res.away_id)} />
+              <img src={logos.get(res.away_id)} alt='logo' />
               {res.away_name}
             </td>
-
             <td className={props.gen8}>{res.goals_away8}</td>
-            <td className={props.gen9}>{res.goals_away9 != -1 ? res.goals_away9 : '*'}</td>
+            <td className={props.gen9}>{res.goals_away9 !== -1 ? res.goals_away9 : '*'}</td>
             <td className={props.gen10}>{res.goals_away10}</td>
             <td className={props.gen11}>{res.goals_away11}</td>
-            <td className={props.gen12}>{res.goals_away12 != -1 ? res.goals_away12 : '*'}</td>
+            <td className={props.gen12}>{res.goals_away12 !== -1 ? res.goals_away12 : '*'}</td>
           </tr>
         </tbody>
       ))}

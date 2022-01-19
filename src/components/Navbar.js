@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <header className='header'>
       <Link className='header-logo' to='/'>
-        <img id='logo' src={logo} />
+        <img id='logo' src={logo} alt='logo' />
       </Link>
       <h3>
         <i>Liga Budućih Šampiona</i>

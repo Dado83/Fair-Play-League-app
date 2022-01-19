@@ -51,7 +51,7 @@ export default function Club(props) {
     <>
       <ClubNav />
       <div className='club-info'>
-        <img src={logos.get(id)} />
+        <img src={logos.get(id)} alt='logo' />
         <h1>{club.team_name}</h1>
         <h3>{club.team_city}</h3>
         <p>{club.kit_color}</p>
@@ -70,26 +70,26 @@ export default function Club(props) {
                 <td>2012</td>
               </tr>
             </thead>
-            {results.map((res) => (
-              <tbody>
+            {results.map((res, index) => (
+              <tbody key={index}>
                 <tr>
                   <td>{res.m_day}. kolo</td>
                 </tr>
                 <tr>
                   <td>{res.home_name}</td>
                   <td className={props.gen8}>{res.goals_home8}</td>
-                  <td className={props.gen9}>{res.goals_home9 != -1 ? res.goals_home9 : '*'}</td>
+                  <td className={props.gen9}>{res.goals_home9 !== -1 ? res.goals_home9 : '*'}</td>
                   <td className={props.gen10}>{res.goals_home10}</td>
                   <td className={props.gen11}>{res.goals_home11}</td>
-                  <td className={props.gen12}>{res.goals_home12 != -1 ? res.goals_home12 : '*'}</td>
+                  <td className={props.gen12}>{res.goals_home12 !== -1 ? res.goals_home12 : '*'}</td>
                 </tr>
                 <tr>
                   <td>{res.away_name}</td>
                   <td className={props.gen8}>{res.goals_away8}</td>
-                  <td className={props.gen9}>{res.goals_away9 != -1 ? res.goals_away9 : '*'}</td>
+                  <td className={props.gen9}>{res.goals_away9 !== -1 ? res.goals_away9 : '*'}</td>
                   <td className={props.gen10}>{res.goals_away10}</td>
                   <td className={props.gen11}>{res.goals_away11}</td>
-                  <td className={props.gen7}>{res.goals_away12 != -1 ? res.goals_away12 : '*'}</td>
+                  <td className={props.gen7}>{res.goals_away12 !== -1 ? res.goals_away12 : '*'}</td>
                 </tr>
               </tbody>
             ))}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { sk } from '../../assets/sktestplay/sk';
+//import { sk } from '../../assets/sktestplay/sk';
 
 export default function SkSearch(props) {
   let searchDef = {

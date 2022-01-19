@@ -64,14 +64,16 @@ export default function PanelResult(props) {
           <tr key={res.id}>
             <td className='result-home'>
               {res.home_name}
-              <img src={logos.get(res.home_id)} />
+              <img src={logos.get(res.home_id)} alt='logo' />
             </td>
             <td className='result-score'></td>
             <td className='result-away'>
-              <img src={logos.get(res.away_id)} />
+              <img src={logos.get(res.away_id)} alt='logo' />
               {res.away_name}
             </td>
-            <button onClick={() => deleteGame(res.id)}>Brisi</button>
+            <td>
+              <button onClick={() => deleteGame(res.id)}>Brisi</button>
+            </td>
           </tr>
         ))}
       </tbody>
