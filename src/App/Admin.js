@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Dashboard from '../components/Dashboard';
 import Login from '../components/Login';
 import { protocol } from '../utility/utility';
+import useVisitorCount from '../utility/useVisitorCount';
 
 export default function Admin(props) {
   const site = document.location.hostname;
@@ -13,9 +14,7 @@ export default function Admin(props) {
   const [last2hrs, setLast2hrs] = useState('');
 
   const url = window.location.href;
-  useEffect(() => {
-    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
-  }, []);
+  useVisitorCount(protocol, site, url);
 
   useEffect(() => {
     let url = new Map();

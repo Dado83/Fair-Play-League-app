@@ -1,15 +1,14 @@
 import Fixture from '../components/Fixture';
 import React, { useEffect, useState } from 'react';
 import { protocol } from '../utility/utility';
+import useVisitorCount from '../utility/useVisitorCount';
 
 export default function Fixtures() {
   const site = document.location.hostname;
   const url = window.location.href;
   const [fixtures, setFixtures] = useState([]);
 
-  useEffect(() => {
-    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
-  }, []);
+  useVisitorCount(protocol, site, url);
 
   useEffect(() => {
     let fix = [];

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Archive from '../components/Archive';
 import TableAlltime from '../components/TableAlltime';
 import { protocol } from '../utility/utility';
+import useVisitorCount from '../utility/useVisitorCount';
 
 export default function Archives() {
   const site = document.location.hostname;
@@ -16,9 +17,7 @@ export default function Archives() {
   const [archive, setArchive] = useState([]);
 
   const url = window.location.href;
-  useEffect(() => {
-    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
-  }, []);
+  useVisitorCount(protocol, site, url);
 
   useEffect(() => {
     let url = fetch(`${protocol}://${site}/api/archive.php?year=alltime`);

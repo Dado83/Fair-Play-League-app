@@ -5,6 +5,7 @@ import SkSearch from '../components/SkTestP/SkSearch';
 import SkGames from '../components/SkTestP/SkGames';
 import '../assets/stylesSk.css';
 import { protocol } from '../utility/utility';
+import useVisitorCount from '../utility/useVisitorCount';
 
 export default function SkTestplay(props) {
   const [games, setGames] = useState([]);
@@ -12,9 +13,7 @@ export default function SkTestplay(props) {
   const site = document.location.hostname;
   const url = window.location.href;
 
-  useEffect(() => {
-    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
-  }, []);
+  useVisitorCount(protocol, site, url);
 
   useEffect(() => {
     setGames(skTemp);

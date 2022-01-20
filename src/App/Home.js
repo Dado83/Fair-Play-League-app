@@ -4,6 +4,7 @@ import Table from '../components/Table';
 import Result from '../components/Result';
 import Loader from '../components/Loader';
 import { protocol } from '../utility/utility';
+import useVisitorCount from '../utility/useVisitorCount';
 
 export default function Home() {
   const site = document.location.hostname;
@@ -27,9 +28,7 @@ export default function Home() {
   const [youth, setYouth] = useState({ ...youthInit });
   const url = window.location.href;
 
-  useEffect(() => {
-    fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);
-  }, []);
+  useVisitorCount(protocol, site, url);
 
   useEffect(() => {
     setYouth({ ...youthInit, gen8: 'result-shown' });
