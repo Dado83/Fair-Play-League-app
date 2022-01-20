@@ -43,12 +43,11 @@ export default function PanelResult(props) {
     if (ok) {
       console.log(id);
       let gameID = JSON.parse(id);
-      console.log(gameID);
       fetch(`${protocol}://${props.site}/api/game.php?game=delete&gameID=${gameID}`)
         .then((response) => response.json())
         .then((data) => setInfo((prevState) => data))
         .catch((err) => console.log(err));
-      window.location.reload(); // to be changed to something more react appropriate :)
+      window.location.reload();
     }
   };
 

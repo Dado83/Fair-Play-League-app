@@ -18,7 +18,6 @@ import { protocol } from '../utility/utility';
 
 export default function App() {
   const site = document.location.hostname;
-  console.log(protocol);
 
   useEffect(() => {
     fetch(`${protocol}://${site}/api/visitors.php?counter=visit`);

@@ -13,7 +13,6 @@ export default function NewsLetter(props) {
   const [table10, setTable10] = useState([]);
   const [table11, setTable11] = useState([]);
   const [table12, setTable12] = useState([]);
-  //const [selection, setSelection] = useState('');
 
   useEffect(() => {
     let url = new Map();
@@ -62,7 +61,6 @@ export default function NewsLetter(props) {
       .catch((err) => console.log(err));
   }, []);
 
-  //ispraviti Fixture kad podesim css
   return (
     <div className='newsletter'>
       <h1>FAIR PLAY Liga Budućih Šampiona</h1>

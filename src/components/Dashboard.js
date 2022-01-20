@@ -5,7 +5,6 @@ import { protocol } from '../utility/utility';
 
 export default function Dashboard(props) {
   const site = document.location.hostname;
-  console.log(site);
   const [mDay, setMday] = useState('');
 
   useEffect(() => {

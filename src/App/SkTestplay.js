@@ -43,10 +43,6 @@ export default function SkTestplay(props) {
       .filter((g) => g.score >= searchV.score)
       .filter((g) => g.platform.toLowerCase().includes(searchV.platform.toLowerCase()));
 
-    //console.log('game test: ', games[0]);
-
-    console.log('searchValues: ', searchV);
-    console.log('searched games: ', res.length);
     setGames(res);
   };
 

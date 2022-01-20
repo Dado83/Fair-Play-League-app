@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function SkGames(props) {
   return (
     <table className='sk-table'>

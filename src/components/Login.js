@@ -4,7 +4,6 @@ import { protocol } from '../utility/utility';
 export default function Login(props) {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  //const [users, setUsers] = useState({});
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -30,7 +29,6 @@ export default function Login(props) {
           let role = data;
           sessionStorage.setItem('role', role);
           props.onRoleChange(role);
-          console.log('sess role: ', sessionStorage.getItem('role'));
           if (role === 'not-admin') {
             setError((prevState) => 'netacna lozinka');
           }

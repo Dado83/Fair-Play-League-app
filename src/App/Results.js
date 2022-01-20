@@ -6,7 +6,6 @@ export default function Results() {
   const site = document.location.hostname;
   const url = window.location.href;
   const [results, setResults] = useState([]);
-  //const [mDayNum, setMDN] = useState('');
 
   useEffect(() => {
     fetch(`${protocol}://${site}/api/visitors.php?counter=${url}`);

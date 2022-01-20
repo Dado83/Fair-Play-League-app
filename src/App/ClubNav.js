@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Clubs() {
-  //const site = document.location.hostname;
   const clubs = new Map();
   clubs.set(1, 'ŠS Internacional');
   clubs.set(2, 'ŠF Lavovi');
@@ -12,13 +11,6 @@ export default function Clubs() {
   clubs.set(6, 'ŠN Perfect');
   clubs.set(7, 'NK Zvijezda');
   clubs.set(8, 'FK Proleter');
-
-  /* const select = (e) => {
-    navEl.childNodes.forEach((e) => {
-      e.className = 'club-navlink';
-    });
-    e.target.className = 'club-navlink club-navlink--isselected';
-  }; */
 
   useEffect(() => {
     let navEl;
