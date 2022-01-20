@@ -10,9 +10,11 @@ import logo6 from '../assets/club-big/6.png';
 import logo7 from '../assets/club-big/7.png';
 import logo8 from '../assets/club-big/8.png';
 import { protocol } from '../utility/utility';
+import useVisitorCount from '../utility/useVisitorCount';
 
 export default function Club(props) {
   const site = document.location.hostname;
+  const url = window.location.href;
   const [club, setClub] = useState([]);
   const [results, setResults] = useState([]);
   const clubInfo = useLocation();
@@ -32,6 +34,8 @@ export default function Club(props) {
   } else {
     id = 1;
   }
+
+  useVisitorCount(protocol, site, url);
 
   useEffect(() => {
     fetch(`${protocol}://${site}/api/teams.php?id=${id}`)
