@@ -20,38 +20,34 @@ export default function NTable(props) {
   logos.set('8', logo8);
 
   return (
-    <table className='table ar-increase newsletterT'>
-      <thead>
-        <tr>
-          <td>#</td>
-          <td>{props.selection}. godište</td>
-          <td>OS</td>
-          <td>P</td>
-          <td>N</td>
-          <td>I</td>
-          <td>G</td>
-          <td>B</td>
-        </tr>
-      </thead>
-      <tbody>
-        {props.table.map((tab, index) => (
-          <tr key={tab.id}>
-            <td>{++index}.</td>
-            <td>
-              <img src={logos.get(tab.id)} alt='logo' />
-              {tab.team}
-            </td>
-            <td>{tab.games_played}</td>
-            <td>{tab.games_won}</td>
-            <td>{tab.games_drew}</td>
-            <td>{tab.games_lost}</td>
-            <td>
-              {tab.goals_scored}:{tab.goals_conceded}
-            </td>
-            <td>{tab.points}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className='table ar-increase newsletterT'>
+      <div className='newsletter-container newsletter-head'>
+        <span>#</span>
+        <span>{props.selection}. godište</span>
+        <span>OS</span>
+        <span>P</span>
+        <span>N</span>
+        <span>I</span>
+        <span>G</span>
+        <span>B</span>
+      </div>
+      {props.table.map((tab, index) => (
+        <div className='newsletter-container' key={tab.id}>
+          <span>{++index}.</span>
+          <span>
+            <img src={logos.get(tab.id)} alt='logo' />
+            {tab.team}
+          </span>
+          <span>{tab.games_played}</span>
+          <span>{tab.games_won}</span>
+          <span>{tab.games_drew}</span>
+          <span>{tab.games_lost}</span>
+          <span>
+            {tab.goals_scored}:{tab.goals_conceded}
+          </span>
+          <span>{tab.points}</span>
+        </div>
+      ))}
+    </div>
   );
 }

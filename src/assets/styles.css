@@ -599,6 +599,38 @@ body {
   width: 100%;
 }
 
+.newsletter-head {
+  background-color: var(--color1);
+  font-weight: bold;
+}
+
+.newsletter-head span:nth-of-type(n + 3) {
+  text-align: center;
+}
+
+.newsletter-container span:nth-of-type(n + 3) {
+  text-align: center;
+}
+
+.newsletter-container span:nth-of-type(8) {
+  font-weight: bold;
+}
+
+.newsletter-container {
+  display: grid;
+  grid-template-columns: 3% 57% 7% 7% 7% 7% 7% 5%;
+  padding: 0.2em 0;
+  border-bottom: 1px solid lightgrey;
+}
+
+.newsletterT div:nth-of-type(5) {
+  border-bottom: 1px double var(--color2);
+}
+
+.newsletter-container span:nth-of-type(1) {
+  padding-left: 0.4em;
+}
+
 .newsletter-link {
   float: right;
   font-style: italic;
