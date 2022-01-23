@@ -61,21 +61,11 @@ export default function Result(props) {
           <th>
             {props.mDay}. kolo ({gameDate[0].game_date})
           </th>
-          <th colSpan='' className={props.gen8}>
-            2008
-          </th>
-          <th colSpan='' className={props.gen9}>
-            2009
-          </th>
-          <th colSpan='' className={props.gen10}>
-            2010
-          </th>
-          <th colSpan='' className={props.gen11}>
-            2011
-          </th>
-          <th colSpan='' className={props.gen12}>
-            2012
-          </th>
+          <th className={props.gen8}>2008</th>
+          <th className={props.gen9}>2009</th>
+          <th className={props.gen10}>2010</th>
+          <th className={props.gen11}>2011</th>
+          <th className={props.gen12}>2012</th>
         </tr>
       </thead>
       {result.map((res, index) => (
