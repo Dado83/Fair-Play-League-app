@@ -41,13 +41,13 @@ export default function Fixture(props) {
         {fixture.map((fix) => (
           <tr key={fix.id}>
             <td>
-              {fix.home_club}
+              <span className='team-name'>{fix.home_club}</span>
               <img src={logos.get(fix.home_team)} alt='logo' />
             </td>
             <td>-</td>
             <td>
               <img src={logos.get(fix.away_team)} alt='logo' />
-              {fix.away_club}
+              <span className='team-name'>{fix.away_club}</span>
             </td>
           </tr>
         ))}

@@ -83,7 +83,7 @@ export default function Result(props) {
           <tr key={res.id}>
             <td>
               <img src={logos.get(res.home_id)} alt='logo' />
-              {res.home_name}
+              <span className='team-name'>{res.home_name}</span>
             </td>
             <td className={props.gen8}>{res.goals_home8}</td>
             <td className={props.gen9}>{res.goals_home9 !== -1 ? res.goals_home9 : '*'}</td>
@@ -94,7 +94,7 @@ export default function Result(props) {
           <tr>
             <td>
               <img src={logos.get(res.away_id)} alt='logo' />
-              {res.away_name}
+              <span className='team-name'>{res.away_name}</span>
             </td>
             <td className={props.gen8}>{res.goals_away8}</td>
             <td className={props.gen9}>{res.goals_away9 !== -1 ? res.goals_away9 : '*'}</td>

@@ -577,3 +577,11 @@ body {
 .newsletter-link a {
   text-decoration: none;
 }
+
+.team-name {
+  display: inline-block;
+  width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

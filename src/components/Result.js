@@ -54,7 +54,7 @@ export default function Result(props) {
         {result.map((res) => (
           <tr key={res.id}>
             <td className='result-home'>
-              {res.home_name}
+              <span className='team-name'> {res.home_name}</span>
               <img src={logos.get(res.home_id)} alt='logo' />
             </td>
             <td className={props.gen8}>{res.goals_home8}</td>
@@ -74,7 +74,7 @@ export default function Result(props) {
             <td className={props.gen12}>{res.goals_away12 !== -1 ? res.goals_away12 : '*'}</td>
             <td className='result-away'>
               <img src={logos.get(res.away_id)} alt='logo' />
-              {res.away_name}
+              <span className='team-name'>{res.away_name}</span>
             </td>
           </tr>
         ))}
