@@ -29,29 +29,25 @@ export default function Fixture(props) {
   }, [props.mDay]);
 
   return (
-    <table className='fixture ar-increase'>
-      <thead>
-        <tr>
-          <th colSpan='3'>
-            {props.mDay}. kolo <span>{fixture[0]?.game_date}</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {fixture.map((fix) => (
-          <tr key={fix.id}>
-            <td>
-              <span className='team-name'>{fix.home_club}</span>
-              <img src={logos.get(fix.home_team)} alt='logo' />
-            </td>
-            <td>-</td>
-            <td>
-              <img src={logos.get(fix.away_team)} alt='logo' />
-              <span className='team-name'>{fix.away_club}</span>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className='fixture ar-increase'>
+      <div className='fix-head'>
+        <span>
+          {props.mDay}. kolo <span>{fixture[0]?.game_date}</span>
+        </span>
+      </div>
+      {fixture.map((fix) => (
+        <div className='fix-row' key={fix.id}>
+          <span className='fix-home'>
+            <span className='team-name'>{fix.home_club}</span>
+            <img src={logos.get(fix.home_team)} alt='logo' />
+          </span>
+          <span className='fix-v'>-</span>
+          <span className='fix-away'>
+            <img src={logos.get(fix.away_team)} alt='logo' />
+            <span className='team-name'>{fix.away_club}</span>
+          </span>
+        </div>
+      ))}
+    </div>
   );
 }

@@ -226,26 +226,25 @@ body {
   border-radius: 0.4em;
 }
 
-.fixture th {
-  text-align: left;
-  background: #e5d109;
+.fix-row {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 47% 1% 47%;
 }
 
-.fixture th span {
-  float: right;
-}
-
-.fixture td:nth-of-type(1),
-.fixture td:nth-of-type(3) {
-  width: 48%;
-}
-
-.fixture td:nth-of-type(1) {
+.fix-home {
   text-align: right;
 }
 
-.fixture td:nth-of-type(2) {
-  text-align: center;
+.fix-home img {
+  float: right;
+}
+
+.fix-head {
+  text-align: left;
+  background: #e5d109;
+  font-weight: bold;
+  padding: 0.1em 0.4em;
 }
 
 .fixture img {
@@ -303,14 +302,6 @@ body {
   width: 45%;
 }
 
-.result {
-  box-shadow: 0 0 0.3em #000;
-  font-size: 0.9em;
-  border-collapse: collapse;
-  background: var(--colorCPT);
-  border-radius: 0.4em;
-}
-
 .result thead {
   background: #e5d109;
 }
@@ -333,6 +324,40 @@ body {
 .result-shown {
   display: table-cell;
   text-align: center;
+}
+
+.result {
+  box-shadow: 0 0 0.3em #000;
+  font-size: 0.9em;
+  background: var(--colorCPT);
+  border-radius: 0.4em;
+}
+
+.res-row {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 42.3% 2.5% 2% 3% 42%;
+}
+
+.res-home {
+  text-align: right;
+}
+
+.res-away {
+}
+
+.res-v {
+}
+
+.res-home img {
+  float: right;
+}
+
+.res-head {
+  text-align: left;
+  background: #e5d109;
+  font-weight: bold;
+  padding: 0.1em 0.4em;
 }
 
 /* results page*/
