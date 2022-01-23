@@ -550,6 +550,10 @@ body {
   width: 700px;
 }
 
+.newsletter img {
+  vertical-align: bottom;
+}
+
 .newsletter h1,
 .newsletter h2,
 .newsletter h3 {
@@ -578,6 +582,16 @@ body {
 .newsletterF {
   margin: -20px 0 20px 0;
   width: 100%;
+}
+
+.newsletterF td:nth-of-type(1) {
+  text-align: right;
+  width: 50%;
+  padding-right: 2%;
+}
+
+.newsletterF thead {
+  background-color: var(--color1);
 }
 
 .newsletterT {
