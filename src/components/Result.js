@@ -38,47 +38,42 @@ export default function Result(props) {
   }, [props.mDay]);
 
   return (
-    <table className='result ar-increase'>
-      <thead>
-        <tr>
-          <th>{props.mDay}. kolo</th>
-          <th colSpan='3' className={props.gen8}></th>
-          <th colSpan='3' className={props.gen9}></th>
-          <th colSpan='3' className={props.gen10}></th>
-          <th colSpan='3' className={props.gen11}></th>
-          <th colSpan='3' className={props.gen12}></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {result.map((res) => (
-          <tr key={res.id}>
-            <td className='result-home'>
-              <span className='team-name'> {res.home_name}</span>
-              <img src={logos.get(res.home_id)} alt='logo' />
-            </td>
-            <td className={props.gen8}>{res.goals_home8}</td>
-            <td className={props.gen8}>-</td>
-            <td className={props.gen8}>{res.goals_away8}</td>
-            <td className={props.gen9}>{res.goals_home9 !== -1 ? res.goals_home9 : '*'}</td>
-            <td className={props.gen9}>-</td>
-            <td className={props.gen9}>{res.goals_away9 !== -1 ? res.goals_away9 : '*'}</td>
-            <td className={props.gen10}>{res.goals_home10}</td>
-            <td className={props.gen10}>-</td>
-            <td className={props.gen10}>{res.goals_away10}</td>
-            <td className={props.gen11}>{res.goals_home11}</td>
-            <td className={props.gen11}>-</td>
-            <td className={props.gen11}>{res.goals_away11}</td>
-            <td className={props.gen12}>{res.goals_home12 !== -1 ? res.goals_home12 : '*'}</td>
-            <td className={props.gen12}>-</td>
-            <td className={props.gen12}>{res.goals_away12 !== -1 ? res.goals_away12 : '*'}</td>
-            <td className='result-away'>
-              <img src={logos.get(res.away_id)} alt='logo' />
-              <span className='team-name'>{res.away_name}</span>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className='result ar-increase'>
+      <div className='res-head'>
+        <span>{props.mDay}. kolo</span>
+        <span className={props.gen8}></span>
+        <span className={props.gen9}></span>
+        <span className={props.gen10}></span>
+        <span className={props.gen11}></span>
+        <span className={props.gen12}></span>
+      </div>
+      {result.map((res) => (
+        <div className='res-row' key={res.id}>
+          <span className='res-home'>
+            <span className='team-name'> {res.home_name}</span>
+            <img src={logos.get(res.home_id)} alt='logo' />
+          </span>
+          <span className={props.gen8}>{res.goals_home8}</span>
+          <span className={props.gen8}>-</span>
+          <span className={props.gen8}>{res.goals_away8}</span>
+          <span className={props.gen9}>{res.goals_home9 !== -1 ? res.goals_home9 : '*'}</span>
+          <span className={props.gen9}>-</span>
+          <span className={props.gen9}>{res.goals_away9 !== -1 ? res.goals_away9 : '*'}</span>
+          <span className={props.gen10}>{res.goals_home10}</span>
+          <span className={props.gen10}>-</span>
+          <span className={props.gen10}>{res.goals_away10}</span>
+          <span className={props.gen11}>{res.goals_home11}</span>
+          <span className={props.gen11}>-</span>
+          <span className={props.gen11}>{res.goals_away11}</span>
+          <span className={props.gen12}>{res.goals_home12 !== -1 ? res.goals_home12 : '*'}</span>
+          <span className={props.gen12}>-</span>
+          <span className={props.gen12}>{res.goals_away12 !== -1 ? res.goals_away12 : '*'}</span>
+          <span className='res-away'>
+            <img src={logos.get(res.away_id)} alt='logo' />
+            <span className='team-name'>{res.away_name}</span>
+          </span>
+        </div>
+      ))}
+    </div>
   );
 }

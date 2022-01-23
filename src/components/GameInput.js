@@ -87,55 +87,86 @@ export default function GameInput(props) {
   }, []);
 
   return (
-    <div class='game-input'>
+    <div className='game-input'>
       <form onSubmit={submit}>
         <fieldset>
           <legend>Unos rezultata {mday}. kola</legend>
           <table>
-            <tr>
-              <th>
-                <input type='hidden' name='mday' value={mday} />
-                <input type='hidden' name='id' value={id} />
-              </th>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <b>{homeTeam}</b>
-                <input type='hidden' name='homeID' value={homeID} />
-                <input type='hidden' name='home' value={homeTeam} />
-              </td>
-              <td>-</td>
-              <td>
-                <b>{awayTeam}</b>
-                <input type='hidden' name='awayID' value={awayID} />
-                <input type='hidden' name='away' value={awayTeam} />
-              </td>
-            </tr>
-            {no12 ? (
-              <tr class='game-input__row'>
-                <td class='game-input__sel'>
-                  <b>2012</b>
-                </td>
-                <td colSpan='2'>
-                  <input type='number' name='home12' value='-1' min='0' max='99' disabled />
-                </td>
+            <thead>
+              <tr>
+                <th>
+                  <input type='hidden' name='mday' value={mday} />
+                  <input type='hidden' name='id' value={id} />
+                </th>
+              </tr>
+              <tr>
+                <td></td>
                 <td>
-                  <input type='number' name='away12' value='-1' min='0' max='99' disabled />
+                  <b>{homeTeam}</b>
+                  <input type='hidden' name='homeID' value={homeID} />
+                  <input type='hidden' name='home' value={homeTeam} />
+                </td>
+                <td>-</td>
+                <td>
+                  <b>{awayTeam}</b>
+                  <input type='hidden' name='awayID' value={awayID} />
+                  <input type='hidden' name='away' value={awayTeam} />
                 </td>
               </tr>
-            ) : (
-              <tr class='game-input__row'>
-                <td class='game-input__sel'>
-                  <b>2012</b>
+            </thead>
+            <tbody>
+              {no12 ? (
+                <tr className='game-input__row'>
+                  <td className='game-input__sel'>
+                    <b>2012</b>
+                  </td>
+                  <td colSpan='2'>
+                    <input type='number' name='home12' value='-1' min='0' max='99' disabled />
+                  </td>
+                  <td>
+                    <input type='number' name='away12' value='-1' min='0' max='99' disabled />
+                  </td>
+                </tr>
+              ) : (
+                <tr className='game-input__row'>
+                  <td className='game-input__sel'>
+                    <b>2012</b>
+                  </td>
+                  <td colSpan='2'>
+                    <input
+                      type='number'
+                      name='home12'
+                      min='0'
+                      max='99'
+                      value={values.home12}
+                      onChange={(e) => onChange(e)}
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type='number'
+                      name='away12'
+                      min='0'
+                      max='99'
+                      value={values.away12}
+                      onChange={(e) => onChange(e)}
+                      required
+                    />
+                  </td>
+                </tr>
+              )}
+              <tr className='game-input__row'>
+                <td className='game-input__sel'>
+                  <b>2011</b>
                 </td>
                 <td colSpan='2'>
                   <input
                     type='number'
-                    name='home12'
+                    name='home11'
                     min='0'
                     max='99'
-                    value={values.home12}
+                    value={values.home11}
                     onChange={(e) => onChange(e)}
                     required
                   />
@@ -143,94 +174,26 @@ export default function GameInput(props) {
                 <td>
                   <input
                     type='number'
-                    name='away12'
+                    name='away11'
                     min='0'
                     max='99'
-                    value={values.away12}
+                    value={values.away11}
                     onChange={(e) => onChange(e)}
                     required
                   />
                 </td>
               </tr>
-            )}
-            <tr class='game-input__row'>
-              <td class='game-input__sel'>
-                <b>2011</b>
-              </td>
-              <td colSpan='2'>
-                <input
-                  type='number'
-                  name='home11'
-                  min='0'
-                  max='99'
-                  value={values.home11}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-              </td>
-              <td>
-                <input
-                  type='number'
-                  name='away11'
-                  min='0'
-                  max='99'
-                  value={values.away11}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-              </td>
-            </tr>
-            <tr class='game-input__row'>
-              <td class='game-input__sel'>
-                <b>2010</b>
-              </td>
-              <td colSpan='2'>
-                <input
-                  type='number'
-                  name='home10'
-                  min='0'
-                  max='99'
-                  value={values.home10}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-              </td>
-              <td>
-                <input
-                  type='number'
-                  name='away10'
-                  min='0'
-                  max='99'
-                  value={values.away10}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-              </td>
-            </tr>
-            {no9 ? (
-              <tr class='game-input__row'>
-                <td class='game-input__sel'>
-                  <b>2009</b>
-                </td>
-                <td colSpan='2'>
-                  <input type='number' name='home9' value='-1' min='0' max='99' disabled />
-                </td>
-                <td>
-                  <input type='number' name='away9' value='-1' min='0' max='99' disabled />
-                </td>
-              </tr>
-            ) : (
-              <tr class='game-input__row'>
-                <td class='game-input__sel'>
-                  <b>2009</b>
+              <tr className='game-input__row'>
+                <td className='game-input__sel'>
+                  <b>2010</b>
                 </td>
                 <td colSpan='2'>
                   <input
                     type='number'
-                    name='home9'
+                    name='home10'
                     min='0'
                     max='99'
-                    value={values.home9}
+                    value={values.home10}
                     onChange={(e) => onChange(e)}
                     required
                   />
@@ -238,48 +201,89 @@ export default function GameInput(props) {
                 <td>
                   <input
                     type='number'
-                    name='away9'
+                    name='away10'
                     min='0'
                     max='99'
-                    value={values.away9}
+                    value={values.away10}
                     onChange={(e) => onChange(e)}
                     required
                   />
                 </td>
               </tr>
-            )}
-            <tr class='game-input__row'>
-              <td class='game-input__sel'>
-                <b>2008</b>
-              </td>
-              <td colSpan='2'>
-                <input
-                  type='number'
-                  name='home8'
-                  min='0'
-                  max='99'
-                  value={values.home8}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-              </td>
-              <td>
-                <input
-                  type='number'
-                  name='away8'
-                  min='0'
-                  max='99'
-                  value={values.away8}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-              </td>
-            </tr>
-            <tr>
-              <td colspan='3'>
-                <input type='submit' value='Snimi u bazu' />
-              </td>
-            </tr>
+              {no9 ? (
+                <tr className='game-input__row'>
+                  <td className='game-input__sel'>
+                    <b>2009</b>
+                  </td>
+                  <td colSpan='2'>
+                    <input type='number' name='home9' value='-1' min='0' max='99' disabled />
+                  </td>
+                  <td>
+                    <input type='number' name='away9' value='-1' min='0' max='99' disabled />
+                  </td>
+                </tr>
+              ) : (
+                <tr className='game-input__row'>
+                  <td className='game-input__sel'>
+                    <b>2009</b>
+                  </td>
+                  <td colSpan='2'>
+                    <input
+                      type='number'
+                      name='home9'
+                      min='0'
+                      max='99'
+                      value={values.home9}
+                      onChange={(e) => onChange(e)}
+                      required
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type='number'
+                      name='away9'
+                      min='0'
+                      max='99'
+                      value={values.away9}
+                      onChange={(e) => onChange(e)}
+                      required
+                    />
+                  </td>
+                </tr>
+              )}
+              <tr className='game-input__row'>
+                <td className='game-input__sel'>
+                  <b>2008</b>
+                </td>
+                <td colSpan='2'>
+                  <input
+                    type='number'
+                    name='home8'
+                    min='0'
+                    max='99'
+                    value={values.home8}
+                    onChange={(e) => onChange(e)}
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type='number'
+                    name='away8'
+                    min='0'
+                    max='99'
+                    value={values.away8}
+                    onChange={(e) => onChange(e)}
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colSpan='3'>
+                  <input type='submit' value='Snimi u bazu' />
+                </td>
+              </tr>
+            </tbody>
           </table>
         </fieldset>
       </form>
