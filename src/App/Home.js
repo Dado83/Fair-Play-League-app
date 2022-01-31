@@ -5,6 +5,7 @@ import Result from '../components/Result';
 import Loader from '../components/Loader';
 import { protocol } from '../utility/utility';
 import useVisitorCount from '../utility/useVisitorCount';
+import Info from '../components/Info';
 
 export default function Home() {
   const site = document.location.hostname;
@@ -157,7 +158,7 @@ export default function Home() {
       <div className='content'>
         {table.length !== 0 ? <Table site={site} table={table} selection={selection} /> : <Loader />}
         {prevRes ? <Result mDay={prevRes} {...youth} site={site} /> : ''}
-        {nextMday && !leagueOver ? <Fixture site={site} mDay={nextMday} /> : ''}
+        {nextMday && !leagueOver ? <Fixture site={site} mDay={nextMday} /> : <Info />}
       </div>
     </>
   );

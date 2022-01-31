@@ -53,7 +53,7 @@ export default function NewsLetter(props) {
     fetch(`${protocol}://${site}/api/results.php?nextfix=nextfix`)
       .then((response) => response.json())
       .then((data) => {
-        if (data > 11) {
+        if (data > 7) {
           setLeagueOver(true);
         }
         setNextMday((prevState) => data);
@@ -67,7 +67,7 @@ export default function NewsLetter(props) {
       <h2>takmičarska sezona 2021/22</h2>
       <h3>Bilten br. {nextMday - 1}</h3>
       <p>1. Registracija utakmica {nextMday - 1}. kola</p>
-      <p>2. Raspored utakmica {nextMday}. kola</p>
+      {!leagueOver ? <p>2. Raspored utakmica {nextMday}. kola</p> : ''}
       <p className='ad'>ad 1)</p>
       <NRPage mDay={nextMday - 1} site={site} />
       <NTable site={site} table={table8} selection={2008} />
@@ -76,7 +76,7 @@ export default function NewsLetter(props) {
       <NTable site={site} table={table11} selection={2011} />
       <NTable site={site} table={table12} selection={2012} />
       <p className='ad'>ad 2)</p>
-      {!leagueOver ? <NFix site={site} mDay={nextMday} /> : 'Ligaški dio je završen'}
+      {!leagueOver ? <NFix site={site} mDay={nextMday} /> : <p>Ligaški dio je završen</p>}
     </div>
   );
 }
