@@ -22,10 +22,19 @@ export default function Fixture(props) {
   logos.set('8', logo8);
 
   useEffect(() => {
+    let mounted = true;
     fetch(`${protocol}://${props.site}/api/fixtures.php?mday=${props.mDay}`)
       .then((response) => response.json())
-      .then((data) => setFixture((prevState) => data))
+      .then((data) => {
+        if (mounted) {
+          setFixture((prevState) => data);
+        }
+      })
       .catch((err) => console.log(err));
+
+    return () => {
+      mounted = false;
+    };
   }, [props.mDay]);
 
   return (
