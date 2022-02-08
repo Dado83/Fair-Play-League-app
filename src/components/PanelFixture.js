@@ -41,7 +41,7 @@ export default function PanelFixture(props) {
                       awayTeam: fix.away,
                     },
                   }}>
-                  unesi
+                  &#10151; unesi
                 </Link>
               </button>
             </td>

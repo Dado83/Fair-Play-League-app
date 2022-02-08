@@ -71,7 +71,9 @@ export default function PanelResult(props) {
               {res.away_name}
             </td>
             <td>
-              <button onClick={() => deleteGame(res.id)}>Brisi</button>
+              <button className='button__delete' onClick={() => deleteGame(res.id)}>
+                Brisi &#10005;
+              </button>
             </td>
           </tr>
         ))}

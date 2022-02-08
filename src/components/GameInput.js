@@ -102,13 +102,13 @@ export default function GameInput(props) {
               <tr>
                 <td></td>
                 <td>
-                  <b>{homeTeam}</b>
+                  <b className='game-input__team-name'>{homeTeam}</b>
                   <input type='hidden' name='homeID' value={homeID} />
                   <input type='hidden' name='home' value={homeTeam} />
                 </td>
                 <td>-</td>
                 <td>
-                  <b>{awayTeam}</b>
+                  <b className='game-input__team-name'>{awayTeam}</b>
                   <input type='hidden' name='awayID' value={awayID} />
                   <input type='hidden' name='away' value={awayTeam} />
                 </td>
@@ -118,7 +118,7 @@ export default function GameInput(props) {
               {no12 ? (
                 <tr className='game-input__row'>
                   <td className='game-input__sel'>
-                    <b>2012</b>
+                    <b>2012.</b> god.
                   </td>
                   <td colSpan='2'>
                     <input type='number' name='home12' value='-1' min='0' max='99' disabled />
@@ -130,7 +130,7 @@ export default function GameInput(props) {
               ) : (
                 <tr className='game-input__row'>
                   <td className='game-input__sel'>
-                    <b>2012</b>
+                    <b>2012.</b> god.
                   </td>
                   <td colSpan='2'>
                     <input
@@ -158,7 +158,7 @@ export default function GameInput(props) {
               )}
               <tr className='game-input__row'>
                 <td className='game-input__sel'>
-                  <b>2011</b>
+                  <b>2011.</b> god.
                 </td>
                 <td colSpan='2'>
                   <input
@@ -185,7 +185,7 @@ export default function GameInput(props) {
               </tr>
               <tr className='game-input__row'>
                 <td className='game-input__sel'>
-                  <b>2010</b>
+                  <b>2010.</b> god.
                 </td>
                 <td colSpan='2'>
                   <input
@@ -213,7 +213,7 @@ export default function GameInput(props) {
               {no9 ? (
                 <tr className='game-input__row'>
                   <td className='game-input__sel'>
-                    <b>2009</b>
+                    <b>2009.</b> god.
                   </td>
                   <td colSpan='2'>
                     <input type='number' name='home9' value='-1' min='0' max='99' disabled />
@@ -225,7 +225,7 @@ export default function GameInput(props) {
               ) : (
                 <tr className='game-input__row'>
                   <td className='game-input__sel'>
-                    <b>2009</b>
+                    <b>2009.</b> god.
                   </td>
                   <td colSpan='2'>
                     <input
@@ -253,7 +253,7 @@ export default function GameInput(props) {
               )}
               <tr className='game-input__row'>
                 <td className='game-input__sel'>
-                  <b>2008</b>
+                  <b>2008.</b> god.
                 </td>
                 <td colSpan='2'>
                   <input
@@ -280,7 +280,7 @@ export default function GameInput(props) {
               </tr>
               <tr>
                 <td colSpan='3'>
-                  <input type='submit' value='Snimi u bazu' />
+                  <input className='game-input__submit' type='submit' value='Snimi u bazu &#10003;' />
                 </td>
               </tr>
             </tbody>
