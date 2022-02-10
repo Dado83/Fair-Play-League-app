@@ -23,7 +23,7 @@ export default function Dashboard(props) {
     <>
       <div className='content'>
         {results.map((res) => res)}
-        <PanelFixture site={site} />
+        {mDay > 7 ? <PanelFixture site={site} /> : <p>Liga je završena</p>}
       </div>
     </>
   );
