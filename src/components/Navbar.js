@@ -19,6 +19,8 @@ export default function Navbar() {
       bar2.classList.add('bar2-pressed');
       bar3.classList.add('bar3-pressed');
       menuShown = true;
+      let height = window.innerHeight;
+      menu.style.height = height + 'px';
     };
 
     const hideMenu = () => {
@@ -40,11 +42,13 @@ export default function Navbar() {
 
     menuBar.addEventListener('click', menuToggle);
     menu.addEventListener('click', menuToggle);
+    window.addEventListener('scroll', hideMenu);
     logo.addEventListener('click', menuToggle);
 
     return () => {
       menuBar.removeEventListener('click', menuToggle);
-      menu.removeEventListener('click', menuToggle);
+      menu.removeEventListener('mousedown', menuToggle);
+      window.removeEventListener('scroll', hideMenu);
       logo.removeEventListener('click', menuToggle);
     };
   }, []);

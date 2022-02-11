@@ -45,7 +45,9 @@ body {
 }
 
 .navbar {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
   list-style: none;
   align-items: center;
   position: absolute;
@@ -54,15 +56,20 @@ body {
   top: 2.8rem;
   right: 0.2rem;
   z-index: 1;
-  transition: 0.4s;
-  background: var(--color2);
+  transition: 0.7s;
 }
 
 .navbar-shown {
-  width: 10rem;
-  height: 14rem;
+  width: 100%;
   opacity: 1;
-  box-shadow: 0 0 0.1em #000;
+}
+
+.navbar li {
+  margin-left: auto;
+  padding: 0.1em 0.5em;
+  background-color: var(--color2);
+  width: 6em;
+  text-align: right;
 }
 
 .navbar-hidden {
