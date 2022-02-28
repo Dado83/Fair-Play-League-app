@@ -14,6 +14,7 @@ export default function Archives() {
   const [archive18_19, setArchive18_19] = useState([]);
   const [archive19_20, setArchive19_20] = useState([]);
   const [archive20_21, setArchive20_21] = useState([]);
+  const [archive21_22, setArchive21_22] = useState([]);
   const [archive, setArchive] = useState([]);
 
   const url = window.location.href;
@@ -36,10 +37,11 @@ export default function Archives() {
     urls.set(archive18_19, fetch(`${protocol}://${site}/api/archive.php?year=archive18_19`));
     urls.set(archive19_20, fetch(`${protocol}://${site}/api/archive.php?year=archive19_20`));
     urls.set(archive20_21, fetch(`${protocol}://${site}/api/archive.php?year=archive20_21`));
+    urls.set(archive21_22, fetch(`${protocol}://${site}/api/archive.php?year=archive21_22`));
 
     const getData = async () => {
       try {
-        const [a14_15, a15_16, a16_17, a17_18, a18_19, a19_20, a20_21] = await Promise.all([
+        const [a14_15, a15_16, a16_17, a17_18, a18_19, a19_20, a20_21, a21_22] = await Promise.all([
           urls.get(archive14_15),
           urls.get(archive15_16),
           urls.get(archive16_17),
@@ -47,6 +49,7 @@ export default function Archives() {
           urls.get(archive18_19),
           urls.get(archive19_20),
           urls.get(archive20_21),
+          urls.get(archive21_22),
         ]);
 
         if (!a14_15.ok) {
@@ -59,6 +62,7 @@ export default function Archives() {
         const a18 = await a18_19.json();
         const a19 = await a19_20.json();
         const a20 = await a20_21.json();
+        const a21 = await a21_22.json();
 
         setArchive((prevState) => a14);
         setArchive14_15((prevState) => a14);
@@ -68,6 +72,7 @@ export default function Archives() {
         setArchive18_19((prevState) => a18);
         setArchive19_20((prevState) => a19);
         setArchive20_21((prevState) => a20);
+        setArchive21_22((prevState) => a21);
       } catch (e) {
         console.log(e);
       }
@@ -142,6 +147,14 @@ export default function Archives() {
             buttonSelection(e);
           }}>
           20/21
+        </button>
+        <button
+          className='button-default'
+          onClick={(e) => {
+            setArchive((prevState) => archive21_22);
+            buttonSelection(e);
+          }}>
+          21/22
         </button>
       </div>
       <div className='content'>
